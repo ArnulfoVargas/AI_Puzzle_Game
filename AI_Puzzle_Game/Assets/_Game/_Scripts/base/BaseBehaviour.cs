@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BaseBehaviour : MonoBehaviour
@@ -9,7 +7,7 @@ public class BaseBehaviour : MonoBehaviour
 
     protected void SetUp()
     {
-        manager = GameManager.GetGameManager;
+        manager = GameManager.GetInstance();
         manager.OnGameStateChanged += state =>
         {
             UpdateState(state);

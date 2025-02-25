@@ -1,13 +1,14 @@
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Utils;
 
 public class GameManager : MonoBehaviour {
     private static GameManager Instance;
-    public static GameManager GetGameManager => Instance;
     public float cameraRotation = 0;
     public On<GameState> OnGameStateChanged;
     private GameState currentGameState;
+    public PlayerState CurrentPlayerState = PlayerState.IDLE;
     public GameState CurrentGameState {
         get => currentGameState;
         private set {
@@ -15,7 +16,6 @@ public class GameManager : MonoBehaviour {
             OnGameStateChanged?.Invoke(currentGameState);
         }
     }
-    public PlayerState CurrentPlayerState;
 
     void Awake()
     {
@@ -31,4 +31,8 @@ public class GameManager : MonoBehaviour {
             Destroy(this);
         };
     }
+
+    public static GameManager GetInstance() {
+        return Instance;
+    } 
 }

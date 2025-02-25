@@ -1,5 +1,4 @@
 using System;
-using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
@@ -16,7 +15,6 @@ public class PlayerInputsReader : ScriptableObject, IPlayerActions
     MobileInputs mobileInputs;
     Vector2 touchMovement;
     Vector3 moveDirection;
-
 
     void OnEnable()
     {
@@ -42,20 +40,18 @@ public class PlayerInputsReader : ScriptableObject, IPlayerActions
 
     public void OnPrimaryTouchMove(InputAction.CallbackContext context)
     {
-
         if (!shouldDetectInputs) return;
         if (context.performed) OnUpdatePosition(context.ReadValue<TouchState>());
     }
 
     public void OnPrimaryTouch(InputAction.CallbackContext context)
     {
-
         if (context.started)
         {
-            if (GameManager.GetGameManager.CurrentPlayerState == PlayerState.IDLE)
+            if (GameManager.GetInstance().CurrentPlayerState == PlayerState.IDLE)
                 touchMovement = Vector2.zero;
+            else shouldDetectInputs = false;
 
-            shouldDetectInputs = false;
             return;
         }
         else if (context.canceled)
@@ -79,7 +75,7 @@ public class PlayerInputsReader : ScriptableObject, IPlayerActions
 
     private void OnConfirmMovement()
     {
-        OnMove?.Invoke(Quaternion.AngleAxis(CameraRotationHandler.Rotation, Vector3.up) * moveDirection);
+        OnMove?.Invoke(Quaternion.AngleAxis(GameManager.GetInstance().cameraRotation, Vector3.up) * moveDirection);
     }
 
     private void Print(object obj) => Debug.Log(obj);
