@@ -4,6 +4,7 @@ using Utils;
 
 public class GameManager : MonoBehaviour {
     private static GameManager Instance;
+    public static GameManager GetGameManager => Instance;
     public float cameraRotation = 0;
     public On<GameState> OnGameStateChanged;
     private GameState currentGameState;
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour {
             OnGameStateChanged?.Invoke(currentGameState);
         }
     }
+    public PlayerState CurrentPlayerState;
 
     void Awake()
     {
