@@ -29,7 +29,6 @@ public class BindedLevels : ScriptableObject
 
     public void BindLevel(int scene, LevelIslands levelIslands)
     {
-        levelIslands.sceneIndex = scene;
         _levelIslandsMap.Add(levelIslands);
         Save();
     }
@@ -38,11 +37,13 @@ public class BindedLevels : ScriptableObject
     {
         var levelIslands = GetLevelIslands(scene);
         _levelIslandsMap.Remove(levelIslands);
+        _levelIslandsMap.RemoveAll(l => l == null );
         Save();
     }
 
     public void Save()
     {
+        EditorUtility.SetDirty(this);
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
     }

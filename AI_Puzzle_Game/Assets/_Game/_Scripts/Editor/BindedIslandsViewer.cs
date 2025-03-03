@@ -51,10 +51,18 @@ public class BindedIslandsViewer : Editor
         {
             var scene = EditorBuildSettings.scenes[i];
             var sceneName = Path.GetFileNameWithoutExtension(scene.path);
+            
             if (parent.IsSceneBinded(i))
             {
-                binded.Add(CreateBindedScene(i, sceneName));
-                continue;  
+                if (parent.GetLevelIslands(i) != null)
+                {
+                    binded.Add(CreateBindedScene(i, sceneName));
+                    continue;  
+                }
+                else
+                {
+                    parent.UnbindLevel(i);
+                }
             }
             
             unbinded.Add(CreateUnbindedScene(i, sceneName));

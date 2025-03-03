@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -13,6 +14,11 @@ public class LevelIslands : ScriptableObject
     public Vector3 TravelTo(int pathIndex)
     {
         return paths[pathIndex].GetCenter;
+    }
+
+    private void Awake()
+    {
+        Selection.activeObject = null;
     }
 
     public void Unbind()
