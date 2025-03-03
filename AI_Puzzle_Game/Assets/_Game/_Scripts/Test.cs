@@ -11,7 +11,6 @@ public class Test : MonoBehaviour
             transform.position += dir;
         };
     }
-
     // Update is called once per frame
     void Update()
     {

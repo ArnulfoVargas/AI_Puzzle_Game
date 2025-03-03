@@ -1,0 +1,37 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/_Game/_Scripts/Editor/EditorUI/LevelIslandEditor/LevelIslandsEditor.uss?fileID=7433441132597879392&amp;guid=6aea41ce9f93874429fc2d46be7a652d&amp;type=3#LevelIslandsEditor" />
+    <ui:VisualElement name="Main" style="flex-grow: 1;">
+        <ui:VisualElement name="Body" style="flex-grow: 1;">
+            <ui:Label tabindex="-1" text="Select a Scene" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" style="width: auto; -unity-font-style: bold; font-size: 15px;" />
+            <ui:VisualElement name="SceneSelectedContainer" style="flex-grow: 1;">
+                <ui:VisualElement name="form" style="flex-grow: 1;">
+                    <ui:VisualElement name="transforms" style="flex-grow: 1;">
+                        <uie:ObjectField label="From:" type="UnityEngine.Transform, UnityEngine.CoreModule" name="from-t" />
+                        <uie:ObjectField label="To:" type="UnityEngine.Transform, UnityEngine.CoreModule" name="to-t" />
+                    </ui:VisualElement>
+                    <ui:Button text="Add" parse-escape-sequences="true" display-tooltip-when-elided="true" name="add-btn" class="btn-success btn" />
+                </ui:VisualElement>
+                <ui:ScrollView name="Island-list">
+                    <ui:VisualElement name="island-item" class="island-item" style="flex-grow: 1;">
+                        <ui:VisualElement class="island-cont-l" style="flex-grow: 1;">
+                            <ui:Label tabindex="-1" text="10" parse-escape-sequences="true" display-tooltip-when-elided="true" class="island-cont-label" />
+                            <ui:VisualElement style="flex-grow: 1;">
+                                <uie:ObjectField label="Object Field" type="UnityEngine.Transform, UnityEngine.CoreModule" />
+                                <uie:ObjectField label="Object Field" type="UnityEngine.Transform, UnityEngine.CoreModule" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="island-cont-r" style="flex-grow: 1;">
+                            <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" class="btn-warning" />
+                            <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" class="btn-error" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:ScrollView>
+                <ui:Button text="Unbind" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Unbind-btn" class="btn-error btn" />
+            </ui:VisualElement>
+            <ui:VisualElement name="SceneUnselectedContainer" style="flex-grow: 1;">
+                <ui:ScrollView name="SceneList" class="scene-list" />
+                <ui:Button text="Bind Active Scene" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Active-btn" class="btn" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

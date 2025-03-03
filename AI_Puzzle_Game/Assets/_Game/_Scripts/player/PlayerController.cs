@@ -8,13 +8,29 @@ public class PlayerController : BaseBehaviour {
     private float moveSpeed {get; set;}
     private Vector3 moveDirection;
     PlayerState playerState = PlayerState.IDLE;
-    PlayerState CurrentPlayerState {
+    public PlayerState CurrentPlayerState {
         get => playerState; 
         set {
             playerState = value;
             GameManager.GetInstance().CurrentPlayerState = playerState;
         }
     }
+
+    public void SetAnimationState()
+    {
+        this.CurrentPlayerState = PlayerState.ANIMATION;
+    }
+
+    public void SetTravelingState()
+    {
+        this.CurrentPlayerState = PlayerState.TRAVELING;
+    }
+
+    public void SetIdleState()
+    {
+        this.CurrentPlayerState = PlayerState.IDLE;
+    }
+    
     protected override void OnStart()
     {
         var configs = Resources.Load<PlayerConfigs>("PlayerConfigs");
