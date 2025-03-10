@@ -2,10 +2,9 @@ using _Game._Scripts.interfaces;
 using DG.Tweening;
 using UnityEngine;
 
-public class CollisionHandler : BaseBehaviour, IDamageable, ITeleporteable
+public class CollisionHandler : BaseBehaviour, IDamageable, ITeleporteable, IWinner
 {
     [SerializeField] private PlayerController player;
-    const string TELEPORT_TAG = "Teleporter";
     Tweener tweener;
 
     protected override void OnStart()
@@ -31,5 +30,14 @@ public class CollisionHandler : BaseBehaviour, IDamageable, ITeleporteable
         });
 
         player.SetTravelingState();
+    }
+
+    void OnDestroy()
+    {
+        tweener.Kill();
+    }
+    public void Win()
+    {
+        GameManager.GetInstance().OnWin();
     }
 }

@@ -33,4 +33,9 @@ public class CameraRotationHandler : MonoBehaviour
             });
         };
     }
+
+    void OnDestroy()
+    {
+        rotTween.Kill();
+    }
 }

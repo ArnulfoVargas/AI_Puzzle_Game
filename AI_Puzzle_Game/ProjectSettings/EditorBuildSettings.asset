@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Game/Scenes/MainMenu.unity
+    guid: fdb336abb42abe049afaaaa23103b455
+  - enabled: 1
     path: Assets/_Game/Scenes/MechanicsTestScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
-    path: Assets/CaroReyes/Scenes/LevelPrototype.unity
-    guid: d15b71122cefb7d4dba5de7a789627c1
   m_configObjects: {}

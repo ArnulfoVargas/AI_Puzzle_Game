@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e664369ff9b7393458d04adf8eed20f2, type: 3}
-  m_Name: MechanicsTestScene_4d19404e-d8e1-4e8e-8c47-15ddabffb609
+  m_Name: MechanicsTestScene_711be736-339b-4c3a-8613-ea2dc382ec39
   m_EditorClassIdentifier: 
   from: {x: -5, y: 0, z: -30}
   to: {x: 5, y: 0, z: -20}

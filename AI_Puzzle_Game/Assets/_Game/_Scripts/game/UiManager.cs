@@ -14,18 +14,22 @@ public class UiManager : MonoBehaviour
         SetUisVisibility(gameManager.CurrentGameState);
     }
 
-    void ODisable()
+    void OnDisable()
     {
         gameManager.OnGameStateChanged -= SetUisVisibility;
     }
 
     private void SetUisVisibility(GameState s) {
-        OnGameUi.SetActive(s == GameState.GAMEPLAY);
-        OnVictoryUi.SetActive(s == GameState.VICTORY);
-        OnLooseUi.SetActive(s == GameState.DEFEAT);
+        OnGameUi?.SetActive(s == GameState.GAMEPLAY);
+        OnVictoryUi?.SetActive(s == GameState.VICTORY);
+        OnLooseUi?.SetActive(s == GameState.DEFEAT);
     }
 
     public void Retry() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void OpenLevel(int index) {
+        SceneManager.LoadScene(index);
     }
 }

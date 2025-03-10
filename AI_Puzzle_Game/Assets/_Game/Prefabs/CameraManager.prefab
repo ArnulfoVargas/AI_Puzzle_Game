@@ -47,4 +47,4 @@ MonoBehaviour:
   _bindedLevels: {fileID: 11400000, guid: 2c1790204fde9cb469c6db823db73309, type: 2}
   cameraControllerObject: {fileID: 7430557145500308729, guid: 47a5f462665c8884ab088845dcfc5e7d,
     type: 3}
-  levelIslands: {fileID: 11400000, guid: 886ead9842d1e404b962fa40b9ee5677, type: 2}
+  levelIslands: {fileID: 0}

@@ -27,8 +27,9 @@ public class GameManager : MonoBehaviour {
         }
 
         SceneManager.sceneUnloaded += (scene) => {
-            Instance = null;
-            Destroy(this);
+            CurrentPlayerState = PlayerState.IDLE;
+            currentGameState = GameState.GAMEPLAY;
+            cameraRotation = 0;
         };
     }
 
