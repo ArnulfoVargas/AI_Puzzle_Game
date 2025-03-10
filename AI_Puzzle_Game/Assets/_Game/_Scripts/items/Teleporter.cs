@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using _Game._Scripts.interfaces;
 using UnityEngine;
 
@@ -15,5 +13,12 @@ public class Teleporter : MonoBehaviour, ITeleporter
     public Vector3 GetTeleportLocation()
     {
         return teleportLocation.position;
-    } 
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out ITeleporteable teleporteable)) {
+            teleporteable.Teleport(this);
+        }
+    }
 }

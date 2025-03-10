@@ -102,6 +102,10 @@
     visibility: hidden;
 }
 
+.h-0 {
+    height: 0;
+}
+
 #transforms {
     display: flex;
     flex-direction: row;

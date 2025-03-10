@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de6383a1ce4714249b1dbc678a0a36d3, type: 3}
   m_Name: BindedLevels
   m_EditorClassIdentifier: 
+  _levelIslandsMap:
+  - {fileID: 11400000, guid: 886ead9842d1e404b962fa40b9ee5677, type: 2}

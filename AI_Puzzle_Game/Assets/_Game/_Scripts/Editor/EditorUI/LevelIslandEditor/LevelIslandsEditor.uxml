@@ -4,6 +4,7 @@
         <ui:VisualElement name="Body" style="flex-grow: 1;">
             <ui:Label tabindex="-1" text="Select a Scene" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" style="width: auto; -unity-font-style: bold; font-size: 15px;" />
             <ui:VisualElement name="SceneSelectedContainer" style="flex-grow: 1;">
+                <ui:Button text="Open binded Scene" parse-escape-sequences="true" display-tooltip-when-elided="true" name="open-scene-btn" tooltip="Looks like the current scene it&apos;s not the binded scene, do you want to change to the binded scene?" class="btn h-0 hidden" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
                 <ui:VisualElement name="form" style="flex-grow: 1;">
                     <ui:VisualElement name="transforms" style="flex-grow: 1;">
                         <uie:ObjectField label="From:" type="UnityEngine.Transform, UnityEngine.CoreModule" name="from-t" />

@@ -37,24 +37,31 @@ public class PlayerController : BaseBehaviour {
         inputs = Resources.Load<PlayerInputsReader>("PlayerInputsReader");
         moveSpeed = configs.MoveSpeed;
 
-        inputs.OnMove += dir => {
-            if (CurrentPlayerState == PlayerState.IDLE)
-            {
-                if (Physics.Raycast(rayPosition.position, dir, .55f)) return;
+        inputs.OnMove += MoveTowards;
+    }
 
-                moveDirection = dir;
+    void OnDisable()
+    {
+        inputs.OnMove -= MoveTowards;
+    }
 
-                // if (playerVisuals.forward != dir) {
-                //     CurrentPlayerState = PlayerState.ROTATING;
-                //     playerVisuals.DOLookAt(playerVisuals.position + moveDirection, 0.5f).OnComplete(() => {
-                //         CurrentPlayerState = PlayerState.MOVING;
-                //     });
-                // }
-                // else CurrentPlayerState = PlayerState.MOVING;
+    private void MoveTowards(Vector3 dir) {
+        if (CurrentPlayerState == PlayerState.IDLE)
+        {
+            if (Physics.Raycast(rayPosition.position, dir, .55f)) return;
 
-                CurrentPlayerState = PlayerState.MOVING;
-            }
-        };
+            moveDirection = dir;
+
+            // if (playerVisuals.forward != dir) {
+            //     CurrentPlayerState = PlayerState.ROTATING;
+            //     playerVisuals.DOLookAt(playerVisuals.position + moveDirection, 0.5f).OnComplete(() => {
+            //         CurrentPlayerState = PlayerState.MOVING;
+            //     });
+            // }
+            // else CurrentPlayerState = PlayerState.MOVING;
+
+            CurrentPlayerState = PlayerState.MOVING;
+        }
     }
 
     protected override void OnGameplayUpdate()
@@ -62,8 +69,7 @@ public class PlayerController : BaseBehaviour {
         if (CurrentPlayerState == PlayerState.MOVING)
             transform.Translate(moveDirection * (moveSpeed * Time.deltaTime));
     }
-
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
         CurrentPlayerState = PlayerState.IDLE;
         moveDirection = Vector3.zero;

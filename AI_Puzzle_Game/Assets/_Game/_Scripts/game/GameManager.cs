@@ -32,6 +32,23 @@ public class GameManager : MonoBehaviour {
         };
     }
 
+    public void OnTravel() {
+        CurrentGameState = GameState.ISLAND_CHANGE;
+    }
+
+    public void OnTravelEnd() {
+        CurrentGameState = GameState.GAMEPLAY;
+    }
+
+    public void OnLoose()
+    {
+        CurrentGameState = GameState.DEFEAT;
+    }
+
+    public void OnWin() {
+        CurrentGameState = GameState.VICTORY;
+    }
+
     public static GameManager GetInstance() {
         return Instance;
     } 

@@ -61,6 +61,9 @@ public class PlayerInputsReader : ScriptableObject, IPlayerActions
     {
         if (context.started)
         {
+            if (hasFirstTap)
+                if (Time.timeSinceLevelLoadAsDouble - firstTapTime > timeBetweenDoubleTap) hasFirstTap = false;
+
             if (GameManager.GetInstance().CurrentPlayerState == PlayerState.IDLE)
                 touchMovement = Vector2.zero;
             else shouldDetectInputs = false;
@@ -82,7 +85,6 @@ public class PlayerInputsReader : ScriptableObject, IPlayerActions
     }
 
     private bool CheckForTaps(double endTime) {
-        Print(endTime);
         if (endTime <= tapThreshold) {
             CompareTaps();
             return true;
