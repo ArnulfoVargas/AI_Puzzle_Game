@@ -80,7 +80,7 @@ Material:
     - _NoiseStrength: 0.03
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Radius: 7.78
+    - _Radius: 5.37
     - _RadiusNoiseCutoff: 0.7
     - _RadiusNoiseOffset: 0
     - _Shades: 0.83
