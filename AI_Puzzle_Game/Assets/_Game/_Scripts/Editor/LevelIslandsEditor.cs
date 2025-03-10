@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using UnityEditor.SceneManagement;
 
 [CustomEditor(typeof(LevelIslands))]
 public class LevelIslandsEditor : Editor {
@@ -12,7 +13,7 @@ public class LevelIslandsEditor : Editor {
     [SerializeField] private BindedLevels bindedLevels;
     VisualElement root;
     private ObjectField from, to;
-    private Button bindCurrentButton, unbindBtn, addBtn;
+    private Button bindCurrentButton, unbindBtn, addBtn, openSceneBtn;
     private VisualElement sceneSelectedContainer, sceneUnselectedContainer, islandList;
     private LevelIslands parent;
     private Label title;
@@ -20,14 +21,20 @@ public class LevelIslandsEditor : Editor {
     private void OnEnable()
     {
         parent = (LevelIslands)target;
+
+        EditorSceneManager.activeSceneChanged += (e, s) => {
+            UpdateOpenSceneBtn();
+        };
     }
 
     public override VisualElement CreateInspectorGUI() {
         root = new VisualElement();
         visualTree.CloneTree(root);
         SetUpElements();
+        SetUpHints();
         UpdateSelected();
         SetUpListeners();
+        UpdateOpenSceneBtn();
         return root;
     }
 
@@ -42,6 +49,12 @@ public class LevelIslandsEditor : Editor {
         from = root.Q<ObjectField>("from-t");
         to = root.Q<ObjectField>("to-t");
         islandList = root.Q<VisualElement>("Island-list");
+        openSceneBtn = root.Q<Button>("open-scene-btn");
+    }
+
+    private void SetUpHints() {
+        to.tooltip = "Takes the transform position and creates a point in the world";
+        from.tooltip = "Takes the transform position and creates a point in the world";
     }
     
     private void SetUpListeners() {
@@ -59,10 +72,25 @@ public class LevelIslandsEditor : Editor {
         });
         
         addBtn.RegisterCallback<ClickEvent>((e) => { AddPoint();});
+
+        openSceneBtn.RegisterCallback<ClickEvent>((e) => {
+            var scene = EditorBuildSettings.scenes[parent.sceneIndex];
+            EditorSceneManager.OpenScene(scene.path);
+        });
+    }
+
+    private void UpdateOpenSceneBtn() {
+        if (EditorSceneManager.GetActiveScene().buildIndex != parent.sceneIndex) {
+            openSceneBtn.RemoveFromClassList("h-0");
+            openSceneBtn.RemoveFromClassList("hidden");
+        } else {
+
+            openSceneBtn.AddToClassList("h-0");
+            openSceneBtn.AddToClassList("hidden");
+        }
     }
 
     private void SetUpSceneList() {
-        
         var sceneList = root.Q<VisualElement>("SceneList");
         sceneList.Clear();
         
@@ -114,6 +142,7 @@ public class LevelIslandsEditor : Editor {
     {
         bindedLevels.BindLevel(scene, parent);
         parent.sceneIndex = scene;
+        UpdateOpenSceneBtn();
         UpdateSelected();
         SaveAssets();
     }
@@ -191,18 +220,46 @@ public class LevelIslandsEditor : Editor {
         VisualElement transformCont = new VisualElement();
         transformCont.AddToClassList("island-transform");
 
-        ObjectField fromField = new ObjectField();
-        fromField.objectType = typeof(Transform);
+        Vector3Field fromField = new Vector3Field();
+        fromField.SetEnabled(false);
         fromField.label = "From";
         fromField.value = point.GetFrom;
         
-        ObjectField toField = new ObjectField();
-        toField.objectType = typeof(Transform);
+        Vector3Field toField = new Vector3Field();
+        toField.SetEnabled(false);
         toField.label = "To";
         toField.value = point.GetTo;
-        
+
+        ObjectField fromChangeField = new ObjectField("Update From Position");
+        fromChangeField.objectType = typeof(Transform);
+        fromChangeField.tooltip = "Once you assing a Transform object, automatically will update the point value and set the input into null";
+
+        fromChangeField.RegisterValueChangedCallback((e) => {
+            if (e.newValue) {
+                point.SetFrom((Transform)e.newValue);
+                fromField.value = point.GetFrom;
+                point.RecalculateCenter();
+            }
+            fromChangeField.value = null;
+        });
+
+        ObjectField toChangeField = new ObjectField("Update To Position");
+        toChangeField.objectType = typeof(Transform);
+        toChangeField.tooltip = "Once you assing a Transform object, automatically will update the point value and set the input into null";
+
+        toChangeField.RegisterValueChangedCallback((e) => {
+            if (e.newValue) {
+                point.SetTo((Transform)e.newValue);
+                toField.value = point.GetTo;
+                point.RecalculateCenter();
+            }
+            toChangeField.value = null;
+        });       
+
         transformCont.Add(fromField);
+        transformCont.Add(fromChangeField);
         transformCont.Add(toField);
+        transformCont.Add(toChangeField);
         
         infoCont.Add(label);
         infoCont.Add(transformCont);

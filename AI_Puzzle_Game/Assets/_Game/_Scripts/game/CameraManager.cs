@@ -61,6 +61,7 @@ public class CameraManager : MonoBehaviour
         if (levelIslands)
         {
             endPosition = levelIslands.TravelTo(islandIndex);
+            GameManager.GetInstance().OnTravel();
             return _cameraControllerTransform.DOMove(endPosition, 2f);
         }
 

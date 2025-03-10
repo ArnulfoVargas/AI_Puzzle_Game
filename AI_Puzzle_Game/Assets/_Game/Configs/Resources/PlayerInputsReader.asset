@@ -9,6 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e664369ff9b7393458d04adf8eed20f2, type: 3}
-  m_Name: MechanicsTestScene_eda0aecb-f33c-489e-87e7-f99a9b3185ed
+  m_Script: {fileID: 11500000, guid: efc0b0740b19a4745813e9775bf2af2c, type: 3}
+  m_Name: PlayerInputsReader
   m_EditorClassIdentifier: 
+  sensibilityThreshold: 6
+  tapThreshold: 0.15000000596046448
+  timeBetweenDoubleTap: 0.3

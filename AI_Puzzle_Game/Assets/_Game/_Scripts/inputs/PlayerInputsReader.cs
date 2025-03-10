@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.SceneManagement;
 using Utils;
 using static MobileInputs;
 
@@ -16,7 +17,7 @@ public class PlayerInputsReader : ScriptableObject, IPlayerActions
     public On<int> OnRotate; 
     const float MULTIPLIER = 100;
     bool shouldDetectInputs = true;
-    [SerializeField]bool hasFirstTap = false;
+    bool hasFirstTap = false;
     MobileInputs mobileInputs;
     Vector2 touchMovement;
     Vector3 moveDirection;
@@ -30,6 +31,8 @@ public class PlayerInputsReader : ScriptableObject, IPlayerActions
         mobileInputs ??= new();
         EnableInputs();
         screenWidthHalf = Mathf.RoundToInt(Screen.width * .5f);
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     public void EnableInputs()
@@ -41,11 +44,19 @@ public class PlayerInputsReader : ScriptableObject, IPlayerActions
     void OnDisable()
     {
         DisableInputs();
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     public void DisableInputs()
     {
         mobileInputs.Player.Disable();
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+        startTime = 0;
+        firstTapTime = 0;
+        lastTouchPosition = Vector3.zero;
+        hasFirstTap = false;
     }
 
     public void OnPrimaryTouchMove(InputAction.CallbackContext context)
@@ -61,6 +72,9 @@ public class PlayerInputsReader : ScriptableObject, IPlayerActions
     {
         if (context.started)
         {
+            if (hasFirstTap)
+                if (Time.timeSinceLevelLoadAsDouble - firstTapTime > timeBetweenDoubleTap) hasFirstTap = false;
+
             if (GameManager.GetInstance().CurrentPlayerState == PlayerState.IDLE)
                 touchMovement = Vector2.zero;
             else shouldDetectInputs = false;
@@ -82,7 +96,6 @@ public class PlayerInputsReader : ScriptableObject, IPlayerActions
     }
 
     private bool CheckForTaps(double endTime) {
-        Print(endTime);
         if (endTime <= tapThreshold) {
             CompareTaps();
             return true;

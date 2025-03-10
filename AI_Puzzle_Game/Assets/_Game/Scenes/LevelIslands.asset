@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694ce6dc1e3ce9340af35606d8cec784, type: 3}
   m_Name: LevelIslands
   m_EditorClassIdentifier: 
-  paths: []
-  sceneIndex: -1
+  paths:
+  - {fileID: 11400000, guid: 4a7a7e636c5b24a4d85b65b42132b1fa, type: 2}
+  - {fileID: 11400000, guid: c4fa6abf00867c44d8abe07cebac3b0d, type: 2}
+  sceneIndex: 1

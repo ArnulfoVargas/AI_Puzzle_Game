@@ -4,10 +4,11 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
+// [Serializable]
+[CreateAssetMenu(fileName = "BindedLevels", menuName = "Configs/BindedLevels"), Serializable]
 public class BindedLevels : ScriptableObject
 {
-    private List<LevelIslands> _levelIslandsMap = new();
+    [SerializeField] private List<LevelIslands> _levelIslandsMap = new();
     
     public bool IsSceneBinded(int scene) {
         foreach (var island in this._levelIslandsMap)

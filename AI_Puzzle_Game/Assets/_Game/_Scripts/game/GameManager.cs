@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour {
     private static GameManager Instance;
     public float cameraRotation = 0;
     public On<GameState> OnGameStateChanged;
-    private GameState currentGameState;
+    [SerializeField] private GameState currentGameState;
     public PlayerState CurrentPlayerState = PlayerState.IDLE;
     public GameState CurrentGameState {
         get => currentGameState;
@@ -27,9 +27,27 @@ public class GameManager : MonoBehaviour {
         }
 
         SceneManager.sceneUnloaded += (scene) => {
-            Instance = null;
-            Destroy(this);
+            CurrentPlayerState = PlayerState.IDLE;
+            currentGameState = GameState.GAMEPLAY;
+            cameraRotation = 0;
         };
+    }
+
+    public void OnTravel() {
+        CurrentGameState = GameState.ISLAND_CHANGE;
+    }
+
+    public void OnTravelEnd() {
+        CurrentGameState = GameState.GAMEPLAY;
+    }
+
+    public void OnLoose()
+    {
+        CurrentGameState = GameState.DEFEAT;
+    }
+
+    public void OnWin() {
+        CurrentGameState = GameState.VICTORY;
     }
 
     public static GameManager GetInstance() {
