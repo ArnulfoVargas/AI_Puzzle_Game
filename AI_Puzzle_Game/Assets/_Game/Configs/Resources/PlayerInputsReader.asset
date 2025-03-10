@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PlayerInputsReader
   m_EditorClassIdentifier: 
   sensibilityThreshold: 5
-  tapThreshold: 0.11999999731779099
-  timeBetweenDoubleTap: 0.2
+  tapThreshold: 0.10000000149011612
+  timeBetweenDoubleTap: 0.15
   hasFirstTap: 0

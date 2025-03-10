@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour {
     private static GameManager Instance;
     public float cameraRotation = 0;
     public On<GameState> OnGameStateChanged;
-    private GameState currentGameState;
+    [SerializeField] private GameState currentGameState;
     public PlayerState CurrentPlayerState = PlayerState.IDLE;
     public GameState CurrentGameState {
         get => currentGameState;
