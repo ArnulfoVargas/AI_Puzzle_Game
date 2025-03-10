@@ -11,8 +11,8 @@ using static MobileInputs;
 public class PlayerInputsReader : ScriptableObject, IPlayerActions
 {
     [SerializeField, Range(.1f, 10)] private float sensibilityThreshold = 5;
-    [SerializeField, Range(0.10f, 0.3f)] private double tapThreshold = 0.12f; 
-    [SerializeField, Range(0.10f, 0.3f)] private float timeBetweenDoubleTap = 0.12f; 
+    [SerializeField, Range(0.10f, 0.5f)] private double tapThreshold = 0.12f; 
+    [SerializeField, Range(0.10f, 0.5f)] private float timeBetweenDoubleTap = 0.12f; 
     public On<Vector3> OnMove;
     public On<int> OnRotate; 
     const float MULTIPLIER = 100;
