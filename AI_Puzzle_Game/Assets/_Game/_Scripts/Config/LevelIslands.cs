@@ -18,18 +18,22 @@ public class LevelIslands : ScriptableObject
 
     private void Awake()
     {
+        #if UNITY_EDITOR
         Selection.activeObject = null;
+        #endif
     }
 
     public void Unbind()
     {
         sceneIndex = -1;
+        #if UNITY_EDITOR
         foreach (var points in paths)
         {
             AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(points.GetInstanceID()));   
         }
         
         Save();
+        #endif
         paths.Clear();
     }
 
@@ -54,8 +58,10 @@ public class LevelIslands : ScriptableObject
 
     public void Save()
     {
+        #if UNITY_EDITOR
         EditorUtility.SetDirty(this);
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
+        #endif
     }
 }

@@ -14,11 +14,12 @@ public class MovingEnemy : EnemyBase {
 
     void OnCollisionEnter(Collision collision)
     {
-        moveModifier *= -1;
+        if (collision.gameObject.CompareTag("Wall"))
+            moveModifier *= -1;
     }
 
     protected override void OnGameplayUpdate()
     {
-        transform.Translate(moveDirection * (Time.deltaTime * moveModifier * speed));
+        transform.Translate(dir * (Time.deltaTime * moveModifier * speed));
     }
 }
