@@ -1,19 +1,27 @@
 using UnityEngine;
 
-public class Test : MonoBehaviour
+public class Test : EnemyBase
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        var inputs = Resources.Load<PlayerInputsReader>("PlayerInputsReader");
+    [SerializeField] private float speed;
+    [SerializeField] private bool moveHorizontal, invert;
+    private int moveFactor;
+    Vector3 dir;
 
-        inputs.OnMove += (dir) => {
-            transform.position += dir;
-        };
-    }
-    // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(dir * speed * Time.deltaTime);       
+    }
+
+    protected override void OnStart()
+    {
+        moveFactor = invert ? -1 : 1; 
+        dir = moveFactor * (moveHorizontal ? Vector3.right : Vector3.forward);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Wall")) {
+            dir *= -1;
+        }
     }
 }

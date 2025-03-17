@@ -1,25 +1,37 @@
+using System;
+using DG.Tweening;
+using TMPro;
+using Unity.Collections;
 using UnityEngine;
 
 public class MovingEnemy : EnemyBase {
-    [SerializeField] private Vector2 moveDirection;
-    private Vector3 dir;
+    [SerializeField] bool moveHorizontal, invert;
+    [SerializeField] private Vector3 dir;
+    [SerializeField] private float secondsPerMeter = 0.5f;
     private int moveModifier = 1;
-    private float speed = 5f;
+    private Tweener tweener;
 
     protected override void OnStart()
     {
         base.OnStart();
-        dir = new Vector3(moveDirection.x, 0, moveDirection.y).normalized;
+        moveModifier = invert ? -1 : 1;
+        Move();
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Wall"))
+        if (collision.gameObject.CompareTag("Wall")) {
+            if (tweener.active) tweener.Kill();
+            var p = transform.position;
+            transform.position = new Vector3(Mathf.RoundToInt(p.x), 0, Mathf.RoundToInt(p.z));
             moveModifier *= -1;
+            Move();
+        }
     }
 
-    protected override void OnGameplayUpdate()
+    private void Move()
     {
-        transform.Translate(dir * (Time.deltaTime * moveModifier * speed));
+        if (moveHorizontal) tweener = transform.DOMoveX(transform.position.x + moveModifier, secondsPerMeter).SetEase(Ease.Linear).OnComplete(Move);
+        else tweener = transform.DOMoveZ(transform.position.z + moveModifier, secondsPerMeter).SetEase(Ease.Linear).OnComplete(Move);
     }
 }

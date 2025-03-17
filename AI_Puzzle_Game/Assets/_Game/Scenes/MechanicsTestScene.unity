@@ -1152,8 +1152,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1349968321}
-  - {fileID: 2849445075916475192}
   - {fileID: 6150842872834348401}
+  - {fileID: 2849445075916475192}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1976613635
@@ -1288,6 +1288,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 69092021219471950, guid: 47a5f462665c8884ab088845dcfc5e7d,
+        type: 3}
+      propertyPath: field of view
+      value: 55
+      objectReference: {fileID: 0}
     - target: {fileID: 1641026714622949799, guid: 47a5f462665c8884ab088845dcfc5e7d,
         type: 3}
       propertyPath: slider
@@ -1365,11 +1370,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MovingEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 8707025298632807784, guid: b8631d467b5085a47ab508990a755661,
-        type: 3}
-      propertyPath: moveDirection.x
-      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 9055686299358607610, guid: b8631d467b5085a47ab508990a755661,
         type: 3}

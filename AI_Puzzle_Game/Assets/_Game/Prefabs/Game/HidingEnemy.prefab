@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8686315516147839944}
   - component: {fileID: 4211317665083218652}
   - component: {fileID: 3485735130575294098}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 855655207083407572}
   - component: {fileID: 1298720021938182892}
   - component: {fileID: 6220627374635902053}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HidingEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -4,6 +4,8 @@ public class BaseBehaviour : MonoBehaviour
 {
     protected GameManager manager;
     protected GameState currentState;
+    protected delegate void UpdateFunc();
+    protected UpdateFunc update;
 
     protected void SetUp()
     {
@@ -20,28 +22,30 @@ public class BaseBehaviour : MonoBehaviour
     void Start() => SetUp();
     void Update()
     {
-        switch (currentState)
-        {
-            default: break;
-            case GameState.GAMEPLAY:
-                OnGameplayUpdate();
-                break;
-            case GameState.PAUSE:
-                OnPauseUpdate();
-                break;
-            case GameState.ISLAND_CHANGE:
-                OnIslandChangeUpdate();
-                break;
-            case GameState.VICTORY:
-                OnVictoryUpdate();
-                break;
-            case GameState.DEFEAT:
-                OnDefeatUpdate();
-                break;
-            case GameState.DIALOG:
-                OnDialogUpdate();
-                break;
-        }
+        // switch (currentState)
+        // {
+        //     default: break;
+        //     case GameState.GAMEPLAY:
+        //         OnGameplayUpdate();
+        //         break;
+        //     case GameState.PAUSE:
+        //         OnPauseUpdate();
+        //         break;
+        //     case GameState.ISLAND_CHANGE:
+        //         OnIslandChangeUpdate();
+        //         break;
+        //     case GameState.VICTORY:
+        //         OnVictoryUpdate();
+        //         break;
+        //     case GameState.DEFEAT:
+        //         OnDefeatUpdate();
+        //         break;
+        //     case GameState.DIALOG:
+        //         OnDialogUpdate();
+        //         break;
+        // }
+
+        update.Invoke();
     }
 
     protected void UpdateState(GameState state)
@@ -52,23 +56,31 @@ public class BaseBehaviour : MonoBehaviour
             default: break;
             case GameState.GAMEPLAY:
                 OnGameplayStart();
+                update = OnGameplayUpdate;
                 break;
             case GameState.PAUSE:
                 OnPauseStart();
+                update = OnPauseUpdate;
                 break;
             case GameState.ISLAND_CHANGE:
                 OnIslandChangeStart();
+                update = OnIslandChangeUpdate;
                 break;
             case GameState.VICTORY:
                 OnVictoryStart();
+                update = OnVictoryUpdate;
                 break;
             case GameState.DEFEAT:
                 OnDefeatStart();
+                update = OnDefeatUpdate;
                 break;
             case GameState.DIALOG:
                 OnDialogStart();
+                update = OnDialogUpdate;
                 break;
         }
+
+        OnUpdateState(state);
     }
 
 /// <summary>
@@ -94,6 +106,8 @@ public class BaseBehaviour : MonoBehaviour
     virtual protected void OnVictoryUpdate() { }
     virtual protected void OnDefeatUpdate() { }
     virtual protected void OnDialogUpdate() { }
+
+    virtual protected void OnUpdateState(GameState state) {}
 #endregion
 
 }
