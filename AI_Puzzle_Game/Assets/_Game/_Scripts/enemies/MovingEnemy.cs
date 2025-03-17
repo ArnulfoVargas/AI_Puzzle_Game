@@ -5,33 +5,29 @@ using Unity.Collections;
 using UnityEngine;
 
 public class MovingEnemy : EnemyBase {
-    [SerializeField] bool moveHorizontal, invert;
-    [SerializeField] private Vector3 dir;
-    [SerializeField] private float secondsPerMeter = 0.5f;
-    private int moveModifier = 1;
-    private Tweener tweener;
+    private float speed = 5;
+    [SerializeField] private bool moveHorizontal, invert;
+    private int moveFactor;
+    private Rigidbody rb;
+    Vector3 dir;
+
+    void FixedUpdate()
+    {
+        rb.MovePosition(transform.position + dir * ( speed * Time.fixedDeltaTime ));
+    }
+   
 
     protected override void OnStart()
     {
-        base.OnStart();
-        moveModifier = invert ? -1 : 1;
-        Move();
+        moveFactor = invert ? -1 : 1; 
+        dir = moveFactor * (moveHorizontal ? Vector3.right : Vector3.forward);
+        rb = GetComponent<Rigidbody>();
     }
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Wall")) {
-            if (tweener.active) tweener.Kill();
-            var p = transform.position;
-            transform.position = new Vector3(Mathf.RoundToInt(p.x), 0, Mathf.RoundToInt(p.z));
-            moveModifier *= -1;
-            Move();
+            dir *= -1;
         }
-    }
-
-    private void Move()
-    {
-        if (moveHorizontal) tweener = transform.DOMoveX(transform.position.x + moveModifier, secondsPerMeter).SetEase(Ease.Linear).OnComplete(Move);
-        else tweener = transform.DOMoveZ(transform.position.z + moveModifier, secondsPerMeter).SetEase(Ease.Linear).OnComplete(Move);
-    }
+    } 
 }

@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9055686299358607610}
   - component: {fileID: 1507228060262584017}
-  - component: {fileID: 4609330598497158225}
   - component: {fileID: 6200847193179524349}
+  - component: {fileID: 8364999061927930795}
   m_Layer: 7
   m_Name: MovingEnemy
   m_TagString: Untagged
@@ -56,21 +56,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9, y: 1, z: 0.9}
   m_Center: {x: 0.5, y: 0.5, z: 0.5}
---- !u!114 &4609330598497158225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5188800754288380218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90045a9dbe6b86644a1205d5e2506e6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  moveHorizontal: 1
-  invert: 0
 --- !u!54 &6200847193179524349
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -98,6 +83,20 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &8364999061927930795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5188800754288380218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31090e983babd7d4587d29ac8ad80c3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveHorizontal: 1
+  invert: 0
 --- !u!1 &8897783496762130080
 GameObject:
   m_ObjectHideFlags: 0
