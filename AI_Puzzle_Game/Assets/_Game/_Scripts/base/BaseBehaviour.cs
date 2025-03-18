@@ -51,6 +51,7 @@ public class BaseBehaviour : MonoBehaviour
     protected void UpdateState(GameState state)
     {
         currentState = state;
+        BeforeUpdate(currentState);
         switch (state)
         {
             default: break;
@@ -100,6 +101,7 @@ public class BaseBehaviour : MonoBehaviour
 /// Functions made for update the behaviour in order by the current game state
 /// </summary>
 #region OnUpdateFunctions
+    virtual protected void BeforeUpdate(GameState state) { }
     virtual protected void OnGameplayUpdate() { }
     virtual protected void OnPauseUpdate() { }
     virtual protected void OnIslandChangeUpdate() { }
