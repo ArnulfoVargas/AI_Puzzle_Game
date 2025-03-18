@@ -44,8 +44,10 @@ public class BindedLevels : ScriptableObject
 
     public void Save()
     {
+        #if UNITY_EDITOR
         EditorUtility.SetDirty(this);
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
+        #endif
     }
 }

@@ -20,7 +20,7 @@ public class CameraRotationHandler : MonoBehaviour
 
         var inputs = Resources.Load<PlayerInputsReader>("PlayerInputsReader");
         inputs.OnRotate += v => {
-            if (GameManager.GetInstance().CurrentGameState == GameState.ISLAND_CHANGE) return;
+            if (GameManager.GetInstance().CurrentGameState != GameState.GAMEPLAY) return;
 
             var targetRot = rotation + (v * DEGREE_STEPS);
             var rot = new Vector3(0, targetRot, 0);

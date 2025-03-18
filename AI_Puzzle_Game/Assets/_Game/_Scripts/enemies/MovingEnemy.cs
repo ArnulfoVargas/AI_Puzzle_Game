@@ -1,24 +1,33 @@
+using System;
+using DG.Tweening;
+using TMPro;
+using Unity.Collections;
 using UnityEngine;
 
 public class MovingEnemy : EnemyBase {
-    [SerializeField] private Vector2 moveDirection;
-    private Vector3 dir;
-    private int moveModifier = 1;
-    private float speed = 5f;
+    private float speed = 5;
+    [SerializeField] private bool moveHorizontal, invert;
+    private int moveFactor;
+    private Rigidbody rb;
+    Vector3 dir;
+
+    void FixedUpdate()
+    {
+        rb.MovePosition(transform.position + dir * ( speed * Time.fixedDeltaTime ));
+    }
+   
 
     protected override void OnStart()
     {
-        base.OnStart();
-        dir = new Vector3(moveDirection.x, 0, moveDirection.y).normalized;
+        moveFactor = invert ? -1 : 1; 
+        dir = moveFactor * (moveHorizontal ? Vector3.right : Vector3.forward);
+        rb = GetComponent<Rigidbody>();
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        moveModifier *= -1;
-    }
-
-    protected override void OnGameplayUpdate()
-    {
-        transform.Translate(moveDirection * (Time.deltaTime * moveModifier * speed));
-    }
+        if (collision.gameObject.CompareTag("Wall")) {
+            dir *= -1;
+        }
+    } 
 }

@@ -19,6 +19,7 @@ public class IslandPoint : ScriptableObject
     public void SetTo(Transform t)
     {
         to = t.position;
+
         Save();
     }
     
@@ -41,8 +42,10 @@ public class IslandPoint : ScriptableObject
     }    
     public void Save()
     {
+        #if UNITY_EDITOR
         EditorUtility.SetDirty(this);
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
+        #endif
     }
 }
