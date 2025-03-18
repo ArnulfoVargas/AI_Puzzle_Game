@@ -12,14 +12,14 @@ void GetRadius_half(out float radius) {
     radius = _Global_Radius;
 }
 
-void GetBaseColor_half(out float4 baseColor) {
+void GetBaseColor_float(out float4 baseColor) {
     baseColor = _Global_BaseColor;
 }
 
-void GetColor_half(out float4 color) {
+void GetColor_float(out float4 color) {
     color = _Global_Color;
 }
 
-void GetFluorColor_half(out float4 fluor) {
+void GetFluorColor_float(out float4 fluor) {
     fluor = _Global_FluorColor;
 }

@@ -6,6 +6,7 @@ public class PlayerController : BaseBehaviour {
     [SerializeField] Transform rayPosition;
     private PlayerInputsReader inputs;
     private float moveSpeed {get; set;}
+    private float acceleration {get; set;}
     private float currentSpeed;
     private Vector3 moveDirection;
     PlayerState playerState = PlayerState.IDLE;
@@ -43,6 +44,7 @@ public class PlayerController : BaseBehaviour {
         var configs = Resources.Load<PlayerConfigs>("PlayerConfigs");
         inputs = Resources.Load<PlayerInputsReader>("PlayerInputsReader");
         moveSpeed = configs.MoveSpeed;
+        acceleration  = configs.Acceleration;
 
         inputs.OnMove += MoveTowards;
     }
@@ -67,7 +69,7 @@ public class PlayerController : BaseBehaviour {
     {
         if (CurrentPlayerState == PlayerState.MOVING)
         {
-            currentSpeed += Time.deltaTime * 3;
+            currentSpeed += Time.deltaTime * acceleration;
             currentSpeed = Mathf.Clamp(currentSpeed, 0, moveSpeed);
             transform.Translate(moveDirection * (currentSpeed * Time.deltaTime));
         }

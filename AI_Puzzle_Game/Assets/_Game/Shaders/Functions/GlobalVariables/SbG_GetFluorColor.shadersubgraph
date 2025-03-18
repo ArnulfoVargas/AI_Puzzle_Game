@@ -119,7 +119,7 @@
         "code",
         "HLSL"
     ],
-    "m_Precision": 2,
+    "m_Precision": 1,
     "m_PreviewExpanded": false,
     "m_DismissedVersion": 0,
     "m_PreviewMode": 0,

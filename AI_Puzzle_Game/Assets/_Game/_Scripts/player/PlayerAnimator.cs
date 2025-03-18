@@ -14,18 +14,21 @@ public class PlayerAnimator : BaseBehaviour
         inputs = Resources.Load<PlayerInputsReader>("PlayerInputsReader");
         animator = GetComponent<Animator>();
 
-        GameManager.GetInstance().OnPlayerStateChanged += (prev, curr) => {
-            if (prev == PlayerState.MOVING && curr == PlayerState.IDLE) {
-                animator.SetTrigger(animatorEndMove);
-                SetAnimatorValues();
-            }
-        };
+        GameManager.GetInstance().OnPlayerStateChanged += OnPlayerStateChanged;
         inputs.OnMove += OnMove;
+    }
+
+    void OnPlayerStateChanged(PlayerState prev, PlayerState curr) {
+        if (prev == PlayerState.MOVING && curr == PlayerState.IDLE) {
+            animator.SetTrigger(animatorEndMove);
+            SetAnimatorValues();
+        }
     }
 
     void OnDisable()
     {
         inputs.OnMove -= OnMove;
+        GameManager.GetInstance().OnPlayerStateChanged -= OnPlayerStateChanged;
     }
 
     private void OnMove(Vector3 v) {

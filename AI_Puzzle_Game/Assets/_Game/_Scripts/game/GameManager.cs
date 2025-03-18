@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour {
     public PlayerState CurrentPlayerState {
         get => playerState;
         set {
-            OnPlayerStateChanged.Invoke(playerState, value);
+            OnPlayerStateChanged?.Invoke(playerState, value);
             playerState = value;
         }
     }

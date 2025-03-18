@@ -83,7 +83,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: EndMove
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8928492579973262729}
   m_Solo: 0
@@ -225,7 +228,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: EndMove
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3444067978362452872}
   m_Solo: 0
@@ -274,7 +280,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: EndMove
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7657061945772410298}
   m_Solo: 0
@@ -299,7 +308,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: ZMove
-    m_EventTreshold: 0
+    m_EventTreshold: -0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3541938767985945164}
   m_Solo: 0
@@ -416,7 +425,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: XMove
-    m_EventTreshold: 0
+    m_EventTreshold: -0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7709863049828923220}
   m_Solo: 0
@@ -523,43 +532,43 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 7657061945772410298}
-    m_Position: {x: -290, y: 440, z: 0}
+    m_Position: {x: -380, y: 210, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4885546590979306385}
-    m_Position: {x: -290, y: 380, z: 0}
+    m_Position: {x: -380, y: 150, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2130264488362918927}
-    m_Position: {x: -290, y: 320, z: 0}
+    m_Position: {x: -380, y: 90, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -100369942838022176}
-    m_Position: {x: 30, y: 190, z: 0}
+    m_Position: {x: 20, y: 250, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8928492579973262729}
-    m_Position: {x: -80, y: 440, z: 0}
+    m_Position: {x: -210, y: 510, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8000907737598842707}
-    m_Position: {x: -80, y: 380, z: 0}
+    m_Position: {x: -210, y: 450, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3541938767985945164}
-    m_Position: {x: -80, y: 320, z: 0}
+    m_Position: {x: -210, y: 390, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7709863049828923220}
-    m_Position: {x: 130, y: 320, z: 0}
+    m_Position: {x: 230, y: 380, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6961466604051109215}
-    m_Position: {x: 130, y: 380, z: 0}
+    m_Position: {x: 230, y: 440, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3444067978362452872}
-    m_Position: {x: 130, y: 440, z: 0}
+    m_Position: {x: 230, y: 500, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6967181108105319231}
-    m_Position: {x: 340, y: 440, z: 0}
+    m_Position: {x: 390, y: 230, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1608985294589351743}
-    m_Position: {x: 340, y: 380, z: 0}
+    m_Position: {x: 390, y: 170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4498130255657990684}
-    m_Position: {x: 340, y: 320, z: 0}
+    m_Position: {x: 390, y: 110, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -580,7 +589,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: ZMove
-    m_EventTreshold: 0
+    m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2130264488362918927}
   m_Solo: 0
@@ -627,7 +636,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: XMove
-    m_EventTreshold: 0
+    m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4498130255657990684}
   m_Solo: 0
