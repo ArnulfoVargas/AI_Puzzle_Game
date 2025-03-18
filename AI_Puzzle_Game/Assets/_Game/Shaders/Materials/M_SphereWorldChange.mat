@@ -80,7 +80,7 @@ Material:
     - _NoiseStrength: 0.03
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Radius: 6.1
+    - _Radius: 0
     - _RadiusNoiseCutoff: 0.7
     - _RadiusNoiseOffset: 0
     - _Shades: 0.83
@@ -90,7 +90,7 @@ Material:
     - _ColorTile: {r: 0, g: 0, b: 0, a: 0}
     - _ColorTiles: {r: 1, g: 1, b: 1, a: 0}
     - _Color_1: {r: 0.15686275, g: 0.3372549, b: 0.69803923, a: 0}
-    - _EdgeColor: {r: 1, g: 1, b: 1, a: 0}
+    - _EdgeColor: {r: 8, g: 8, b: 8, a: 0}
     - _FluorColor: {r: 1, g: 1, b: 1, a: 0}
     - _LineColor: {r: 0, g: 0, b: 0, a: 0}
     - _Position: {r: 0, g: 0, b: 0, a: 0}
