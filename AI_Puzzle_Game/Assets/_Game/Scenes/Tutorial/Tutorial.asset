@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcea893d6119b884eafad9e23a2b658f, type: 3}
-  m_Name: ShaderVariables
+  m_Script: {fileID: 11500000, guid: 694ce6dc1e3ce9340af35606d8cec784, type: 3}
+  m_Name: Tutorial
   m_EditorClassIdentifier: 
-  radius: 3.5
-  baseColor: {r: 0.002892488, g: 0.037106533, b: 0.122641504, a: 0}
-  color: {r: 0.15686275, g: 0.3372549, b: 0.69803923, a: 0}
-  fluorColor: {r: 1, g: 1, b: 1, a: 1}
+  paths:
+  - {fileID: 11400000, guid: 0466d933a93e4f44884bc5d9c115a632, type: 2}
+  - {fileID: 11400000, guid: 03e95bba33af39c4ab4347836533c9b9, type: 2}
+  sceneIndex: 2
