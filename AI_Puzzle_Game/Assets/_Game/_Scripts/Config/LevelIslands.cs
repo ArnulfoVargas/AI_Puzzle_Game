@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +10,10 @@ public class LevelIslands : ScriptableObject
 {
     [SerializeField] private List<IslandPoint> paths = new();
     public int sceneIndex = -1;
+    public string scenePath = "";
     public List<IslandPoint> Paths => paths;
+    private LevelData levelData;
+    public LevelData LevelData => levelData;
 
     public Vector3 TravelTo(int pathIndex)
     {
@@ -26,15 +30,7 @@ public class LevelIslands : ScriptableObject
     public void Unbind()
     {
         sceneIndex = -1;
-        #if UNITY_EDITOR
-        foreach (var points in paths)
-        {
-            AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(points.GetInstanceID()));   
-        }
-        
-        Save();
-        #endif
-        paths.Clear();
+        scenePath = "";
     }
 
     public Scene getScene => SceneManager.GetSceneByBuildIndex(sceneIndex);
@@ -52,8 +48,43 @@ public class LevelIslands : ScriptableObject
 
     public void RemovePointAtIndex(int index)
     {
+        #if UNITY_EDITOR
+        var p = paths[index];
+        if (p) {
+            AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(p));
+            AssetDatabase.Refresh();
+        }
+        #endif
         paths.RemoveAt(index);
+
         Save();
+    }
+
+    public void Validate()
+    {
+        var sceneByIndex = EditorSceneManager.GetSceneByBuildIndex(sceneIndex);
+        var sceneByPath = EditorSceneManager.GetSceneByPath(scenePath);
+
+        if (sceneByIndex.buildIndex == sceneByPath.buildIndex) return;
+
+        if (sceneByIndex.buildIndex == -1 && sceneByPath.buildIndex >= 0) {
+            sceneIndex = sceneByPath.buildIndex;
+        } else if (sceneByPath.buildIndex == -1 && sceneByIndex.buildIndex >= 0) {
+            scenePath = sceneByIndex.path;
+        }else if (sceneByIndex.buildIndex != sceneByPath.buildIndex) {
+            sceneIndex = sceneByPath.buildIndex;
+        } else {
+            Unbind();
+        }
+    }
+    public void ValidatePoints() {
+        #if UNITY_EDITOR
+        for (int i = paths.Count - 1; i >= 0 ; i--)
+        {
+            if (paths[i] == null) RemovePointAtIndex(i);
+        }
+        Save();
+        #endif
     }
 
     public void Save()
