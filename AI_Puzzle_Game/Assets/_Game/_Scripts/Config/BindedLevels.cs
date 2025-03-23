@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class BindedLevels : ScriptableObject
 {
     [SerializeField] private List<LevelIslands> _levelIslandsMap = new();
+    public List<LevelIslands> GetAllLevelIslands => _levelIslandsMap;
     
     public bool IsSceneBinded(int scene) {
         foreach (var island in this._levelIslandsMap)

@@ -7,6 +7,6 @@ public struct LevelData
 {
     public bool levelSucceed;
     public uint recordMoves;
-    public uint moves;
     public bool[] collectableTaken;
+    public bool unlocked;
 }

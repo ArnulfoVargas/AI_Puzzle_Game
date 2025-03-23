@@ -4,6 +4,8 @@ public class PlayerAnimator : BaseBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private PlayerController controller;
+    [SerializeField] private Transform rayPosition;
+    [SerializeField] private LayerMask borderLayer;
     private PlayerInputsReader inputs;
     private readonly int animatorMoveXHash = Animator.StringToHash("XMove"); 
     private readonly int animatorMoveZHash = Animator.StringToHash("ZMove"); 
@@ -32,6 +34,7 @@ public class PlayerAnimator : BaseBehaviour
     }
 
     private void OnMove(Vector3 v) {
+        if (Physics.Raycast(rayPosition.position, v, 1f, borderLayer)) return;
         SetAnimatorValues(v.x, v.z);
     }
 

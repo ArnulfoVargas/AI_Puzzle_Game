@@ -143,6 +143,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 6463343957200672015}
   controller: {fileID: 299348308199233655}
+  rayPosition: {fileID: 4442139094471795992}
+  borderLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &1410253256815727955
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,6 +421,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerVisuals: {fileID: 6577638548808881386}
   rayPosition: {fileID: 4442139094471795992}
+  borderLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &926702836228391120
 MonoBehaviour:
   m_ObjectHideFlags: 0

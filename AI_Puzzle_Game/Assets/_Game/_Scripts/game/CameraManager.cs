@@ -48,7 +48,9 @@ public class CameraManager : MonoBehaviour
 
         if (_bindedLevels.IsSceneBinded(scene))
         {
-            levelIslands = _bindedLevels.GetLevelIslands(scene);
+            var bl = _bindedLevels.GetLevelIslands(scene);
+            levelIslands = bl;
+            _cameraControllerTransform.position = bl.TravelTo(0) ?? Vector3.zero;
         }
         else
         {
@@ -60,7 +62,16 @@ public class CameraManager : MonoBehaviour
     {
         if (levelIslands)
         {
-            endPosition = levelIslands.TravelTo(islandIndex);
+            var e = levelIslands.TravelTo(islandIndex);
+
+            if (e == null)
+            {
+                endPosition = transform.position;
+                Debug.LogWarning("Null position, Teleporter using an out of index value");
+                return null;
+            }
+
+            endPosition = e ?? _cameraControllerTransform.position;
             GameManager.GetInstance().OnTravel();
             return _cameraControllerTransform.DOMove(endPosition, 2f);
         }

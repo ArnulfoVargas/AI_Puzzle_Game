@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerController : BaseBehaviour {
     [SerializeField] Transform playerVisuals;
     [SerializeField] Transform rayPosition;
+    [SerializeField] LayerMask borderLayer;
     private PlayerInputsReader inputs;
     private float moveSpeed {get; set;}
     private float acceleration {get; set;}
@@ -57,7 +58,7 @@ public class PlayerController : BaseBehaviour {
     private void MoveTowards(Vector3 dir) {
         if (CurrentPlayerState == PlayerState.IDLE)
         {
-            if (Physics.Raycast(rayPosition.position, dir, .55f)) return;
+            if (Physics.Raycast(rayPosition.position, dir, 1f, borderLayer)) return;
 
             moveDirection = dir;
 
