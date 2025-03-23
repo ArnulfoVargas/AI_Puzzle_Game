@@ -1288,16 +1288,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 69092021219471950, guid: 47a5f462665c8884ab088845dcfc5e7d,
-        type: 3}
-      propertyPath: field of view
-      value: 55
-      objectReference: {fileID: 0}
-    - target: {fileID: 1641026714622949799, guid: 47a5f462665c8884ab088845dcfc5e7d,
-        type: 3}
-      propertyPath: slider
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4277326768033513897, guid: 47a5f462665c8884ab088845dcfc5e7d,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -6,8 +6,16 @@ public class GameManager : MonoBehaviour {
     private static GameManager Instance;
     public float cameraRotation = 0;
     public On<GameState> OnGameStateChanged;
+    public On<PlayerState, PlayerState> OnPlayerStateChanged;
     [SerializeField] private GameState currentGameState;
-    public PlayerState CurrentPlayerState = PlayerState.IDLE;
+    private PlayerState playerState = PlayerState.IDLE;
+    public PlayerState CurrentPlayerState {
+        get => playerState;
+        set {
+            OnPlayerStateChanged?.Invoke(playerState, value);
+            playerState = value;
+        }
+    }
     public GameState CurrentGameState {
         get => currentGameState;
         private set {

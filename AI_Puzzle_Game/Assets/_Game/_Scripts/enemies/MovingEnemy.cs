@@ -13,7 +13,8 @@ public class MovingEnemy : EnemyBase {
 
     void FixedUpdate()
     {
-        rb.MovePosition(transform.position + dir * ( speed * Time.fixedDeltaTime ));
+        if (currentState == GameState.GAMEPLAY)
+            rb.MovePosition(transform.position + dir * ( speed * Time.fixedDeltaTime ));
     }
    
 

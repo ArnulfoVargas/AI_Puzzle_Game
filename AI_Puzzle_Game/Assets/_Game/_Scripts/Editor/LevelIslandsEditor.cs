@@ -3,7 +3,6 @@ using System.IO;
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.UIElements;
-using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using UnityEditor.SceneManagement;
 
@@ -30,6 +29,7 @@ public class LevelIslandsEditor : Editor {
     public override VisualElement CreateInspectorGUI() {
         root = new VisualElement();
         visualTree.CloneTree(root);
+        parent.ValidatePoints();
         SetUpElements();
         SetUpHints();
         UpdateSelected();
@@ -60,7 +60,7 @@ public class LevelIslandsEditor : Editor {
     private void SetUpListeners() {
         bindCurrentButton.RegisterCallback<ClickEvent>((evt) =>
         {
-            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            int currentSceneIndex = EditorSceneManager.GetActiveScene().buildIndex;
             BindScene(currentSceneIndex);
         });
         
@@ -94,7 +94,7 @@ public class LevelIslandsEditor : Editor {
         var sceneList = root.Q<VisualElement>("SceneList");
         sceneList.Clear();
         
-        var sceneCount = SceneManager.sceneCountInBuildSettings;
+        var sceneCount = EditorSceneManager.sceneCountInBuildSettings;
         
         for (int i = 0; i < sceneCount; i++)
         {
@@ -127,7 +127,7 @@ public class LevelIslandsEditor : Editor {
 
     private void SetCurrentSceneButtonVisibility()
     {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int currentSceneIndex = EditorSceneManager.GetActiveScene().buildIndex;
         if (!bindedLevels.IsSceneBinded(currentSceneIndex))
         {
             bindCurrentButton.style.visibility = sceneUnselectedContainer.style.visibility;
@@ -142,6 +142,7 @@ public class LevelIslandsEditor : Editor {
     {
         bindedLevels.BindLevel(scene, parent);
         parent.sceneIndex = scene;
+        parent.scenePath = EditorSceneManager.GetSceneByBuildIndex(scene).path;
         UpdateOpenSceneBtn();
         UpdateSelected();
         SaveAssets();

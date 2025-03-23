@@ -6,12 +6,15 @@ public class PlayerController : BaseBehaviour {
     [SerializeField] Transform rayPosition;
     private PlayerInputsReader inputs;
     private float moveSpeed {get; set;}
+    private float acceleration {get; set;}
+    private float currentSpeed;
     private Vector3 moveDirection;
     PlayerState playerState = PlayerState.IDLE;
     public PlayerState CurrentPlayerState {
         get => playerState; 
         set {
             playerState = value;
+            currentSpeed = 0;
             GameManager.GetInstance().CurrentPlayerState = playerState;
         }
     }
@@ -30,12 +33,18 @@ public class PlayerController : BaseBehaviour {
     {
         this.CurrentPlayerState = PlayerState.IDLE;
     }
+
+    public void SetMovingState()
+    {
+        this.CurrentPlayerState = PlayerState.MOVING;
+    }
     
     protected override void OnStart()
     {
         var configs = Resources.Load<PlayerConfigs>("PlayerConfigs");
         inputs = Resources.Load<PlayerInputsReader>("PlayerInputsReader");
         moveSpeed = configs.MoveSpeed;
+        acceleration  = configs.Acceleration;
 
         inputs.OnMove += MoveTowards;
     }
@@ -52,22 +61,18 @@ public class PlayerController : BaseBehaviour {
 
             moveDirection = dir;
 
-            // if (playerVisuals.forward != dir) {
-            //     CurrentPlayerState = PlayerState.ROTATING;
-            //     playerVisuals.DOLookAt(playerVisuals.position + moveDirection, 0.5f).OnComplete(() => {
-            //         CurrentPlayerState = PlayerState.MOVING;
-            //     });
-            // }
-            // else CurrentPlayerState = PlayerState.MOVING;
-
-            CurrentPlayerState = PlayerState.MOVING;
+            SetAnimationState();
         }
     }
 
     protected override void OnGameplayUpdate()
     {
         if (CurrentPlayerState == PlayerState.MOVING)
-            transform.Translate(moveDirection * (moveSpeed * Time.deltaTime));
+        {
+            currentSpeed += Time.deltaTime * acceleration;
+            currentSpeed = Mathf.Clamp(currentSpeed, 0, moveSpeed);
+            transform.Translate(moveDirection * (currentSpeed * Time.deltaTime));
+        }
     }
     void OnTriggerEnter(Collider other)
     {

@@ -54,8 +54,10 @@ public class BindedIslandsViewer : Editor
             
             if (parent.IsSceneBinded(i))
             {
-                if (parent.GetLevelIslands(i) != null)
+                var lvlIslands = parent.GetLevelIslands(i);
+                if (lvlIslands != null)
                 {
+                    lvlIslands.Validate();
                     binded.Add(CreateBindedScene(i, sceneName));
                     continue;  
                 }
