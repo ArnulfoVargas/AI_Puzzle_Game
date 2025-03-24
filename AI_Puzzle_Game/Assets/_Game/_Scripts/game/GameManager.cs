@@ -49,11 +49,11 @@ public class GameManager : MonoBehaviour {
     }
 
     public void OnPause() {
-        CurrentGameState = GameState.GAMEPLAY;
+        CurrentGameState = GameState.PAUSE;
     }
 
     public void OnSettings() {
-        currentGameState = GameState.SETTINGS;
+        CurrentGameState = GameState.SETTINGS;
     }
 
     public void OnLoose()
