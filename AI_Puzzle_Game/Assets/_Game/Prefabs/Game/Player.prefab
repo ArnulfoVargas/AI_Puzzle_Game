@@ -143,6 +143,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 6463343957200672015}
   controller: {fileID: 299348308199233655}
+  rayPosition: {fileID: 4442139094471795992}
+  borderLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &1410253256815727955
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,6 +421,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerVisuals: {fileID: 6577638548808881386}
   rayPosition: {fileID: 4442139094471795992}
+  borderLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  tilesLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  debugTile: 1
 --- !u!114 &926702836228391120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,8 +460,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0.5, y: 0.5, z: 0.5}
+  m_Size: {x: 1.145277, y: 0.79389495, z: 1.145277}
+  m_Center: {x: 0.5726385, y: 0.6030525, z: 0.5726385}
 --- !u!54 &6981614871819393648
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -693,7 +704,7 @@ Transform:
   m_GameObject: {fileID: 8516253363535065167}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0, z: 0.5}
+  m_LocalPosition: {x: 0.5726385, y: 0, z: 0.5726385}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

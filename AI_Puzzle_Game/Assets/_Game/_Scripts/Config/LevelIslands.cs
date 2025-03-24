@@ -14,9 +14,26 @@ public class LevelIslands : ScriptableObject
     public List<IslandPoint> Paths => paths;
     private LevelData levelData;
     public LevelData LevelData => levelData;
+    [SerializeField] private int levelNumber = -1;
+    public int LevelNumber {
+        get => levelNumber;
+        set {
+            if (value == -1) playable = false;
+            levelNumber = value;
+        }
+    }
+    private bool playable = true;
+    public bool Playable {
+        get => playable;
+        set {
+            playable = value;
+        }
+    }
 
-    public Vector3 TravelTo(int pathIndex)
+    public Vector3? TravelTo(int pathIndex)
     {
+        if (paths.Count == 0 ) return Vector3.zero; 
+        if (pathIndex >= paths.Count) return null;
         return paths[pathIndex].GetCenter;
     }
 
@@ -94,5 +111,18 @@ public class LevelIslands : ScriptableObject
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
         #endif
+    }
+
+    public void SaveGame() {
+        ES3.Save($"", levelData);
+    }
+
+    public void LoadGame() {
+        levelData = ES3.Load<LevelData>($"", new LevelData{
+            collectableTaken = new[]{false, false, false},
+            recordMoves = 0,
+            levelSucceed = false,
+            unlocked = false
+        });
     }
 }

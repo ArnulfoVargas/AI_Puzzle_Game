@@ -23,7 +23,7 @@ public class CollisionHandler : BaseBehaviour, IDamageable, ITeleporteable, IWin
 
         tweener.OnComplete(() =>
         {
-            GameManager.GetInstance().OnTravelEnd();
+            GameManager.GetInstance().OnGameplay();
             var p = teleporter.GetTeleportLocation();
             transform.position = new Vector3(Mathf.RoundToInt(p.x), 0, Mathf.RoundToInt(p.z));
             player.SetIdleState();

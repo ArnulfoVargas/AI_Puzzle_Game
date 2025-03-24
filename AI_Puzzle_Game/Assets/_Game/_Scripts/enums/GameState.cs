@@ -5,4 +5,5 @@ public enum GameState {
     VICTORY,
     DEFEAT,
     DIALOG,
+    SETTINGS,
 }

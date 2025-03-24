@@ -4,12 +4,14 @@ using UnityEngine;
 public class PlayerController : BaseBehaviour {
     [SerializeField] Transform playerVisuals;
     [SerializeField] Transform rayPosition;
+    [SerializeField] LayerMask borderLayer, tilesLayer;
     private PlayerInputsReader inputs;
     private float moveSpeed {get; set;}
     private float acceleration {get; set;}
     private float currentSpeed;
     private Vector3 moveDirection;
     PlayerState playerState = PlayerState.IDLE;
+    [SerializeField] private bool debugTile;
     public PlayerState CurrentPlayerState {
         get => playerState; 
         set {
@@ -57,7 +59,7 @@ public class PlayerController : BaseBehaviour {
     private void MoveTowards(Vector3 dir) {
         if (CurrentPlayerState == PlayerState.IDLE)
         {
-            if (Physics.Raycast(rayPosition.position, dir, .55f)) return;
+            if (Physics.Raycast(rayPosition.position, dir, 1f, borderLayer)) return;
 
             moveDirection = dir;
 
@@ -78,7 +80,17 @@ public class PlayerController : BaseBehaviour {
     {
         CurrentPlayerState = PlayerState.IDLE;
         moveDirection = Vector3.zero;
-        var p = transform.position;
-        transform.position = new Vector3(Mathf.RoundToInt(p.x), Mathf.RoundToInt(p.y), Mathf.RoundToInt(p.z));
+        if (debugTile) {
+            if (Physics.Raycast(rayPosition.position, Vector3.down, out RaycastHit hit, 1f, tilesLayer))
+            {
+                var b = hit.collider.bounds;
+                var p = new Vector3(b.min.x, 0, b.min.z);
+                transform.position = p;
+            }
+        }
+        else {
+            var p = transform.position;
+            transform.position = new Vector3(Mathf.RoundToInt(p.x), Mathf.RoundToInt(p.y), Mathf.RoundToInt(p.z));
+        }
     }
 }

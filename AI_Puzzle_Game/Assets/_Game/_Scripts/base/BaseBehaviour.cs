@@ -79,6 +79,10 @@ public class BaseBehaviour : MonoBehaviour
                 OnDialogStart();
                 update = OnDialogUpdate;
                 break;
+            case GameState.SETTINGS:
+                OnSettingsStart();
+                update = OnSettingsUpdate;
+                break;
         }
 
         OnUpdateState(state);
@@ -95,6 +99,7 @@ public class BaseBehaviour : MonoBehaviour
     virtual protected void OnVictoryStart() { }
     virtual protected void OnDefeatStart() { }
     virtual protected void OnDialogStart() { }
+    virtual protected void OnSettingsStart() { }
 #endregion
 
 /// <summary>
@@ -108,6 +113,7 @@ public class BaseBehaviour : MonoBehaviour
     virtual protected void OnVictoryUpdate() { }
     virtual protected void OnDefeatUpdate() { }
     virtual protected void OnDialogUpdate() { }
+    virtual protected void OnSettingsUpdate() { }
 
     virtual protected void OnUpdateState(GameState state) {}
 #endregion
