@@ -8,7 +8,7 @@ public class Interactable : BaseBehaviour, IInteractable
     private BoxCollider col;
     LevelIslands levelIslands;
 
-    void Start()
+    protected override void OnStart()
     {
         col = GetComponent<BoxCollider>();
         var c = LevelsManager.Instance.CurrentLevel;
@@ -34,5 +34,7 @@ public class Interactable : BaseBehaviour, IInteractable
     {
         col.enabled = false;
         levelIslands.LevelData.collectableTaken[collectableNumber] = true;
+
+        gameObject.SetActive(false);
     }
 }
