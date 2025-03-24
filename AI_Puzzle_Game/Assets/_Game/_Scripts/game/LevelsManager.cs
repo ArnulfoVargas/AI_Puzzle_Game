@@ -37,6 +37,7 @@ public class LevelsManager : MonoBehaviour {
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
         currentLevel = bindedLevels.GetLevelIslands(scene.buildIndex);
+        currentLevel.LoadGame();
     }
 
     public void UnlockNext() {

@@ -78,6 +78,7 @@ public class PlayerController : BaseBehaviour {
     }
     void OnTriggerEnter(Collider other)
     {
+        if (other.TryGetComponent(out IInteractable i)) return;
         CurrentPlayerState = PlayerState.IDLE;
         moveDirection = Vector3.zero;
         if (debugTile) {

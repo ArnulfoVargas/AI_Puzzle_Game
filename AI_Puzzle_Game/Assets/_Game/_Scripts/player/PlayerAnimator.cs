@@ -34,6 +34,7 @@ public class PlayerAnimator : BaseBehaviour
     }
 
     private void OnMove(Vector3 v) {
+        if (currentState != GameState.GAMEPLAY) return;
         if (Physics.Raycast(rayPosition.position, v, 1f, borderLayer)) return;
         SetAnimatorValues(v.x, v.z);
     }
