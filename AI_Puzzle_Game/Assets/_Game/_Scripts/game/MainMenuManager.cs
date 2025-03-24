@@ -1,5 +1,9 @@
 using System;
+using System.Threading;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 [Serializable]
 public enum MainMenuState {
@@ -9,12 +13,14 @@ public enum MainMenuState {
 }
 
 public class MainMenuManager : MonoBehaviour {
-    [SerializeField] GameObject HomeUi, LevelSelectUi, SettingsUi;
+    [SerializeField] GameObject HomeUi, LevelSelectUi, SettingsUi, levelSelectorButtonsParent;
+    [SerializeField] Transform buttonPrefab;
     private MainMenuState state;
 
     void Start()
     {
         SetState(0);
+        BuildLevelSelector();
     }
 
     public void SetState(int state) {
@@ -26,10 +32,28 @@ public class MainMenuManager : MonoBehaviour {
     }
 
     public void OpenTutorial() {
-
+        var tutorial = LevelsManager.Instance.tutorialLevel;
+        if (tutorial != null)
+            SceneManager.LoadScene(tutorial.sceneIndex);
     }
 
     public void QuitGame() {
         Application.Quit();
+    }
+
+    public void BuildLevelSelector() {
+        var levels = LevelsManager.Instance.orderedLevels;
+        for (int i = 0; i < levels.Count; i ++) {
+            var go = Instantiate(buttonPrefab);
+            go.parent = levelSelectorButtonsParent.transform;
+
+            var btn = go.GetComponent<Button>();
+            var lvl = levels[i];
+            btn.onClick.AddListener(() => {
+                SceneManager.LoadScene(lvl.sceneIndex);
+            });
+
+            btn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = lvl.LevelNumber.ToString();
+        }
     }
 }

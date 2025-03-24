@@ -7,10 +7,10 @@ public class LevelsManager : MonoBehaviour {
     [SerializeField] BindedLevels bindedLevels;
     private static LevelsManager instance;
     public static LevelsManager Instance => instance;
-    private int lastUnlockedLevel = 0;
     private LevelIslands currentLevel;
     public LevelIslands CurrentLevel => currentLevel;
-    public List<LevelIslands> orderedLevels;
+    [HideInInspector] public List<LevelIslands> orderedLevels = new();
+    [HideInInspector] public LevelIslands tutorialLevel;
 
     void Awake()
     {
@@ -19,17 +19,20 @@ public class LevelsManager : MonoBehaviour {
 
         DontDestroyOnLoad(this);
 
-        lastUnlockedLevel = ES3.Load<int>("last_unlocked_lvl", 0);
-
         SceneManager.sceneLoaded += OnSceneLoaded;
 
         GameManager.GetInstance().OnGameStateChanged += OnGameStateChange;
-
-        orderedLevels =(from bl in bindedLevels.GetAllLevelIslands 
-                        where bl.Playable && bl.LevelNumber >= 0 
-                        orderby bl.LevelNumber ascending 
+        var allLevels = bindedLevels.GetAllLevelIslands;
+        orderedLevels =(from bl in allLevels
+                        where bl.Playable && bl.LevelNumber > 0 
                         select bl
-                    ).ToList();
+                    ).ToHashSet().OrderBy((x) => x.LevelNumber).ToList();
+
+        var v =(from bl in bindedLevels.GetAllLevelIslands
+                        where bl.Playable && bl.LevelNumber == 0
+                        select bl
+                        );
+        tutorialLevel = v.Count() == 0 ? null : v.First();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {

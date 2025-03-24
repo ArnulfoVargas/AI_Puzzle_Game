@@ -79,10 +79,31 @@ public class BindedIslandsViewer : Editor
         VisualElement e = new VisualElement();
         e.AddToClassList("scene-list-item");
         ObjectField objectField = new ObjectField();
+        var levelIsland = parent.GetLevelIslands(i);
         objectField.objectType = typeof(LevelIslands);
-        objectField.value = parent.GetLevelIslands(i);
+        objectField.value = levelIsland;
         objectField.label = sceneName;
+        objectField.RegisterCallback<ChangeEvent<LevelIslands>>((v) => {
+            objectField.value = v.previousValue;
+        });
+
+        var playableField = new Toggle();
+        playableField.label = "Is playable";
+        playableField.value = levelIsland.Playable;
+        playableField.RegisterCallback<ChangeEvent<bool>>((v) => {
+            parent.GetLevelIslands(i).Playable = v.newValue;
+        });
+
+        var levelNumberField = new IntegerField();
+        levelNumberField.label = "Level number";
+        levelNumberField.value = levelIsland.LevelNumber;
+        levelNumberField.RegisterCallback<ChangeEvent<int>>(e => {
+            parent.TryChangeLevelNumber(e.newValue, levelIsland);
+        });
+
         e.Add(objectField);
+        e.Add(playableField);
+        e.Add(levelNumberField);
         return e;
     }
 

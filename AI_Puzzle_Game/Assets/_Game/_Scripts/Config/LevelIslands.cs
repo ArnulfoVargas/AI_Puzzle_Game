@@ -14,13 +14,20 @@ public class LevelIslands : ScriptableObject
     public List<IslandPoint> Paths => paths;
     private LevelData levelData;
     public LevelData LevelData => levelData;
-    public int LevelNumber = -1;
+    [SerializeField] private int levelNumber = -1;
+    public int LevelNumber {
+        get => levelNumber;
+        set {
+            if (value == -1) playable = false;
+            levelNumber = value;
+        }
+    }
     private bool playable = true;
     public bool Playable {
         get => playable;
         set {
             playable = value;
-            if (!value) LevelNumber = -1;
+            if (!value) levelNumber = -1;
         }
     }
 

@@ -2,7 +2,8 @@ using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using System.Linq;
+using Unity.VisualScripting;
 
 // [Serializable]
 [CreateAssetMenu(fileName = "BindedLevels", menuName = "Configs/BindedLevels"), Serializable]
@@ -12,8 +13,9 @@ public class BindedLevels : ScriptableObject
     public List<LevelIslands> GetAllLevelIslands => _levelIslandsMap;
     
     public bool IsSceneBinded(int scene) {
-        foreach (var island in this._levelIslandsMap)
+        for (int i = 0; i < _levelIslandsMap.Count; i++)
         {
+            LevelIslands island = this._levelIslandsMap[i];
             if (island.sceneIndex == scene) return true;
         }
         return false;
@@ -21,8 +23,9 @@ public class BindedLevels : ScriptableObject
 
     public LevelIslands GetLevelIslands(int scene)
     {
-        foreach (var island in _levelIslandsMap)
+        for (int i = 0; i < _levelIslandsMap.Count; i++)
         {
+            LevelIslands island = _levelIslandsMap[i];
             if (island.sceneIndex == scene) return island;
         }
 
@@ -50,5 +53,23 @@ public class BindedLevels : ScriptableObject
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
         #endif
+    }
+
+    public void TryChangeLevelNumber(int levelNumber, LevelIslands islands) {
+        if (levelNumber <= -1) {
+            islands.LevelNumber = -1;
+        }
+        var level = (from li in _levelIslandsMap 
+                    where li.LevelNumber == levelNumber
+                    select li).FirstOrDefault();
+
+        if (level == null) {
+            islands.LevelNumber = levelNumber;
+            return;
+        }
+        
+        var holder = islands.LevelNumber;
+        islands.LevelNumber = levelNumber;
+        level.LevelNumber = holder;
     }
 }
