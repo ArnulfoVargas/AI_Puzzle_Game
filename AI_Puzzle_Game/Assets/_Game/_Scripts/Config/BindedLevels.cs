@@ -58,6 +58,7 @@ public class BindedLevels : ScriptableObject
     public void TryChangeLevelNumber(int levelNumber, LevelIslands islands) {
         if (levelNumber <= -1) {
             islands.LevelNumber = -1;
+            return;
         }
         var level = (from li in _levelIslandsMap 
                     where li.LevelNumber == levelNumber

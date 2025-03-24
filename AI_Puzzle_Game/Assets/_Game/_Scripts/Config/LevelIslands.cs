@@ -27,7 +27,6 @@ public class LevelIslands : ScriptableObject
         get => playable;
         set {
             playable = value;
-            if (!value) levelNumber = -1;
         }
     }
 
