@@ -44,8 +44,16 @@ public class GameManager : MonoBehaviour {
         CurrentGameState = GameState.ISLAND_CHANGE;
     }
 
-    public void OnTravelEnd() {
+    public void OnGameplay() {
         CurrentGameState = GameState.GAMEPLAY;
+    }
+
+    public void OnPause() {
+        CurrentGameState = GameState.GAMEPLAY;
+    }
+
+    public void OnSettings() {
+        currentGameState = GameState.SETTINGS;
     }
 
     public void OnLoose()
