@@ -28,10 +28,11 @@ public class CameraManager : MonoBehaviour
             _bindedLevels = Resources.Load<BindedLevels>("BindedLevels");
         }
 
-        SceneManager.sceneLoaded += (scene, mode) =>
-        {
-            Initialize();
-        };
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+        Initialize();
     }
 
     private void Initialize()
@@ -73,7 +74,7 @@ public class CameraManager : MonoBehaviour
 
             endPosition = e ?? _cameraControllerTransform.position;
             GameManager.GetInstance().OnTravel();
-            return _cameraControllerTransform.DOMove(endPosition, 2f);
+            return _cameraControllerTransform.DOMove(endPosition, 2f).SetAutoKill();
         }
 
         endPosition = Vector3.zero;

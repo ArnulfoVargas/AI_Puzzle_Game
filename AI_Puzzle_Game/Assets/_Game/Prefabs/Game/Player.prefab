@@ -84,6 +84,7 @@ GameObject:
   - component: {fileID: 1104021554752180085}
   - component: {fileID: 6463343957200672015}
   - component: {fileID: 3609249136239516245}
+  - component: {fileID: 4414264878920287630}
   m_Layer: 0
   m_Name: Click
   m_TagString: Untagged
@@ -147,6 +148,20 @@ MonoBehaviour:
   borderLayer:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &4414264878920287630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295431548802471375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c705532e0e264b44aa853f97d095b9aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 6463343957200672015}
+  defaultSpeed: 3
 --- !u!1 &1410253256815727955
 GameObject:
   m_ObjectHideFlags: 0
