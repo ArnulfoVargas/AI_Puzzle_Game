@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ShaderVariables
   m_EditorClassIdentifier: 
   radius: 33.6
-  baseColor: {r: 0.002892488, g: 0.037106533, b: 0.122641504, a: 0}
-  color: {r: 0.15686275, g: 0.3372549, b: 0.69803923, a: 0}
+  baseColor: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0.003782485, g: 0.016378801, b: 0.047169805, a: 0}
   fluorColor: {r: 1, g: 1, b: 1, a: 1}
