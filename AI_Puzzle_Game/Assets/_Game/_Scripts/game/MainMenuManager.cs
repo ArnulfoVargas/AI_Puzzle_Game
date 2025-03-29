@@ -49,6 +49,7 @@ public class MainMenuManager : MonoBehaviour {
 
             var btn = go.GetComponent<Button>();
             var lvl = levels[i];
+            btn.interactable = lvl.LoadGame().unlocked;
             btn.onClick.AddListener(() => {
                 SceneManager.LoadScene(lvl.sceneIndex);
             });

@@ -15,10 +15,19 @@ public class LevelIslands : ScriptableObject
     private LevelData levelData;
     public LevelData LevelData => levelData;
     [SerializeField] private int levelNumber = -1;
+    public LevelIslands next;
+    private bool startsUnlocked = false;
+    public bool StartsUnlocked {
+        get => startsUnlocked;
+        set {
+            startsUnlocked = value;
+        }
+    }
+
+
     public int LevelNumber {
         get => levelNumber;
         set {
-            if (value == -1) playable = false;
             levelNumber = value;
         }
     }
@@ -44,10 +53,24 @@ public class LevelIslands : ScriptableObject
         #endif
     }
 
+    public void Unlock() {
+        levelData.unlocked = true;
+        SaveGame();
+    }
+
     public void Unbind()
     {
         sceneIndex = -1;
         scenePath = "";
+    }
+
+    public void OnTakeInteractable(int index) {
+        levelData.collectableTaken[index] = true;
+    }
+
+    public void OnSucceed() {
+        levelData.levelSucceed = true;
+        SaveGame();
     }
 
     public Scene getScene => SceneManager.GetSceneByBuildIndex(sceneIndex);
@@ -113,16 +136,18 @@ public class LevelIslands : ScriptableObject
         #endif
     }
 
-    public void SaveGame() {
-        // ES3.Save($"", levelData);
+    private void SaveGame() {
+        ES3.Save($"{levelNumber:00}-{scenePath}-data", levelData);
     }
 
-    public void LoadGame() {
-        levelData = ES3.Load<LevelData>($"", new LevelData{
+    public LevelData LoadGame() {
+        levelData = ES3.Load<LevelData>($"{levelNumber:00}-{scenePath}-data", new LevelData{
             collectableTaken = new[]{false, false, false},
             recordMoves = 0,
             levelSucceed = false,
-            unlocked = false
+            unlocked = startsUnlocked
         });
+
+        return levelData;
     }
 }

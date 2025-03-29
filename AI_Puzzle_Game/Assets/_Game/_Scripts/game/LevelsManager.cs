@@ -8,7 +8,9 @@ public class LevelsManager : MonoBehaviour {
     private static LevelsManager instance;
     public static LevelsManager Instance => instance;
     private LevelIslands currentLevel;
+    private LevelIslands nextLevel;
     public LevelIslands CurrentLevel => currentLevel;
+    public LevelIslands NextLevel => nextLevel;
     [HideInInspector] public List<LevelIslands> orderedLevels = new();
     [HideInInspector] public LevelIslands tutorialLevel;
 
@@ -28,25 +30,37 @@ public class LevelsManager : MonoBehaviour {
                         select bl
                     ).ToHashSet().OrderBy((x) => x.LevelNumber).ToList();
 
-        var v =(from bl in bindedLevels.GetAllLevelIslands
+        var v = from bl in bindedLevels.GetAllLevelIslands
                         where bl.Playable && bl.LevelNumber == 0
                         select bl
-                        );
+                        ;
+        
         tutorialLevel = v.Count() == 0 ? null : v.First();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
         currentLevel = bindedLevels.GetLevelIslands(scene.buildIndex);
-        currentLevel.LoadGame();
+        currentLevel?.LoadGame();
     }
 
     public void UnlockNext() {
+        nextLevel = currentLevel.next;
+        if (nextLevel == null) return;
 
+        nextLevel.LoadGame();
+        if (!nextLevel.LevelData.unlocked) {
+            nextLevel.Unlock();
+        }
+    }
+
+    private void OnVictory() {
+        UnlockNext();
+        currentLevel.OnSucceed();
     }
 
     public void OnGameStateChange(GameState state) {
         if (state == GameState.VICTORY) {
-
+            OnVictory();
         }
         else if (state == GameState.DEFEAT) {
 
