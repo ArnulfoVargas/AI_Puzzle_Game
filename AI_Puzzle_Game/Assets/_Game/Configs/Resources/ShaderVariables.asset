@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcea893d6119b884eafad9e23a2b658f, type: 3}
   m_Name: ShaderVariables
   m_EditorClassIdentifier: 
-  radius: 5
-  baseColor: {r: 0.002892488, g: 0.037106533, b: 0.122641504, a: 0}
-  color: {r: 0.15686275, g: 0.3372549, b: 0.69803923, a: 0}
+  radius: 33.6
+  baseColor: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0.003782485, g: 0.016378801, b: 0.047169805, a: 0}
   fluorColor: {r: 1, g: 1, b: 1, a: 1}
