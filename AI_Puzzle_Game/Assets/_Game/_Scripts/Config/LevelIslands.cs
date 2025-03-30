@@ -16,26 +16,24 @@ public class LevelIslands : ScriptableObject
     public int sceneIndex = -1;
     public string scenePath = "";
     public List<IslandPoint> Paths => paths;
-    private LevelData levelData;
+    [SerializeField] private LevelData levelData;
     public LevelData LevelData => levelData;
     [SerializeField] private int levelNumber = -1;
     public LevelIslands next;
-    private bool startsUnlocked = false;
+    [SerializeField] private bool startsUnlocked = false;
     public bool StartsUnlocked {
         get => startsUnlocked;
         set {
             startsUnlocked = value;
         }
     }
-
-
     public int LevelNumber {
         get => levelNumber;
         set {
             levelNumber = value;
         }
     }
-    private bool playable = true;
+    [SerializeField] private bool playable = true;
     public bool Playable {
         get => playable;
         set {
