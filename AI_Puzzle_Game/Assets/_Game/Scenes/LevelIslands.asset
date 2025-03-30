@@ -18,3 +18,4 @@ MonoBehaviour:
   sceneIndex: 1
   scenePath: Assets/_Game/Scenes/MechanicsTestScene.unity
   levelNumber: 1
+  next: {fileID: 0}
