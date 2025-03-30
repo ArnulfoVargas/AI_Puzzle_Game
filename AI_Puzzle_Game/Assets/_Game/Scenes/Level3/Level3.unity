@@ -6851,7 +6851,7 @@ PrefabInstance:
     - target: {fileID: 6336402990337253546, guid: 850b5c3e43e4ec74495ce435c2dbbb22,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.059
+      value: 0.033
       objectReference: {fileID: 0}
     - target: {fileID: 6336402990337253546, guid: 850b5c3e43e4ec74495ce435c2dbbb22,
         type: 3}
@@ -6933,7 +6933,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.124333, y: 0.22225189, z: 1.9012278}
+  m_Size: {x: 2, y: 1, z: 1}
   m_Center: {x: 0.0025839806, y: -0.076160625, z: 0.48811835}
 --- !u!1 &2031021639
 GameObject:
