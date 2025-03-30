@@ -17,5 +17,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: be40eca0dec6e0249b2e8439b6a96fbb, type: 2}
   sceneIndex: 1
   scenePath: Assets/_Game/Scenes/MechanicsTestScene.unity
-  levelNumber: 1
-  next: {fileID: 0}
+  levelNumber: -1
+  next: {fileID: 11400000, guid: 2d833245aecbba84a98388cd362d508e, type: 2}
+  startsUnlocked: 0
+  playable: 0

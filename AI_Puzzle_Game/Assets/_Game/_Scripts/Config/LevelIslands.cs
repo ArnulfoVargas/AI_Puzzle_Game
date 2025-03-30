@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 
 #if UNITY_EDITOR
@@ -25,12 +26,14 @@ public class LevelIslands : ScriptableObject
         get => startsUnlocked;
         set {
             startsUnlocked = value;
+            Save();
         }
     }
     public int LevelNumber {
         get => levelNumber;
         set {
             levelNumber = value;
+            Save();
         }
     }
     [SerializeField] private bool playable = true;
@@ -38,6 +41,7 @@ public class LevelIslands : ScriptableObject
         get => playable;
         set {
             playable = value;
+            Save();
         }
     }
 
