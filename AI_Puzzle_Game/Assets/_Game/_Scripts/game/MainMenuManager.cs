@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading;
 using TMPro;
 using UnityEngine;
@@ -39,6 +40,13 @@ public class MainMenuManager : MonoBehaviour {
 
     public void QuitGame() {
         Application.Quit();
+    }
+
+    public void ResetData() {
+        foreach(var f in ES3.GetFiles()) {
+            ES3.DeleteFile(f);
+        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void BuildLevelSelector() {
