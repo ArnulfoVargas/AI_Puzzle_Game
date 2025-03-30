@@ -81,17 +81,17 @@ public class PlayerController : BaseBehaviour {
         if (other.TryGetComponent(out IInteractable i)) return;
         CurrentPlayerState = PlayerState.IDLE;
         moveDirection = Vector3.zero;
-        if (debugTile) {
+        // if (debugTile) {
             if (Physics.Raycast(rayPosition.position, Vector3.down, out RaycastHit hit, 1f, tilesLayer))
             {
                 var b = hit.collider.bounds;
                 var p = new Vector3(b.min.x, 0, b.min.z);
                 transform.position = p;
             }
-        }
-        else {
-            var p = transform.position;
-            transform.position = new Vector3(Mathf.RoundToInt(p.x), Mathf.RoundToInt(p.y), Mathf.RoundToInt(p.z));
-        }
+        // }
+        // else {
+        //     var p = transform.position;
+        //     transform.position = new Vector3(Mathf.RoundToInt(p.x), Mathf.RoundToInt(p.y), Mathf.RoundToInt(p.z));
+        // }
     }
 }
