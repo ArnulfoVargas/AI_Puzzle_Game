@@ -1,7 +1,11 @@
 using System;
 using System.Collections.Generic;
 using UnityEditor;
+
+#if UNITY_EDITOR
 using UnityEditor.SceneManagement;
+#endif
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -102,6 +106,7 @@ public class LevelIslands : ScriptableObject
 
     public void Validate()
     {
+        #if UNITY_EDITOR
         var sceneByIndex = EditorSceneManager.GetSceneByBuildIndex(sceneIndex);
         var sceneByPath = EditorSceneManager.GetSceneByPath(scenePath);
 
@@ -116,6 +121,7 @@ public class LevelIslands : ScriptableObject
         } else {
             Unbind();
         }
+        #endif
     }
     public void ValidatePoints() {
         #if UNITY_EDITOR
