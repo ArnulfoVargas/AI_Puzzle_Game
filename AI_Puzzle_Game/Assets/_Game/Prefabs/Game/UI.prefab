@@ -3439,6 +3439,7 @@ MonoBehaviour:
   OnLooseUi: {fileID: 7440964367338426723}
   SettingsUi: {fileID: 7407281519417889374}
   OnPauseUi: {fileID: 6987757847023588411}
+  nextBtn: {fileID: 6881120113920128603}
 --- !u!114 &4651736478759430942
 MonoBehaviour:
   m_ObjectHideFlags: 0
