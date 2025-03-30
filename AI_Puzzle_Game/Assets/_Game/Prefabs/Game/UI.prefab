@@ -691,7 +691,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 470712187182576576}
         m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
-        m_MethodName: Resume
+        m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
