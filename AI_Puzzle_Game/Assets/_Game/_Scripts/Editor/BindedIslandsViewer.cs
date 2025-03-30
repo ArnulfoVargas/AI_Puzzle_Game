@@ -80,12 +80,17 @@ public class BindedIslandsViewer : Editor
         e.AddToClassList("scene-list-item");
         ObjectField objectField = new ObjectField();
         var levelIsland = parent.GetLevelIslands(i);
+
         objectField.objectType = typeof(LevelIslands);
         objectField.value = levelIsland;
         objectField.label = sceneName;
-        objectField.RegisterCallback<ChangeEvent<LevelIslands>>((v) => {
-            objectField.value = v.previousValue;
-        });
+        objectField.SetEnabled(false);
+
+        ObjectField nextField = new ObjectField();
+        nextField.objectType = typeof(LevelIslands);
+        nextField.value = levelIsland.next;
+        nextField.label = "Next level";
+        nextField.SetEnabled(false);
 
         var playableField = new Toggle();
         playableField.label = "Is playable";
@@ -99,11 +104,21 @@ public class BindedIslandsViewer : Editor
         levelNumberField.value = levelIsland.LevelNumber;
         levelNumberField.RegisterCallback<ChangeEvent<int>>(e => {
             parent.TryChangeLevelNumber(e.newValue, levelIsland);
+            SetUp();
+        });
+
+        var startUnlockedField = new Toggle();
+        startUnlockedField.label = "Starts unlocked";
+        startUnlockedField.value = levelIsland.StartsUnlocked;
+        startUnlockedField.RegisterCallback<ChangeEvent<bool>>((v) => {
+            parent.GetLevelIslands(i).StartsUnlocked = v.newValue;
         });
 
         e.Add(objectField);
+        e.Add(nextField);
         e.Add(playableField);
         e.Add(levelNumberField);
+        e.Add(startUnlockedField);
         return e;
     }
 
@@ -115,7 +130,9 @@ public class BindedIslandsViewer : Editor
         Label name = new Label(sceneName);
         
         VisualElement e = new VisualElement();
-        e.AddToClassList("scene-list-item");
+        e.style.display = DisplayStyle.Flex;
+        e.style.flexDirection = FlexDirection.Row;
+        e.style.fontSize = 15;
         e.Add(index);
         e.Add(name);
         return e;

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using System.Linq;
-using Unity.VisualScripting;
 
 // [Serializable]
 [CreateAssetMenu(fileName = "BindedLevels", menuName = "Configs/BindedLevels"), Serializable]
@@ -58,6 +57,8 @@ public class BindedLevels : ScriptableObject
     public void TryChangeLevelNumber(int levelNumber, LevelIslands islands) {
         if (levelNumber <= -1) {
             islands.LevelNumber = -1;
+            islands.next = null;
+            UpdateNext();
             return;
         }
         var level = (from li in _levelIslandsMap 
@@ -66,11 +67,27 @@ public class BindedLevels : ScriptableObject
 
         if (level == null) {
             islands.LevelNumber = levelNumber;
+            UpdateNext();
             return;
         }
         
         var holder = islands.LevelNumber;
         islands.LevelNumber = levelNumber;
         level.LevelNumber = holder;
+        UpdateNext();
+    }
+
+    private void UpdateNext() {
+        var levels =(from lvl in _levelIslandsMap
+                     where lvl.LevelNumber >= 0 && lvl.Playable
+                     select lvl).ToHashSet().OrderBy((x) => x.LevelNumber).ToList();
+
+        if (levels.Count == 1) return;
+
+        for (int i = 0; i < levels.Count - 1; i++)
+        {
+            var lvl = levels[i];
+            lvl.next = levels[i + 1];
+        }
     }
 }

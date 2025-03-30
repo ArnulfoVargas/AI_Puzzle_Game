@@ -33,7 +33,7 @@ public class Interactable : BaseBehaviour, IInteractable
     public void OnInteract()
     {
         col.enabled = false;
-        levelIslands.LevelData.collectableTaken[collectableNumber] = true;
+        levelIslands.OnTakeInteractable(collectableNumber);
 
         gameObject.SetActive(false);
     }
