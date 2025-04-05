@@ -60,9 +60,9 @@ Material:
     - _QueueOffset: 0
     m_Colors:
     - _ColorFog: {r: 0, g: 0.16745283, b: 0.6698113, a: 1}
-    - _ColorPattern: {r: 0.74056596, g: 0.8591154, b: 1, a: 1}
+    - _ColorPattern: {r: 0.5764706, g: 0.75686276, b: 0.972549, a: 1}
     - _ColorX: {r: 0.16862747, g: 0.28627446, b: 1, a: 1}
-    - _ColorY: {r: 0.35294116, g: 0.49411762, b: 1, a: 1}
+    - _ColorY: {r: 0.16078432, g: 0.33333334, b: 0.7019608, a: 1}
     - _ColorZ: {r: 0.22352937, g: 0.43529418, b: 1, a: 1}
     - _MinMaxHeight: {r: -0.2, g: 0.5, b: 0, a: 0}
   m_BuildTextureStacks: []
