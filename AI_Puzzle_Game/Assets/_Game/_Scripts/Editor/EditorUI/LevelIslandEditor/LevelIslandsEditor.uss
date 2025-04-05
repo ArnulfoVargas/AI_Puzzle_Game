@@ -1,0 +1,133 @@
+* {
+    border-width: 0px;
+    border-color: #6d6d6d;
+}
+.scene-list {
+    height: auto;
+    max-height: 200px;
+}
+
+.scene-list-item {
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom-width: 1px;
+}
+
+.scene-list-item Label{
+    font-size: 15px;
+    width: auto;
+}
+
+.scene-list-item Button {
+    margin-left: auto;
+}
+
+.scene-index {
+    width: 60px;
+    font-size: 15px;
+    -unity-font-style: bold;
+    color: #6d6d6d;
+}
+
+.h-auto {
+    height: auto;
+}
+
+.h-0 {
+    height: 0px;
+}
+
+.island-item {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom-width: 1px;
+    display: flex;
+}
+
+.island-cont-l {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.island-cont-r {
+    display: flex;
+    flex-direction: row;
+}
+
+.island-cont-r Button {
+    flex-grow: 1;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.island-cont-label {
+    font-size: 20px;
+    height: 20px;
+    min-width: 40px;
+    -unity-text-align: middle-center;
+    -unity-font-style: bold;
+    color: #6d6d6d;
+}
+
+.island-item ObjectField {
+    max-width: 95%;
+}
+
+.btn {
+    -unity-font-style: bold;
+    padding: 5px;
+}
+
+.btn-warning {
+    background-color: #e4a50d;
+}
+
+.btn-success {
+    background-color: #63ad58;
+}
+
+.btn-error {
+    background-color: #ad1922;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.island-item ObjectFieldSelector {
+    visibility: hidden;
+}
+
+.h-0 {
+    height: 0;
+}
+
+#transforms {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    height: 20px;
+}
+
+#transforms ObjectField {
+    height: 20px;
+    width: 50%;
+}
+
+#transforms ObjectField Label {
+    min-width: 40px;
+}
+
+#form {
+    height: 60px;
+    max-height: 60px;
+    display: flex;
+}
+
+#Unbind-btn {
+    margin-top: 20px;
+}

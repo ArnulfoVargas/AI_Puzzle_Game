@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694ce6dc1e3ce9340af35606d8cec784, type: 3}
+  m_Name: Tutorial
+  m_EditorClassIdentifier: 
+  paths:
+  - {fileID: 11400000, guid: 0466d933a93e4f44884bc5d9c115a632, type: 2}
+  - {fileID: 11400000, guid: 03e95bba33af39c4ab4347836533c9b9, type: 2}
+  sceneIndex: 2
+  scenePath: Assets/_Game/Scenes/Tutorial/Tutorial.unity
+  levelNumber: 0
+  next: {fileID: 11400000, guid: eb2d8a358a3ff734bb03fe71b9646625, type: 2}
+  startsUnlocked: 1
+  playable: 1

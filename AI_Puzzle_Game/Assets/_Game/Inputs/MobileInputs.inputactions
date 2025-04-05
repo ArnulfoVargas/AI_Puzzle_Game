@@ -1,0 +1,60 @@
+{
+    "name": "MobileInputs",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "d8e6a450-7204-49a6-82d2-af447b047634",
+            "actions": [
+                {
+                    "name": "PrimaryTouchMove",
+                    "type": "Value",
+                    "id": "5ecc45c2-2f4e-41d2-be7c-4ee1c0a7049a",
+                    "expectedControlType": "Touch",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "PrimaryTouch",
+                    "type": "Button",
+                    "id": "97f1e8ed-c6bd-4ec8-b498-a314327f3441",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "11acd354-cbf9-4686-8ffa-b31ff5b1720a",
+                    "path": "<Touchscreen>/primaryTouch",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PrimaryTouchMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f1af9101-0bba-45e9-aa8f-bf75b4566dae",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PrimaryTouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "7d1fe591-daaf-4429-9fcf-e4b24d6642d9",
+            "actions": [],
+            "bindings": []
+        }
+    ],
+    "controlSchemes": []
+}

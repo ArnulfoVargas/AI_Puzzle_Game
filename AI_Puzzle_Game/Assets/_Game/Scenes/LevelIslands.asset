@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694ce6dc1e3ce9340af35606d8cec784, type: 3}
+  m_Name: LevelIslands
+  m_EditorClassIdentifier: 
+  paths:
+  - {fileID: 11400000, guid: bb3037edf51fff14798b1f87af315f86, type: 2}
+  - {fileID: 11400000, guid: be40eca0dec6e0249b2e8439b6a96fbb, type: 2}
+  sceneIndex: 1
+  scenePath: Assets/_Game/Scenes/MechanicsTestScene.unity
+  levelNumber: -1
+  next: {fileID: 11400000, guid: 2d833245aecbba84a98388cd362d508e, type: 2}
+  startsUnlocked: 0
+  playable: 0

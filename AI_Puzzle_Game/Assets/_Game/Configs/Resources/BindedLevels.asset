@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de6383a1ce4714249b1dbc678a0a36d3, type: 3}
+  m_Name: BindedLevels
+  m_EditorClassIdentifier: 
+  _levelIslandsMap:
+  - {fileID: 11400000, guid: 886ead9842d1e404b962fa40b9ee5677, type: 2}
+  - {fileID: 11400000, guid: 886ead9842d1e404b962fa40b9ee5677, type: 2}
+  - {fileID: 11400000, guid: b8deb88348687004d8eb1acc102c0fd5, type: 2}
+  - {fileID: 11400000, guid: eb2d8a358a3ff734bb03fe71b9646625, type: 2}
+  - {fileID: 11400000, guid: 2d833245aecbba84a98388cd362d508e, type: 2}
+  - {fileID: 11400000, guid: adf0237a30f853a438c5b9a0adcfd567, type: 2}
