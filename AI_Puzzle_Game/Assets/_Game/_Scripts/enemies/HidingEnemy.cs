@@ -29,7 +29,7 @@ public class HidingEnemy : EnemyBase
 
     protected override void OnGameplayUpdate()
     {
-        t += Time.deltaTime;
+        t += Time.fixedDeltaTime;
 
         if (t >= waitTime) {
             isHided = !isHided;

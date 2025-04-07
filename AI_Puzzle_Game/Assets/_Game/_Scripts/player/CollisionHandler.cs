@@ -1,10 +1,12 @@
 using _Game._Scripts.interfaces;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CollisionHandler : BaseBehaviour, IDamageable, ITeleporteable, IWinner
 {
     [SerializeField] private PlayerController player;
+    [SerializeField] private UnityEvent OnTeleportEnd;
     Tweener tweener;
 
     protected override void OnStart()
@@ -27,6 +29,7 @@ public class CollisionHandler : BaseBehaviour, IDamageable, ITeleporteable, IWin
             var p = teleporter.GetTeleportLocation();
             transform.position = new Vector3(Mathf.RoundToInt(p.x), 0, Mathf.RoundToInt(p.z));
             player.SetIdleState();
+            OnTeleportEnd?.Invoke();
         });
 
         player.SetTravelingState();

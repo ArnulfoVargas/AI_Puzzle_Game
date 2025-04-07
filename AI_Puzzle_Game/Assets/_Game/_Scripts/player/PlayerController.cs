@@ -10,7 +10,7 @@ public class PlayerController : BaseBehaviour {
     private float acceleration {get; set;}
     private float currentSpeed;
     private Vector3 moveDirection;
-    PlayerState playerState = PlayerState.IDLE;
+    [SerializeField] PlayerState playerState = PlayerState.IDLE;
     private Vector3 target;
     private float minDistance;
 
@@ -42,6 +42,13 @@ public class PlayerController : BaseBehaviour {
     {
         this.CurrentPlayerState = PlayerState.MOVING;
     }
+
+    public void OnTeleportEnd() {
+        if (Physics.Raycast(rayPosition.position, Vector3.down, out RaycastHit f, 1f, tilesLayer)) {
+            var bounds = f.collider.bounds;
+            transform.position = new Vector3(bounds.min.x, 0, bounds.min.z);
+        }
+    }
     
     protected override void OnStart()
     {
@@ -64,7 +71,7 @@ public class PlayerController : BaseBehaviour {
             if (Physics.Raycast(rayPosition.position, dir, out RaycastHit hit, 40f, borderLayer)) {
                 if (hit.distance < 1f) return;
 
-                if (Physics.Raycast(hit.point - dir, Vector3.down, out RaycastHit f, 1f)) {
+                if (Physics.Raycast(hit.point - dir, Vector3.down, out RaycastHit f, 1f, tilesLayer)) {
                     var bounds = f.collider.bounds;
                     target = new Vector3(bounds.min.x, 0, bounds.min.z);
                 }
@@ -83,9 +90,9 @@ public class PlayerController : BaseBehaviour {
         {
             var cDistance = Vector3.Distance(transform.position, target);
 
-            currentSpeed += Time.deltaTime * acceleration;
+            currentSpeed += Time.fixedDeltaTime * acceleration;
             currentSpeed = Mathf.Clamp(currentSpeed, 0, moveSpeed);
-            transform.Translate(moveDirection * (currentSpeed * Time.deltaTime));
+            transform.Translate(moveDirection * (currentSpeed * Time.fixedDeltaTime));
 
             if (cDistance < minDistance) minDistance = cDistance;
             if (cDistance < .1f || cDistance > minDistance) {
@@ -93,7 +100,7 @@ public class PlayerController : BaseBehaviour {
             }
         }
     }
-    void OnArriveToTarget()
+    void OnArriveToTarget(bool clipToTarget = true)
     {
         CurrentPlayerState = PlayerState.IDLE;
         moveDirection = Vector3.zero;
@@ -102,6 +109,7 @@ public class PlayerController : BaseBehaviour {
             // {
             //     var b = hit.collider.bounds;
             //     var p = new Vector3(b.min.x, 0, b.min.z);
+            if (clipToTarget)
                 transform.position = target;
             // }
         // }

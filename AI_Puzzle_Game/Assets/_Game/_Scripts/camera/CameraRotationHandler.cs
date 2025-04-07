@@ -50,7 +50,7 @@ public class CameraRotationHandler : BaseBehaviour
         isRotating = true;
     }
 
-    protected void OnGameplayUpdate()
+    protected override void OnGameplayUpdate()
     {
         if (isRotating)
         {
