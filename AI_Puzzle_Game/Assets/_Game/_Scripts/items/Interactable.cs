@@ -4,6 +4,7 @@ using UnityEngine;
 public class Interactable : BaseBehaviour, IInteractable
 {
     [SerializeField, Range(0,2)] private int collectableNumber;
+    [SerializeField] private MeshRenderer meshRenderer;
     private bool collected;
     private BoxCollider col;
     LevelIslands levelIslands;
@@ -16,7 +17,7 @@ public class Interactable : BaseBehaviour, IInteractable
             levelIslands = c;
 
             if (levelIslands.LevelData.collectableTaken[collectableNumber]){
-                this.gameObject.SetActive(false);
+                meshRenderer.material.SetFloat("_Alpha", 0.75f);
             }
         } else {
             gameObject.SetActive(false);

@@ -116,10 +116,10 @@ public class LevelIslands : ScriptableObject
 
         if (sceneByIndex.buildIndex == -1 && sceneByPath.buildIndex >= 0) {
             sceneIndex = sceneByPath.buildIndex;
+        } else if (sceneByIndex.buildIndex != sceneByPath.buildIndex) {
+            sceneIndex = sceneByPath.buildIndex;
         } else if (sceneByPath.buildIndex == -1 && sceneByIndex.buildIndex >= 0) {
             scenePath = sceneByIndex.path;
-        }else if (sceneByIndex.buildIndex != sceneByPath.buildIndex) {
-            sceneIndex = sceneByPath.buildIndex;
         } else {
             Unbind();
         }
