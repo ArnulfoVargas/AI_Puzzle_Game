@@ -4,6 +4,7 @@ using UnityEngine;
 public class Interactable : BaseBehaviour, IInteractable
 {
     [SerializeField, Range(0,2)] private int collectableNumber;
+    [SerializeField] private MeshRenderer meshRenderer;
     private bool collected;
     private BoxCollider col;
     LevelIslands levelIslands;
