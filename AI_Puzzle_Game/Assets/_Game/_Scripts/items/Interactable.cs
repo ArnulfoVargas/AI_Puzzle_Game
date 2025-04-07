@@ -17,7 +17,7 @@ public class Interactable : BaseBehaviour, IInteractable
             levelIslands = c;
 
             if (levelIslands.LevelData.collectableTaken[collectableNumber]){
-                this.gameObject.SetActive(false);
+                meshRenderer.material.SetFloat("_Alpha", 0.75f);
             }
         } else {
             gameObject.SetActive(false);
