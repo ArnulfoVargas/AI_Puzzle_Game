@@ -8,6 +8,7 @@ public class Interactable : BaseBehaviour, IInteractable
     private bool collected;
     private BoxCollider col;
     LevelIslands levelIslands;
+    private bool wasCollected = false;
 
     protected override void OnStart()
     {
@@ -17,6 +18,7 @@ public class Interactable : BaseBehaviour, IInteractable
             levelIslands = c;
 
             if (levelIslands.LevelData.collectableTaken[collectableNumber]){
+                wasCollected = true;
                 meshRenderer.material.SetFloat("_Alpha", 0.75f);
             }
         } else {
@@ -34,8 +36,9 @@ public class Interactable : BaseBehaviour, IInteractable
     public void OnInteract()
     {
         col.enabled = false;
-        levelIslands.OnTakeInteractable(collectableNumber);
-
         gameObject.SetActive(false);
+
+        if (!wasCollected)
+            levelIslands.OnTakeInteractable(collectableNumber);
     }
 }
