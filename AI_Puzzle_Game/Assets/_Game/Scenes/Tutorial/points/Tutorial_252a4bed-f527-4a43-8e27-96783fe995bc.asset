@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e664369ff9b7393458d04adf8eed20f2, type: 3}
   m_Name: Tutorial_252a4bed-f527-4a43-8e27-96783fe995bc
   m_EditorClassIdentifier: 
-  from: {x: -6.4348574, y: -0.029349655, z: -16.012083}
-  to: {x: 3.8726387, y: -0.029349536, z: -7.995142}
-  center: {x: -1.2811093, y: 0, z: -12.0036125}
+  from: {x: -6.4348574, y: -0.029349655, z: -24.292084}
+  to: {x: 3.8726387, y: -0.029349536, z: -16.27514}
+  center: {x: -1.2811093, y: 0, z: -20.283611}
