@@ -21,7 +21,7 @@ public class PlayerAnimator : BaseBehaviour
     }
 
     void OnPlayerStateChanged(PlayerState prev, PlayerState curr) {
-        if (prev == PlayerState.MOVING && curr == PlayerState.IDLE) {
+        if (prev == PlayerState.MOVING && (curr is PlayerState.IDLE or PlayerState.TRAVELING)) {
             animator.SetTrigger(animatorEndMove);
             SetAnimatorValues();
         }
