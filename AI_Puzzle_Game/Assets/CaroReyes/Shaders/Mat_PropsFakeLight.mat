@@ -64,7 +64,7 @@ Material:
     m_Colors:
     - _AmbientLightColor: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 0}
     - _LightColor: {r: 1, g: 0.7836927, b: 0.495283, a: 0}
-    - _MainColor: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 0}
+    - _MainColor: {r: 1, g: 1, b: 1, a: 0}
     - _RimLightLights: {r: 0.2688679, g: 1, b: 0.8403052, a: 0}
     - _RimLightShadows: {r: 1, g: 0.3454259, b: 0, a: 0}
   m_BuildTextureStacks: []
