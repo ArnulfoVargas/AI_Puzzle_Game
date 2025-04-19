@@ -24,7 +24,7 @@ public class BaseBehaviour : MonoBehaviour
     void Start()  {
         SetUp();
     }
-    void Update()
+    void FixedUpdate()
     {
         switch (currentState)
         {

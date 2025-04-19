@@ -62,6 +62,6 @@ public class UiManager : MonoBehaviour
     }
 
     public void Home() {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }

@@ -10,8 +10,10 @@ public class PlayerController : BaseBehaviour {
     private float acceleration {get; set;}
     private float currentSpeed;
     private Vector3 moveDirection;
-    PlayerState playerState = PlayerState.IDLE;
-    [SerializeField] private bool debugTile;
+    [SerializeField] PlayerState playerState = PlayerState.IDLE;
+    private Vector3 target;
+    private float minDistance;
+
     public PlayerState CurrentPlayerState {
         get => playerState; 
         set {
@@ -40,6 +42,13 @@ public class PlayerController : BaseBehaviour {
     {
         this.CurrentPlayerState = PlayerState.MOVING;
     }
+
+    public void OnTeleportEnd() {
+        if (Physics.Raycast(rayPosition.position, Vector3.down, out RaycastHit f, 1f, tilesLayer)) {
+            var bounds = f.collider.bounds;
+            transform.position = new Vector3(bounds.min.x, 0, bounds.min.z);
+        }
+    }
     
     protected override void OnStart()
     {
@@ -59,9 +68,17 @@ public class PlayerController : BaseBehaviour {
     private void MoveTowards(Vector3 dir) {
         if (CurrentPlayerState == PlayerState.IDLE)
         {
-            if (Physics.Raycast(rayPosition.position, dir, 1f, borderLayer)) return;
+            if (Physics.Raycast(rayPosition.position, dir, out RaycastHit hit, 40f, borderLayer)) {
+                if (hit.distance < 1f) return;
+
+                if (Physics.Raycast(hit.point - dir, Vector3.down, out RaycastHit f, 1f, tilesLayer)) {
+                    var bounds = f.collider.bounds;
+                    target = new Vector3(bounds.min.x, 0, bounds.min.z);
+                }
+            }
 
             moveDirection = dir;
+            minDistance = int.MaxValue;
 
             SetAnimationState();
         }
@@ -71,23 +88,30 @@ public class PlayerController : BaseBehaviour {
     {
         if (CurrentPlayerState == PlayerState.MOVING)
         {
-            currentSpeed += Time.deltaTime * acceleration;
+            var cDistance = Vector3.Distance(transform.position, target);
+
+            currentSpeed += Time.fixedDeltaTime * acceleration;
             currentSpeed = Mathf.Clamp(currentSpeed, 0, moveSpeed);
-            transform.Translate(moveDirection * (currentSpeed * Time.deltaTime));
+            transform.Translate(moveDirection * (currentSpeed * Time.fixedDeltaTime));
+
+            if (cDistance < minDistance) minDistance = cDistance;
+            if (cDistance < .1f || cDistance > minDistance) {
+                OnArriveToTarget();
+            }
         }
     }
-    void OnTriggerEnter(Collider other)
+    void OnArriveToTarget(bool clipToTarget = true)
     {
-        if (other.TryGetComponent(out IInteractable i)) return;
         CurrentPlayerState = PlayerState.IDLE;
         moveDirection = Vector3.zero;
         // if (debugTile) {
-            if (Physics.Raycast(rayPosition.position, Vector3.down, out RaycastHit hit, 1f, tilesLayer))
-            {
-                var b = hit.collider.bounds;
-                var p = new Vector3(b.min.x, 0, b.min.z);
-                transform.position = p;
-            }
+            // if (Physics.Raycast(rayPosition.position, Vector3.down, out RaycastHit hit, 1f, tilesLayer))
+            // {
+            //     var b = hit.collider.bounds;
+            //     var p = new Vector3(b.min.x, 0, b.min.z);
+            if (clipToTarget)
+                transform.position = target;
+            // }
         // }
         // else {
         //     var p = transform.position;

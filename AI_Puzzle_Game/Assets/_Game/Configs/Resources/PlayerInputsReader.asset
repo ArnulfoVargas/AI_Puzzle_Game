@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efc0b0740b19a4745813e9775bf2af2c, type: 3}
   m_Name: PlayerInputsReader
   m_EditorClassIdentifier: 
-  sensibilityThreshold: 6
+  sensibilityThreshold: 3
   tapThreshold: 0.15000000596046448
   timeBetweenDoubleTap: 0.3

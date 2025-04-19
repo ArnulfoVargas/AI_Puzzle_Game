@@ -15,7 +15,7 @@ MonoBehaviour:
   paths:
   - {fileID: 11400000, guid: 0466d933a93e4f44884bc5d9c115a632, type: 2}
   - {fileID: 11400000, guid: 03e95bba33af39c4ab4347836533c9b9, type: 2}
-  sceneIndex: 2
+  sceneIndex: 3
   scenePath: Assets/_Game/Scenes/Tutorial/Tutorial.unity
   levelNumber: 0
   next: {fileID: 11400000, guid: eb2d8a358a3ff734bb03fe71b9646625, type: 2}
