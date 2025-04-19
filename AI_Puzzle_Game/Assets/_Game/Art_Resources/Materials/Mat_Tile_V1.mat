@@ -38,7 +38,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Pattern:
-        m_Texture: {fileID: 2800000, guid: ab3ef93bc7007a64ba32724053d4f888, type: 3}
+        m_Texture: {fileID: 2800000, guid: 43980b54521a7f04c91b90b4d4e0cd1b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -59,10 +59,10 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _ColorFog: {r: 0, g: 0.16745283, b: 0.6698113, a: 1}
+    - _ColorFog: {r: 0.35686275, g: 0.6784314, b: 0.9607843, a: 1}
     - _ColorPattern: {r: 0.5764706, g: 0.75686276, b: 0.972549, a: 1}
     - _ColorX: {r: 0.16862747, g: 0.28627446, b: 1, a: 1}
-    - _ColorY: {r: 0.16078432, g: 0.33333334, b: 0.7019608, a: 1}
+    - _ColorY: {r: 0.16078432, g: 0.33333334, b: 0.7058824, a: 1}
     - _ColorZ: {r: 0.22352937, g: 0.43529418, b: 1, a: 1}
-    - _MinMaxHeight: {r: -0.2, g: 0.5, b: 0, a: 0}
+    - _MinMaxHeight: {r: -1.6, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

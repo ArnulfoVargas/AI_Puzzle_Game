@@ -41,7 +41,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7016446630710962636}
-  - component: {fileID: 87867488328682155}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -65,14 +64,6 @@ Transform:
   - {fileID: 1104021554752180085}
   m_Father: {fileID: 6577638548808881386}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &87867488328682155
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177416785982959209}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &295431548802471375
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,6 +433,7 @@ MonoBehaviour:
   tilesLayer:
     serializedVersion: 2
     m_Bits: 256
+  playerState: 0
 --- !u!114 &926702836228391120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,7 +562,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7df519616744cea4d937b1389a1744f0, type: 2}
+  - {fileID: 2100000, guid: e80918034da90dd48a9c9619d31cc377, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
