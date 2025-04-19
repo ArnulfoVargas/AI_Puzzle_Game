@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paths:
   - {fileID: 11400000, guid: d039be6dc8eb12c4aa0acb63ad3e4290, type: 2}
-  sceneIndex: 4
+  sceneIndex: 5
   scenePath: Assets/_Game/Scenes/Level2/Level2.unity
   levelNumber: 2
   next: {fileID: 11400000, guid: adf0237a30f853a438c5b9a0adcfd567, type: 2}

@@ -3,15 +3,17 @@ using DG.Tweening;
 using TMPro;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MovingEnemy : EnemyBase {
     private float speed = 5;
     [SerializeField] private bool moveHorizontal, invert;
+    [SerializeField] UnityEvent OnHit;
     private int moveFactor;
     private Rigidbody rb;
     Vector3 dir;
 
-    void FixedUpdate()
+    protected override void OnGameplayUpdate()
     {
         if (currentState == GameState.GAMEPLAY)
             rb.MovePosition(transform.position + dir * ( speed * Time.fixedDeltaTime ));
@@ -29,6 +31,7 @@ public class MovingEnemy : EnemyBase {
     {
         if (collision.gameObject.CompareTag("Wall")) {
             dir *= -1;
+            OnHit?.Invoke();
         }
     } 
 }

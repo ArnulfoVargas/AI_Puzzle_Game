@@ -50,10 +50,8 @@ public class CameraRotationHandler : BaseBehaviour
         isRotating = true;
     }
 
-    void FixedUpdate()
+    protected override void OnGameplayUpdate()
     {
-        if (currentState != GameState.GAMEPLAY) return;
-
         if (isRotating)
         {
             rotatingTime += Time.fixedDeltaTime * rotationSpeed;
