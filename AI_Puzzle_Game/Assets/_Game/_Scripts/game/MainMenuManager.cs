@@ -46,7 +46,7 @@ public class MainMenuManager : MonoBehaviour {
         foreach(var f in ES3.GetFiles()) {
             ES3.DeleteFile(f);
         }
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(0);
     }
 
     public void BuildLevelSelector() {
