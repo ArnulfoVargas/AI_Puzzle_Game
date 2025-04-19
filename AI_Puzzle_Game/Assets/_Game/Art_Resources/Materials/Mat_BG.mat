@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat_BG_V1 1
+  m_Name: Mat_BG
   m_Shader: {fileID: -6465566751694194690, guid: 4a65f07d681c3a04bb08e4b9c7ed14b5,
     type: 3}
   m_Parent: {fileID: 0}
@@ -45,8 +45,8 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _MainColor: {r: 0.047659315, g: 0.08045002, b: 0.16037738, a: 1}
-    - _SecColor: {r: 0.020825908, g: 0.16994986, b: 0.49056602, a: 1}
+    - _MainColor: {r: 0.12148453, g: 0.121887945, b: 0.13207549, a: 1}
+    - _SecColor: {r: 0.18222678, g: 0.25257242, b: 0.4245283, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &6009395592179897793
 MonoBehaviour:

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5231454298453661554
+--- !u!114 &-8770455646438367724
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21,13 +21,13 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Mat_Character
-  m_Shader: {fileID: -6465566751694194690, guid: a9b35e1be8c04de4ca22c81bc97614a3,
+  m_Shader: {fileID: -6465566751694194690, guid: fd37f751451e6c24f9a934cce03de375,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 2
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -55,16 +55,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DissolveSpeed: 1.18
-    - _EdgeWidth: 0.05
-    - _Max: 1
-    - _Min: 0.3
-    - _NoiseStrenght: 100
+    - _FrenelPowerLights: 3
+    - _FresnelPower: 5
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Shades: 0.49
+    - _SpecularIntensity: 1
+    - _SpecularPower: 0.233
     m_Colors:
-    - _DissolveColor: {r: 5.59088, g: 0.5998031, b: 0, a: 0}
-    - _LightColor: {r: 2.5254047, g: 3.7627504, b: 9.734286, a: 0}
-    - _ToonColor: {r: 1, g: 1, b: 1, a: 0}
+    - _AmbientLightColor: {r: 0.9537581, g: 0.9386792, b: 1, a: 0}
+    - _LightColor: {r: 0.9292453, g: 0.9370612, b: 1, a: 0}
+    - _MainColor: {r: 1, g: 1, b: 1, a: 0}
+    - _RimLightLights: {r: 1, g: 0.44493103, b: 0, a: 0}
+    - _RimLightShadows: {r: 0, g: 1, b: 0.76893306, a: 0}
   m_BuildTextureStacks: []
