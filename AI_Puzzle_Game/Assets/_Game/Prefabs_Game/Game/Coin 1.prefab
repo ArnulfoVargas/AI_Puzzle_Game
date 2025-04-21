@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectableNumber: 1
-  meshRenderer: {fileID: 0}
+  meshRenderer: {fileID: 4336110828205312229}
 --- !u!1 &9002337449687820337
 GameObject:
   m_ObjectHideFlags: 0
