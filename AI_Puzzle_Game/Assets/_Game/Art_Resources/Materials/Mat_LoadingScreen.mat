@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat_BG
-  m_Shader: {fileID: -6465566751694194690, guid: 4a65f07d681c3a04bb08e4b9c7ed14b5,
+  m_Name: Mat_LoadingScreen
+  m_Shader: {fileID: -6465566751694194690, guid: a70d59a7ab3cb6c40aaf186ae4336e25,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -24,10 +24,6 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _Gradient:
-        m_Texture: {fileID: 2800000, guid: 8f62e92080701dd478c095be41bf6d62, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 8f62e92080701dd478c095be41bf6d62, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -48,11 +44,9 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    m_Colors:
-    - _MainColor: {r: 0.12148453, g: 0.121887945, b: 0.13207549, a: 1}
-    - _SecColor: {r: 0.18222678, g: 0.25257242, b: 0.4245283, a: 1}
+    m_Colors: []
   m_BuildTextureStacks: []
---- !u!114 &6009395592179897793
+--- !u!114 &5089233326807496174
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
