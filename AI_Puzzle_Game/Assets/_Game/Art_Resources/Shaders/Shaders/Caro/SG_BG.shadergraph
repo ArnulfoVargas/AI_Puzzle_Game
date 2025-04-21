@@ -99,7 +99,7 @@
                 "m_Node": {
                     "m_Id": "ec9ae91048f94217ab50fc360e8e7cee"
                 },
-                "m_SlotId": 0
+                "m_SlotId": 4
             },
             "m_InputSlot": {
                 "m_Node": {
@@ -303,7 +303,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
     "m_ObjectId": "2b7bd412ee1a4dbcb2e4b9d88c8e0bf3",
     "m_Id": 0,
-    "m_DisplayName": "Gradient",
+    "m_DisplayName": "_MainTex",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -473,10 +473,10 @@
     "m_Guid": {
         "m_GuidSerialized": "c37654a1-74f8-40de-a7fc-fec81e565f13"
     },
-    "m_Name": "Gradient",
+    "m_Name": "_MainTex",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Gradient",
-    "m_DefaultReferenceName": "_Gradient",
+    "m_RefNameGeneratedByDisplayName": "_MainTex",
+    "m_DefaultReferenceName": "_MainTex",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -487,7 +487,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "m_SerializedTexture": "",
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"8f62e92080701dd478c095be41bf6d62\",\"type\":3}}",
         "m_Guid": ""
     },
     "isMainTexture": false,
