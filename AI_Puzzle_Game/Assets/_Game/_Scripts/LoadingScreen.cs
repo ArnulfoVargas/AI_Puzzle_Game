@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class LoadingScreen : MonoBehaviour {
     [SerializeField] private string tutorial = "Tutorial";
     [SerializeField] private string mainMenu = "MainMenu";
-    [SerializeField] private Slider progressBar;
 
     void Start()
     {
