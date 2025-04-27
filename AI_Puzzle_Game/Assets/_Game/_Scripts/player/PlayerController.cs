@@ -112,6 +112,7 @@ public class PlayerController : BaseBehaviour {
             //     var p = new Vector3(b.min.x, 0, b.min.z);
             if (clipToTarget)
                 transform.position = target;
+                
             // }
         // }
         // else {

@@ -43,6 +43,7 @@ public class AudioManager : BaseBehaviour
         newAudio.transform.position = _position;
         newAudio.pitch = pitch;
         newAudio.clip = _clip;
+        newAudio.volume = file.volume;
         newAudio.Play();
         newAudio.GetComponent<IAutoOff>().SetNewTime(_clip.length * (1 / pitch));
         newAudio.GetComponent<AudioController>().UpdatePlayOn(file.playOn);

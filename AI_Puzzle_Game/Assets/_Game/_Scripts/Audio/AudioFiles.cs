@@ -6,7 +6,8 @@ public class AudioFiles
 {
     public Audio_Type audioType;
     public GameState[] playOn;
-    public float pitchMin, pitchMax;
+    [Range(-3, 3)]public float pitchMin = .95f, pitchMax = 1f;
+    [Range(0,1)]public float volume = 1f;
     public AudioClip[] audioClips;
 
     public AudioClip GetRandomAudioClip()
