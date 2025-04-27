@@ -10,6 +10,7 @@ public class PlayerAnimator : BaseBehaviour
     private readonly int animatorMoveXHash = Animator.StringToHash("XMove"); 
     private readonly int animatorMoveZHash = Animator.StringToHash("ZMove"); 
     private readonly int animatorEndMove = Animator.StringToHash("EndMove"); 
+    private readonly int animatorOnLoose = Animator.StringToHash("Loose");
 
     void OnEnable()
     {
@@ -35,6 +36,7 @@ public class PlayerAnimator : BaseBehaviour
 
     private void OnMove(Vector3 v) {
         if (currentState != GameState.GAMEPLAY) return;
+        if (controller.CurrentPlayerState != PlayerState.IDLE) return;
         if (Physics.Raycast(rayPosition.position, v, 1f, borderLayer)) return;
         SetAnimatorValues(v.x, v.z);
     }
@@ -46,5 +48,19 @@ public class PlayerAnimator : BaseBehaviour
 
     public void SetMoving() {
         controller.SetMovingState();
+    }
+
+    public void EndInitialAniimation() {
+        controller.CurrentPlayerState = PlayerState.IDLE;
+    }
+
+    public void EndLooseAnimation() {
+        GameManager.GetInstance().OnLoose();
+    }
+
+    public void TriggerLoose()
+    {
+        controller.CurrentPlayerState = PlayerState.ANIMATION;
+        animator.SetTrigger(animatorOnLoose);
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
 
 public class AudioManager : BaseBehaviour
@@ -11,7 +12,9 @@ public class AudioManager : BaseBehaviour
     void Awake()
     {
         AudioLibrary.Library = audioLibrary;
-        Instance = this;
+        Instance ??= this;
+        if (Instance != this) Destroy(this);
+
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -28,17 +31,26 @@ public class AudioManager : BaseBehaviour
         audioSource.PlayOneShot(AudioLibrary.Library.GetRandomFromType(audioType));
     }
 
-    public void SetAudioWithPosition(AudioClip _clip, Vector3 _position)
-    {
-        AudioSource newAudio = GetAudioSource();
-        newAudio.transform.position = _position;
-        newAudio.clip = _clip;
-        newAudio.Play();
-        newAudio.GetComponent<AutoOff>().SetNewTime(_clip.length);
+    public void PlayUiAudio() {
+        SetAudio(Audio_Type.CLICK);
     }
+
     public void SetAudioWithPosition(Audio_Type type, Vector3 _position)
     {
-        SetAudioWithPosition(AudioLibrary.Library.GetRandomFromType(type), _position);
+        var _clip = AudioLibrary.Library.GetRandomFromType(type, out AudioFiles file);
+        var pitch = Random.Range(file.pitchMin, file.pitchMax);
+        AudioSource newAudio = GetAudioSource();
+        newAudio.transform.position = _position;
+        newAudio.pitch = pitch;
+        newAudio.clip = _clip;
+        newAudio.volume = file.volume;
+        newAudio.Play();
+        newAudio.GetComponent<IAutoOff>().SetNewTime(_clip.length * (1 / pitch));
+        newAudio.GetComponent<AudioController>().UpdatePlayOn(file.playOn);
+    }
+
+    public void SetAudioWithZeroPosition(Audio_Type type) {
+        SetAudioWithPosition(type, Vector3.zero);
     }
 
     AudioSource GetAudioSource()
