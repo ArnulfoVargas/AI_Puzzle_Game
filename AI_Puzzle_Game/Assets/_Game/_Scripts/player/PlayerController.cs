@@ -10,7 +10,7 @@ public class PlayerController : BaseBehaviour {
     private float acceleration {get; set;}
     private float currentSpeed;
     private Vector3 moveDirection;
-    [SerializeField] PlayerState playerState = PlayerState.IDLE;
+    [SerializeField] PlayerState playerState = PlayerState.ANIMATION;
     private Vector3 target;
     private float minDistance;
 
@@ -79,6 +79,7 @@ public class PlayerController : BaseBehaviour {
 
             moveDirection = dir;
             minDistance = int.MaxValue;
+            AudioManager.GetInstance().SetAudioWithZeroPosition(Audio_Type.SLIDE);
 
             SetAnimationState();
         }

@@ -18,8 +18,9 @@ public class AudioController : BaseBehaviour {
 
     private void Verify(GameState state) {
         if (playOn.Contains(state)) {
-            if (!audioSource.isPlaying) audioSource.Play();
-            else audioSource.Pause();
+            audioSource.UnPause();
+        } else {
+            audioSource.Pause();
         }
     }
 }

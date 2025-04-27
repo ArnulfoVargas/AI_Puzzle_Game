@@ -12,7 +12,9 @@ public class AudioManager : BaseBehaviour
     void Awake()
     {
         AudioLibrary.Library = audioLibrary;
-        Instance = this;
+        Instance ??= this;
+        if (Instance != this) Destroy(this);
+
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -36,12 +38,13 @@ public class AudioManager : BaseBehaviour
     public void SetAudioWithPosition(Audio_Type type, Vector3 _position)
     {
         var _clip = AudioLibrary.Library.GetRandomFromType(type, out AudioFiles file);
+        var pitch = Random.Range(file.pitchMin, file.pitchMax);
         AudioSource newAudio = GetAudioSource();
         newAudio.transform.position = _position;
-        newAudio.pitch = Random.Range(file.pitchMin, file.pitchMax);
+        newAudio.pitch = pitch;
         newAudio.clip = _clip;
         newAudio.Play();
-        newAudio.GetComponent<IAutoOff>().SetNewTime(_clip.length);
+        newAudio.GetComponent<IAutoOff>().SetNewTime(_clip.length * (1 / pitch));
         newAudio.GetComponent<AudioController>().UpdatePlayOn(file.playOn);
     }
 

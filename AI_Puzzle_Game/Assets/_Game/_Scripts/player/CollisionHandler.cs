@@ -7,6 +7,7 @@ public class CollisionHandler : BaseBehaviour, IDamageable, ITeleporteable, IWin
 {
     [SerializeField] private PlayerController player;
     [SerializeField] private UnityEvent OnTeleportEnd;
+    [SerializeField] private PlayerAnimator animator;
     Tweener tweener;
 
     protected override void OnStart()
@@ -16,7 +17,8 @@ public class CollisionHandler : BaseBehaviour, IDamageable, ITeleporteable, IWin
 
     public void Damage()
     {
-        GameManager.GetInstance().OnLoose();
+        AudioManager.GetInstance().SetAudioWithZeroPosition(Audio_Type.DISSOLVE);
+        animator.TriggerLoose();
     }
 
     public void Teleport(ITeleporter teleporter)

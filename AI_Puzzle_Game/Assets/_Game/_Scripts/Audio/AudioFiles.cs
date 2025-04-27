@@ -12,6 +12,6 @@ public class AudioFiles
     public AudioClip GetRandomAudioClip()
     {
         if (audioClips.Length == 0) return null;
-        return audioClips[UnityEngine.Random.Range(0, audioClips.Length + 1)];
+        return audioClips[UnityEngine.Random.Range(0, audioClips.Length)];
     }
 }
