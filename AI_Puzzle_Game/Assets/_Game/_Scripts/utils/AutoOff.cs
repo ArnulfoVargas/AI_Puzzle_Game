@@ -1,22 +1,27 @@
+using System.Collections;
 using UnityEngine;
 
-public class AutoOff : BaseBehaviour
+public class AutoOff : MonoBehaviour, IAutoOff
 {
-    public float timeToDesactive;
-    float counter;
+    IEnumerator timer;
 
-    public void SetNewTime(float _time)
+    public void SetNewTime(float time)
     {
-        timeToDesactive = _time;
-        counter = _time;
+        if (timer != null) {
+            StopCoroutine(timer);
+        }
+        timer = Timer(time);
+        StartCoroutine(timer);
     }
 
-    protected override void OnGameplayUpdate()
+    private void Off()
     {
-        counter -= Time.deltaTime;
-        if (counter <= 0)
-        {
-            gameObject.SetActive(false);
-        }
+        timer = null;
+        gameObject.SetActive(false);
+    }
+
+    IEnumerator Timer(float time) {
+        yield return new WaitForSeconds(time);
+        Off();
     }
 }

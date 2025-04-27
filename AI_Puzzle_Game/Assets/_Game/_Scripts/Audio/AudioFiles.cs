@@ -5,7 +5,8 @@ using UnityEngine;
 public class AudioFiles
 {
     public Audio_Type audioType;
-    public GameState PlayOn;
+    public GameState[] playOn;
+    public float pitchMin, pitchMax;
     public AudioClip[] audioClips;
 
     public AudioClip GetRandomAudioClip()
