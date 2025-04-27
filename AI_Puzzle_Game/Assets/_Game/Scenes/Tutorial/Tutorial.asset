@@ -18,6 +18,6 @@ MonoBehaviour:
   sceneIndex: 3
   scenePath: Assets/_Game/Scenes/Tutorial/Tutorial.unity
   levelNumber: 0
-  next: {fileID: 11400000, guid: eb2d8a358a3ff734bb03fe71b9646625, type: 2}
+  next: {fileID: 11400000, guid: 2d833245aecbba84a98388cd362d508e, type: 2}
   startsUnlocked: 1
   playable: 1
