@@ -7,4 +7,5 @@ public enum GameState {
     DIALOG,
     SETTINGS,
     CONFIRM,
+    CREDITS
 }
