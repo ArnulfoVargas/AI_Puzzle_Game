@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 694ce6dc1e3ce9340af35606d8cec784, type: 3}
-  m_Name: Level3
+  m_Name: Level4
   m_EditorClassIdentifier: 
   paths:
-  - {fileID: 11400000, guid: a7c56ad194104a24c9e4b6379484ca8f, type: 2}
-  sceneIndex: 6
-  scenePath: Assets/_Game/Scenes/Level3/Level3.unity
-  levelNumber: 3
+  - {fileID: 11400000, guid: 9e7f3a5da03661c4da08a2e057102b85, type: 2}
+  - {fileID: 11400000, guid: 406866fd8619a1c4c99c02560a68a8b5, type: 2}
+  sceneIndex: 7
+  scenePath: Assets/_Game/Scenes/Level4/Level4.unity
+  levelNumber: -1
   next: {fileID: 0}
   startsUnlocked: 0
   playable: 1
