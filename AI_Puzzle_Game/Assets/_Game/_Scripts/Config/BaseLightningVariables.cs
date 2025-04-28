@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "BaseLightningVariables", menuName = "BaseLightningVariables", order = 0)]
@@ -9,6 +10,10 @@ public class BaseLightningVariables : ScriptableObject {
 
     void OnValidate()
     {
+        Valid();
+    }
+
+    void Valid() {
         Shader.SetGlobalColor("_Global_Light_MainColor", MainColor);
         Shader.SetGlobalColor("_Global_Light_AmbientColor", AmbientColor);
         Shader.SetGlobalColor("_Global_Light_LightColor", LightColor);
@@ -19,5 +24,14 @@ public class BaseLightningVariables : ScriptableObject {
         Shader.SetGlobalFloat("_Global_Light_FresnelPowerLights", FresnelPowerLights);
         Shader.SetGlobalFloat("_Global_Light_FresnelPower", FresnelPower);
         Shader.SetGlobalFloat("_Global_Light_SpecularPower", SpecularPower);
+        Save();
+    }
+    
+    public void Save()
+    {
+        #if UNITY_EDITOR
+        EditorUtility.SetDirty(this);
+        AssetDatabase.Refresh();
+        #endif
     }
 }
