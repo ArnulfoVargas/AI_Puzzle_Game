@@ -1471,17 +1471,17 @@
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "0c1d496062074edab48f86a129e3de67",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "5dd2095ab19448fba267392ebba198ed"
     },
     "m_Name": "Property",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -788.4930419921875,
-            "y": 765.4302978515625,
-            "width": 0.0,
-            "height": 0.0
+            "x": -806.9999389648438,
+            "y": 768.0,
+            "width": 147.0,
+            "height": 34.0
         }
     },
     "m_Slots": [
@@ -1674,7 +1674,7 @@
     "m_ObjectId": "0ef60b43fb304aa88104865266452191",
     "m_Title": "DiffuseColor",
     "m_Position": {
-        "x": 276.0002746582031,
+        "x": 276.0,
         "y": -184.0
     }
 }
@@ -2854,7 +2854,7 @@
     "m_Title": "Rotation Z",
     "m_Position": {
         "x": -2056.0,
-        "y": -237.99993896484376
+        "y": -238.0
     }
 }
 
@@ -4005,7 +4005,7 @@
     "m_ObjectId": "58e2070f0f324c0383dc701e44b9b6bb",
     "m_Title": "DiretionLight",
     "m_Position": {
-        "x": -561.000244140625,
+        "x": -561.0,
         "y": -782.0
     }
 }
@@ -4152,8 +4152,8 @@
     "m_ObjectId": "5dd2095ab19448fba267392ebba198ed",
     "m_Title": "Rim-Light Shadows",
     "m_Position": {
-        "x": -817.000244140625,
-        "y": 289.9998779296875
+        "x": -831.9999389648438,
+        "y": 290.0
     }
 }
 
@@ -5621,7 +5621,7 @@
     "m_ObjectId": "92ffa1fa54a44c55b8e7e40e9b47d22d",
     "m_Title": "Specular Intensity",
     "m_Position": {
-        "x": 992.0000610351563,
+        "x": 992.0,
         "y": -1472.0
     }
 }
@@ -5695,7 +5695,7 @@
     "m_ObjectId": "98a4fbba3ba24f688de04c52040e14b4",
     "m_Title": "Fake Light Direction 2D",
     "m_Position": {
-        "x": -1460.0001220703125,
+        "x": -1460.0,
         "y": -783.0
     }
 }
@@ -6503,8 +6503,8 @@
     "m_ObjectId": "b58dddccc7dc49ef9fa293f64961b437",
     "m_Title": "Rim-Light Light",
     "m_Position": {
-        "x": -671.000244140625,
-        "y": 1039.9998779296875
+        "x": -671.0,
+        "y": 1040.0
     }
 }
 

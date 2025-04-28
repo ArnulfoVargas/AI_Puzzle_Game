@@ -29,8 +29,7 @@ public class UiManager : MonoBehaviour
         OnPauseUi?.SetActive(s == GameState.PAUSE);
 
         if (s == GameState.VICTORY) {
-            nextBtn.interactable = LevelsManager.Instance.NextLevel != null;
-
+            nextBtn.gameObject.SetActive( LevelsManager.Instance.NextLevel != null );
         }
     }
 

@@ -89,5 +89,6 @@ public class BindedLevels : ScriptableObject
             var lvl = levels[i];
             lvl.next = levels[i + 1];
         }
+        Save();
     }
 }

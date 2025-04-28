@@ -16,6 +16,12 @@ public class BaseBehaviour : MonoBehaviour
         OnStart();
     }
 
+    void OnEnable()
+    {
+        manager.OnGameStateChanged += UpdateState;
+        UpdateState(manager.CurrentGameState);
+    }
+
     void OnDisable()
     {
         manager.OnGameStateChanged -= UpdateState;

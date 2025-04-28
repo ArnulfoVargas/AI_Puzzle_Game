@@ -70,4 +70,8 @@ public class MainMenuManager : MonoBehaviour {
             btn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = lvl.LevelNumber.ToString();
         }
     }
+
+    public void PlaySound() {
+        AudioManager.GetInstance().PlayUiAudio();
+    }
 }

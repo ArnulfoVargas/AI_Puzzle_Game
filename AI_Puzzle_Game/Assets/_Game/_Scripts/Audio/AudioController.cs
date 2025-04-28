@@ -10,9 +10,9 @@ public class AudioController : BaseBehaviour {
         playOn = states;
         Verify(currentState);
     }
-    protected override void BeforeUpdate(GameState state)
+    protected override void OnUpdateState(GameState state)
     {
-        base.BeforeUpdate(state);
+        Debug.Log(state);
         Verify(state);
     }
 
