@@ -50,11 +50,12 @@ public class PlayerAnimator : BaseBehaviour
         controller.SetMovingState();
     }
 
-    public void EndInitialAniimation() {
+    public void EndInitialAnimation() {
         controller.CurrentPlayerState = PlayerState.IDLE;
     }
 
     public void EndLooseAnimation() {
+        controller.gameObject.SetActive(false);
         GameManager.GetInstance().OnLoose();
     }
 

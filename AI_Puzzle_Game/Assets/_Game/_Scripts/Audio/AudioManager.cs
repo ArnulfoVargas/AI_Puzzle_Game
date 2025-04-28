@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
 
 public class AudioManager : BaseBehaviour
@@ -13,8 +12,11 @@ public class AudioManager : BaseBehaviour
     {
         AudioLibrary.Library = audioLibrary;
         Instance ??= this;
-        if (Instance != this) Destroy(this);
-
+        if (Instance != this) {
+            Destroy(this.gameObject);
+            return;
+        }
+        DontDestroyOnLoad(this.gameObject);
         audioSource = GetComponent<AudioSource>();
     }
 

@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public enum MainMenuState {
     HOME = 0,
     LEVEL_SELECT,
-    SETTINGS
+    SETTINGS,
 }
 
 public class MainMenuManager : MonoBehaviour {
@@ -64,5 +64,9 @@ public class MainMenuManager : MonoBehaviour {
 
             btn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = lvl.LevelNumber.ToString();
         }
+    }
+
+    public void PlaySound() {
+        AudioManager.GetInstance().PlayUiAudio();
     }
 }

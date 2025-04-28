@@ -79,6 +79,7 @@ public class PlayerController : BaseBehaviour {
 
             moveDirection = dir;
             minDistance = int.MaxValue;
+            
             AudioManager.GetInstance().SetAudioWithZeroPosition(Audio_Type.SLIDE);
 
             SetAnimationState();
