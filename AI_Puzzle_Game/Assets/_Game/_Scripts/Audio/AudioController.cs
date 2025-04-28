@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AudioController : BaseBehaviour {
@@ -12,12 +13,11 @@ public class AudioController : BaseBehaviour {
     }
     protected override void OnUpdateState(GameState state)
     {
-        Debug.Log(state);
         Verify(state);
     }
 
     private void Verify(GameState state) {
-        if (playOn.Contains(state)) {
+        if (playOn != null && playOn.Contains(state)) {
             audioSource.UnPause();
         } else {
             audioSource.Pause();
