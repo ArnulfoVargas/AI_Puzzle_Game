@@ -10,11 +10,14 @@ using UnityEngine.UI;
 public enum MainMenuState {
     HOME = 0,
     LEVEL_SELECT,
-    SETTINGS
+    SETTINGS,
+    VOLUME,
+    CONFIRMATION,
+    CREDITS
 }
 
 public class MainMenuManager : MonoBehaviour {
-    [SerializeField] GameObject HomeUi, LevelSelectUi, SettingsUi, levelSelectorButtonsParent;
+    [SerializeField] GameObject HomeUi, LevelSelectUi, SettingsUi, VolumeSettingsUi, ConfirmationUi, CreditsUi, levelSelectorButtonsParent;
     [SerializeField] Transform buttonPrefab;
     private MainMenuState state;
 
@@ -30,6 +33,8 @@ public class MainMenuManager : MonoBehaviour {
         HomeUi.SetActive(this.state == MainMenuState.HOME);
         LevelSelectUi.SetActive(this.state == MainMenuState.LEVEL_SELECT);
         SettingsUi.SetActive(this.state == MainMenuState.SETTINGS);
+        ConfirmationUi.SetActive(this.state == MainMenuState.CONFIRMATION);
+        CreditsUi.SetActive(this.state == MainMenuState.CREDITS);
     }
 
     public void OpenTutorial() {

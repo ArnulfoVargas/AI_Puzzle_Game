@@ -64,4 +64,8 @@ public class UiManager : MonoBehaviour
     public void Home() {
         SceneManager.LoadScene(1);
     }
+
+    public void PlaySound() {
+        AudioManager.GetInstance().PlayUiAudio();
+    }
 }
