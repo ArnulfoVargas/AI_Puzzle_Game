@@ -58,11 +58,18 @@ public class MainMenuManager : MonoBehaviour {
             var btn = go.GetComponent<Button>();
             var lvl = levels[i];
             btn.interactable = lvl.LoadGame().unlocked;
+
+            if (lvl.LevelSelectorImage) {
+                btn.image.sprite = lvl.LevelSelectorImage;
+            } else {
+                btn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = lvl.LevelNumber.ToString();
+            }
+
             btn.onClick.AddListener(() => {
                 SceneManager.LoadScene(lvl.sceneIndex);
             });
-
-            btn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = lvl.LevelNumber.ToString();
+            
+            btn.onClick.AddListener(PlaySound);
         }
     }
 
