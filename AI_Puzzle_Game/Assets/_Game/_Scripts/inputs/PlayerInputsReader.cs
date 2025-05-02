@@ -135,8 +135,6 @@ public class PlayerInputsReader : ScriptableObject, IPlayerActions
 
         touchMovement = RotateVec(touchMovement, 45);
 
-        Print(touchMovement);
-
         if (Mathf.Abs(touchMovement.x) >= Mathf.Abs(touchMovement.y)) moveDirection = Vector3.right * (touchMovement.x >= 0 ? 1 : -1);
         else moveDirection = Vector3.forward * (touchMovement.y >= 0 ? 1 : -1);
         

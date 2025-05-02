@@ -65,6 +65,10 @@ public class GameManager : MonoBehaviour {
         CurrentGameState = GameState.VICTORY;
     }
 
+    public void OnDialog() {
+        CurrentGameState = GameState.DIALOG; 
+    }
+
     public static GameManager GetInstance() {
         return Instance;
     } 

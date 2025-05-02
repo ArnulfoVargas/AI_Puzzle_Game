@@ -10,6 +10,9 @@ public class CollisionHandler : BaseBehaviour, IDamageable, ITeleporteable, IWin
     [SerializeField] private PlayerAnimator animator;
     Tweener tweener;
 
+    public PlayerState GetPlayerState() {
+        return player.CurrentPlayerState;
+    }
     protected override void OnStart()
     {
         player = GetComponent<PlayerController>();
