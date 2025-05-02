@@ -42,5 +42,5 @@ Material:
     - _Number: 0
     - _ScanLinesSpeed: -0.41
     m_Colors:
-    - _Color: {r: 3.3202555, g: 3.9040902, b: 5.915077, a: 0}
+    - _Color: {r: 3.344601, g: 3.9330032, b: 5.9149885, a: 0}
   m_BuildTextureStacks: []

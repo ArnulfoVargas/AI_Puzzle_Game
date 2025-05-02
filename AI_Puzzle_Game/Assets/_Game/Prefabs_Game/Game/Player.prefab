@@ -433,7 +433,7 @@ MonoBehaviour:
   tilesLayer:
     serializedVersion: 2
     m_Bits: 256
-  playerState: 0
+  playerState: 2
 --- !u!114 &926702836228391120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,6 +462,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  animator: {fileID: 3609249136239516245}
 --- !u!65 &7699087402868661759
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -482,7 +483,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5443148, z: 1}
-  m_Center: {x: 0.5726385, y: 0.72784257, z: 0.5726385}
+  m_Center: {x: 0.5726385, y: 0.72784257, z: 0.5}
 --- !u!54 &6981614871819393648
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -562,7 +563,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e80918034da90dd48a9c9619d31cc377, type: 2}
+  - {fileID: 2100000, guid: a4361f134d54aa1418e717fa1ee81e33, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

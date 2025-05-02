@@ -17,7 +17,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 406866fd8619a1c4c99c02560a68a8b5, type: 2}
   sceneIndex: 7
   scenePath: Assets/_Game/Scenes/Level4/Level4.unity
-  levelNumber: -1
-  next: {fileID: 0}
+  levelNumber: 4
+  next: {fileID: 11400000, guid: 8a8b9965e6d366644ae2ec3343b711ba, type: 2}
   startsUnlocked: 0
   playable: 1
+  levelSelectorImage: {fileID: 2123957346, guid: a7ec194064f15064eb92e5443f32ce9b,
+    type: 3}

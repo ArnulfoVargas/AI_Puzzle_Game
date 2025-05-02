@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public enum MainMenuState {
     HOME = 0,
     LEVEL_SELECT,
-    SETTINGS
+    SETTINGS,
 }
 
 public class MainMenuManager : MonoBehaviour {
@@ -58,11 +58,22 @@ public class MainMenuManager : MonoBehaviour {
             var btn = go.GetComponent<Button>();
             var lvl = levels[i];
             btn.interactable = lvl.LoadGame().unlocked;
+
+            if (lvl.LevelSelectorImage) {
+                btn.image.sprite = lvl.LevelSelectorImage;
+            } else {
+                btn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = lvl.LevelNumber.ToString();
+            }
+
             btn.onClick.AddListener(() => {
                 SceneManager.LoadScene(lvl.sceneIndex);
             });
-
-            btn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = lvl.LevelNumber.ToString();
+            
+            btn.onClick.AddListener(PlaySound);
         }
+    }
+
+    public void PlaySound() {
+        AudioManager.GetInstance().PlayUiAudio();
     }
 }

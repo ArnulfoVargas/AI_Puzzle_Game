@@ -37,6 +37,7 @@ public class Interactable : BaseBehaviour, IInteractable
     {
         col.enabled = false;
         gameObject.SetActive(false);
+        AudioManager.GetInstance().SetAudioWithZeroPosition(Audio_Type.COIN);
 
         if (!wasCollected)
             levelIslands.OnTakeInteractable(collectableNumber);

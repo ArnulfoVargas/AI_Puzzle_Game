@@ -9,15 +9,23 @@ public class BaseBehaviour : MonoBehaviour
 
     protected void SetUp()
     {
-        manager = GameManager.GetInstance();
-        manager.OnGameStateChanged += UpdateState;
-        UpdateState(manager.CurrentGameState);
+
+        // manager.OnGameStateChanged += UpdateState;
+
 
         OnStart();
     }
 
+    void OnEnable()
+    {
+        manager = GameManager.GetInstance();
+        manager.OnGameStateChanged += UpdateState;
+        UpdateState(manager.CurrentGameState);
+    }
+
     void OnDisable()
     {
+        manager ??= GameManager.GetInstance();
         manager.OnGameStateChanged -= UpdateState;
     }
 
