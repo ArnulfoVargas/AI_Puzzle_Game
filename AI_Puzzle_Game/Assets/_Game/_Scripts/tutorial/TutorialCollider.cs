@@ -12,5 +12,6 @@ public class TutorialCollider : BaseBehaviour, IInteractable {
     public void OnInteract()
     {
         TutorialManager.GetInstance.SetDialogState(tutorialData);
+        Destroy(gameObject);
     }
 }
