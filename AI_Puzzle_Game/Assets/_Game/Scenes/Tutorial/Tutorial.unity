@@ -8315,26 +8315,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1499260247}
-  - component: {fileID: 1499260246}
+  - component: {fileID: 1499260248}
   m_Layer: 0
-  m_Name: Tutorial
+  m_Name: TutorialManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1499260246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1499260245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 858efd38540b68345885cbc10f534861, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1499260247
 Transform:
   m_ObjectHideFlags: 0
@@ -8350,6 +8338,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1499260248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499260245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 455b107ca578383438ab86efed36195b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1501710188 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 992245967804352696, guid: e6e51c955b5c6fc479a62c4988a5c185,

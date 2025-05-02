@@ -61,7 +61,9 @@ public class MainMenuManager : MonoBehaviour {
 
             if (lvl.LevelSelectorImage) {
                 btn.image.sprite = lvl.LevelSelectorImage;
-            } else {
+            } 
+            else {
+                btn.image.sprite = null;
                 btn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = lvl.LevelNumber.ToString();
             }
 

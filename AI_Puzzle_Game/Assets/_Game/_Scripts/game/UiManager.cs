@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
-    [SerializeField] GameObject OnGameUi, OnVictoryUi, OnLooseUi, SettingsUi, OnPauseUi;
+    [SerializeField] GameObject OnGameUi, OnVictoryUi, OnLooseUi, SettingsUi, OnPauseUi, DialogUi;
     [SerializeField] Button nextBtn;
     // private GameObject[] UIs;
     GameManager gameManager;
@@ -27,6 +27,7 @@ public class UiManager : MonoBehaviour
         OnLooseUi?.SetActive(s == GameState.DEFEAT);
         SettingsUi?.SetActive(s == GameState.SETTINGS);
         OnPauseUi?.SetActive(s == GameState.PAUSE);
+        DialogUi?.SetActive(s == GameState.DIALOG);
 
         if (s == GameState.VICTORY) {
             nextBtn.gameObject.SetActive( LevelsManager.Instance.NextLevel != null );
