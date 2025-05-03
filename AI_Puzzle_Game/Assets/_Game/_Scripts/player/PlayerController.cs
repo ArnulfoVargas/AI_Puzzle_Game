@@ -13,6 +13,7 @@ public class PlayerController : BaseBehaviour {
     [SerializeField] PlayerState playerState = PlayerState.ANIMATION;
     private Vector3 target;
     private float minDistance;
+    IPlayerMovementSoundEmmiter soundEmmiter;
 
     public PlayerState CurrentPlayerState {
         get => playerState; 
@@ -58,6 +59,8 @@ public class PlayerController : BaseBehaviour {
         acceleration  = configs.Acceleration;
 
         inputs.OnMove += MoveTowards;
+
+        PositionatePlayer();
     }
 
     void OnDisable()
@@ -65,24 +68,40 @@ public class PlayerController : BaseBehaviour {
         inputs.OnMove -= MoveTowards;
     }
 
-    private void MoveTowards(Vector3 dir) {
-        if (CurrentPlayerState == PlayerState.IDLE)
+    private void MoveTowards(Vector3 dir)
+    {
+        if (CurrentPlayerState != PlayerState.IDLE)
+            return;
+            
+        if (Physics.Raycast(rayPosition.position, dir, out RaycastHit hit, 40f, borderLayer))
         {
-            if (Physics.Raycast(rayPosition.position, dir, out RaycastHit hit, 40f, borderLayer)) {
-                if (hit.distance < 1f) return;
+            EvaluateRaycastHitForSound(hit);
 
-                if (Physics.Raycast(hit.point - (dir * .5f), Vector3.down, out RaycastHit f, 1f, tilesLayer)) {
-                    var bounds = f.collider.bounds;
-                    target = new Vector3(bounds.min.x, 0, bounds.min.z);
-                }
+            if (hit.distance < 1f) {
+                PlayEmmiterSound();
             }
 
-            moveDirection = dir;
-            minDistance = int.MaxValue;
-            
-            AudioManager.GetInstance().SetAudioWithZeroPosition(Audio_Type.SLIDE);
+            if (Physics.Raycast(hit.point - (dir * .5f), Vector3.down, out RaycastHit f, 1f, tilesLayer))
+            {
+                var bounds = f.collider.bounds;
+                var newTarget = new Vector3(bounds.min.x, 0, bounds.min.z);
+                if (target == newTarget) return;
 
-            SetAnimationState();
+                target = newTarget;
+            }
+        }
+
+        moveDirection = dir;
+        minDistance = int.MaxValue;
+
+        AudioManager.GetInstance().SetAudioWithZeroPosition(Audio_Type.SLIDE);
+
+        // SetAnimationState();
+    }
+
+    private void EvaluateRaycastHitForSound(RaycastHit hit) {
+        if (hit.collider.TryGetComponent(out IPlayerMovementSoundEmmiter emmiter)) {
+            soundEmmiter = emmiter;
         }
     }
 
@@ -107,18 +126,34 @@ public class PlayerController : BaseBehaviour {
         CurrentPlayerState = PlayerState.IDLE;
         moveDirection = Vector3.zero;
         // if (debugTile) {
-            // if (Physics.Raycast(rayPosition.position, Vector3.down, out RaycastHit hit, 1f, tilesLayer))
-            // {
-            //     var b = hit.collider.bounds;
-            //     var p = new Vector3(b.min.x, 0, b.min.z);
-            if (clipToTarget)
-                transform.position = target;
-                
-            // }
+        // if (Physics.Raycast(rayPosition.position, Vector3.down, out RaycastHit hit, 1f, tilesLayer))
+        // {
+        //     var b = hit.collider.bounds;
+        //     var p = new Vector3(b.min.x, 0, b.min.z);
+        if (clipToTarget)
+            transform.position = target;
+        PlayEmmiterSound();
+
+        // }
         // }
         // else {
         //     var p = transform.position;
         //     transform.position = new Vector3(Mathf.RoundToInt(p.x), Mathf.RoundToInt(p.y), Mathf.RoundToInt(p.z));
         // }
+    }
+
+    private void PlayEmmiterSound()
+    {
+        soundEmmiter?.PlaySound();
+        soundEmmiter = null;
+    }
+
+    private void PositionatePlayer() {
+        if (Physics.Raycast(rayPosition.position, Vector3.down, out RaycastHit f, 1f, tilesLayer))
+        {
+                var bounds = f.collider.bounds;
+                var newTarget = new Vector3(bounds.min.x, 0, bounds.min.z);
+                transform.position = newTarget;
+        }
     }
 }

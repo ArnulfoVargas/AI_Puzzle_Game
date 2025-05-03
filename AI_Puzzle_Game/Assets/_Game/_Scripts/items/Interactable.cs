@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(BoxCollider))]
 public class Interactable : BaseBehaviour, IInteractable
@@ -8,6 +9,7 @@ public class Interactable : BaseBehaviour, IInteractable
     private BoxCollider col;
     LevelIslands levelIslands;
     private bool wasCollected = false;
+    [SerializeField] UnityEvent OnInteractEvent;
 
     protected override void OnStart()
     {
