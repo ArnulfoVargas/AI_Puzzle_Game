@@ -18256,7 +18256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 455b107ca578383438ab86efed36195b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenLetters: 0.1
+  timeBetweenLetters: 0.025
   uiManager: {fileID: 1736289125}
 --- !u!4 &1501710188 stripped
 Transform:
