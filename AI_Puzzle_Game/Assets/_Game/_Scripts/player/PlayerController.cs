@@ -71,7 +71,7 @@ public class PlayerController : BaseBehaviour {
             if (Physics.Raycast(rayPosition.position, dir, out RaycastHit hit, 40f, borderLayer)) {
                 if (hit.distance < 1f) return;
 
-                if (Physics.Raycast(hit.point - dir, Vector3.down, out RaycastHit f, 1f, tilesLayer)) {
+                if (Physics.Raycast(hit.point - (dir * .5f), Vector3.down, out RaycastHit f, 1f, tilesLayer)) {
                     var bounds = f.collider.bounds;
                     target = new Vector3(bounds.min.x, 0, bounds.min.z);
                 }

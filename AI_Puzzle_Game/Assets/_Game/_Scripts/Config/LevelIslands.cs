@@ -9,6 +9,7 @@ using UnityEditor.SceneManagement;
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "LevelIslands", menuName = "Configs/LevelIslands"), Serializable]
 public class LevelIslands : ScriptableObject
@@ -22,6 +23,8 @@ public class LevelIslands : ScriptableObject
     [SerializeField] private int levelNumber = -1;
     public LevelIslands next;
     [SerializeField] private bool startsUnlocked = false;
+    [SerializeField] private bool playable = true;
+    [SerializeField] private Sprite levelSelectorImage;
     public bool StartsUnlocked {
         get => startsUnlocked;
         set {
@@ -36,11 +39,19 @@ public class LevelIslands : ScriptableObject
             Save();
         }
     }
-    [SerializeField] private bool playable = true;
+
     public bool Playable {
         get => playable;
         set {
             playable = value;
+            Save();
+        }
+    }
+    
+    public Sprite LevelSelectorImage {
+        get => levelSelectorImage;
+        set {
+            levelSelectorImage = value;
             Save();
         }
     }

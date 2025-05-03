@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
@@ -72,22 +73,22 @@ public class PlayerInputsReader : ScriptableObject, IPlayerActions
     {
         if (context.started)
         {
-            if (hasFirstTap)
-                if (Time.timeSinceLevelLoadAsDouble - firstTapTime > timeBetweenDoubleTap) hasFirstTap = false;
+            // if (hasFirstTap)
+            //     if (Time.timeSinceLevelLoadAsDouble - firstTapTime > timeBetweenDoubleTap) hasFirstTap = false;
 
             if (GameManager.GetInstance().CurrentPlayerState == PlayerState.IDLE)
                 touchMovement = Vector2.zero;
             else shouldDetectInputs = false;
 
-            startTime = Time.timeSinceLevelLoadAsDouble;
+            // startTime = Time.timeSinceLevelLoadAsDouble;
 
-            return;
+            // return;
         }
         else if (context.canceled)
         {
-            var endTime = Time.timeSinceLevelLoadAsDouble - startTime;
+            // var endTime = Time.timeSinceLevelLoadAsDouble - startTime;
 
-            if (!CheckForTaps(endTime)) 
+            // if (!CheckForTaps(endTime)) 
                 if (shouldDetectInputs)
                     OnConfirmMovement();
 
@@ -95,47 +96,58 @@ public class PlayerInputsReader : ScriptableObject, IPlayerActions
         }
     }
 
-    private bool CheckForTaps(double endTime) {
-        if (endTime <= tapThreshold) {
-            CompareTaps();
-            return true;
-        }
-        return false;
-    }
+    // private bool CheckForTaps(double endTime) {
+    //     if (endTime <= tapThreshold) {
+    //         CompareTaps();
+    //         return true;
+    //     }
+    //     return false;
+    // }
 
-    private void CompareTaps() {
-        if (hasFirstTap) {
-            hasFirstTap = false;
-            if (Time.timeSinceLevelLoadAsDouble - firstTapTime > timeBetweenDoubleTap) 
-                return;
-            CheckRotation();
-            return;
-        } 
-        firstTapTime = Time.timeSinceLevelLoadAsDouble;
-        hasFirstTap = true;
-    }
+    // private void CompareTaps() {
+    //     if (hasFirstTap) {
+    //         hasFirstTap = false;
+    //         if (Time.timeSinceLevelLoadAsDouble - firstTapTime > timeBetweenDoubleTap) 
+    //             return;
+    //         CheckRotation();
+    //         return;
+    //     } 
+    //     firstTapTime = Time.timeSinceLevelLoadAsDouble;
+    //     hasFirstTap = true;
+    // }
 
-    private void CheckRotation() {
-        if (lastTouchPosition.x > screenWidthHalf) {
-            OnRotate?.Invoke(-1);
-        } else {
-            OnRotate?.Invoke(1);
-        }
-    }
+    // private void CheckRotation() {
+    //     if (lastTouchPosition.x > screenWidthHalf) {
+    //         OnRotate?.Invoke(-1);
+    //     } else {
+    //         OnRotate?.Invoke(1);
+    //     }
+    // }
 
     private void OnUpdatePosition(TouchState touch)
     {
-        touchMovement += touch.delta * MULTIPLIER;
-
-        if (Vector2.Distance(this.touchMovement, Vector2.zero) < sensibilityThreshold * MULTIPLIER) return;
-
-        if (Mathf.Abs(touchMovement.x) >= Mathf.Abs(touchMovement.y)) moveDirection = Vector3.right * (touchMovement.x >= 0 ? 1 : -1);
-        else moveDirection = Vector3.forward * (touchMovement.y >= 0 ? 1 : -1);
+        touchMovement += touch.delta;
     }
 
     private void OnConfirmMovement()
     {
-        OnMove?.Invoke(Quaternion.AngleAxis(GameManager.GetInstance().cameraRotation, Vector3.up) * moveDirection);
+        if (Vector2.Distance(this.touchMovement, Vector2.zero) < sensibilityThreshold) return;
+
+        touchMovement = RotateVec(touchMovement, 45);
+
+        if (Mathf.Abs(touchMovement.x) >= Mathf.Abs(touchMovement.y)) moveDirection = Vector3.right * (touchMovement.x >= 0 ? 1 : -1);
+        else moveDirection = Vector3.forward * (touchMovement.y >= 0 ? 1 : -1);
+        
+        touchMovement = Vector2.zero;
+
+        OnMove?.Invoke(moveDirection);
+    }
+
+    public  Vector2 RotateVec(Vector2 v, float delta) {
+        return Mathf.Rad2Deg * new Vector2(
+            v.x * Mathf.Cos(delta) - v.y * Mathf.Sin( Mathf.Deg2Rad * delta),
+            v.x * Mathf.Sin(delta) + v.y * Mathf.Cos( Mathf.Deg2Rad * delta)
+        );
     }
 
     private void Print(object obj) => Debug.Log(obj);

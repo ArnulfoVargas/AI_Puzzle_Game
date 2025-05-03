@@ -634,6 +634,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Computadora
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c6dd99a413aa09748a78d809b89aefbc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c6dd99a413aa09748a78d809b89aefbc,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5192,11 +5202,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 299348308199233655, guid: 5927b93a94fe0454dbde113851a89cbe,
-        type: 3}
-      propertyPath: debugTile
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1183132998221633132, guid: 5927b93a94fe0454dbde113851a89cbe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5251,16 +5256,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7699087402868661759, guid: 5927b93a94fe0454dbde113851a89cbe,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1.4384983
-      objectReference: {fileID: 0}
-    - target: {fileID: 7699087402868661759, guid: 5927b93a94fe0454dbde113851a89cbe,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0.7350023
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

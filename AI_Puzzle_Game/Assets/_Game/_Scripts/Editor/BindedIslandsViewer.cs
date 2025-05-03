@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEditor.UIElements;
@@ -114,11 +112,21 @@ public class BindedIslandsViewer : Editor
             parent.GetLevelIslands(i).StartsUnlocked = v.newValue;
         });
 
+        var imageField = new ObjectField();
+        imageField.objectType = typeof(Sprite);
+        imageField.label = "Level image";
+        imageField.AddToClassList("show-selector");
+        imageField.RegisterCallback<ChangeEvent<UnityEngine.Object>>((v) => {
+            var s = (Sprite)v.newValue;
+            parent.GetLevelIslands(i).LevelSelectorImage = s;
+        });
+
         e.Add(objectField);
         e.Add(nextField);
         e.Add(playableField);
         e.Add(levelNumberField);
         e.Add(startUnlockedField);
+        e.Add(imageField);
         return e;
     }
 
