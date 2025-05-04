@@ -48,6 +48,10 @@ public class GameManager : MonoBehaviour {
         CurrentGameState = GameState.GAMEPLAY;
     }
 
+    public void OnPlayerVictoryAnimation() {
+        CurrentGameState = GameState.VICTORY_ANIMATION;
+    }
+
     public void OnPause() {
         CurrentGameState = GameState.PAUSE;
     }

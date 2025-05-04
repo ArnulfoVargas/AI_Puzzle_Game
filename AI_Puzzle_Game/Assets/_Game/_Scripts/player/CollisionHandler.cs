@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class CollisionHandler : BaseBehaviour, IDamageable, ITeleporteable, IWinner
 {
     [SerializeField] private PlayerController player;
+    [SerializeField] private Transform visual;
     [SerializeField] private UnityEvent OnTeleportEnd;
     [SerializeField] private PlayerAnimator animator;
     Tweener tweener;
@@ -46,6 +47,13 @@ public class CollisionHandler : BaseBehaviour, IDamageable, ITeleporteable, IWin
     }
     public void Win()
     {
-        GameManager.GetInstance().OnWin();
+        player.CurrentPlayerState = PlayerState.ANIMATION;
+        visual.localScale = new Vector3(1, 1, -1);
+        GameManager.GetInstance().OnPlayerVictoryAnimation();
+    }
+
+    public void SetPosition(Vector3 newPos)
+    {
+        visual.position = newPos;
     }
 }

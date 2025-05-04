@@ -55,6 +55,9 @@ public class BaseBehaviour : MonoBehaviour
             case GameState.DIALOG:
                 OnDialogUpdate();
                 break;
+            case GameState.VICTORY_ANIMATION:
+                OnVictoryAnimationUpdate();
+                break;
         }
 
         // update.Invoke();
@@ -95,6 +98,9 @@ public class BaseBehaviour : MonoBehaviour
                 OnSettingsStart();
                 // update = OnSettingsUpdate;
                 break;
+            case GameState.VICTORY_ANIMATION:
+                OnVictoryAnimationStart();
+                break;
         }
 
         OnUpdateState(state);
@@ -112,6 +118,7 @@ public class BaseBehaviour : MonoBehaviour
     virtual protected void OnDefeatStart() { }
     virtual protected void OnDialogStart() { }
     virtual protected void OnSettingsStart() { }
+    virtual protected void OnVictoryAnimationStart() { }
 #endregion
 
 /// <summary>
@@ -126,6 +133,7 @@ public class BaseBehaviour : MonoBehaviour
     virtual protected void OnDefeatUpdate() { }
     virtual protected void OnDialogUpdate() { }
     virtual protected void OnSettingsUpdate() { }
+    virtual protected void OnVictoryAnimationUpdate() { }
 
     virtual protected void OnUpdateState(GameState state) {}
 #endregion

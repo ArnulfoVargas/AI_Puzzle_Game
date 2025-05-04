@@ -447,6 +447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 299348308199233655}
+  visual: {fileID: 1104021554752180085}
   OnTeleportEnd:
     m_PersistentCalls:
       m_Calls:

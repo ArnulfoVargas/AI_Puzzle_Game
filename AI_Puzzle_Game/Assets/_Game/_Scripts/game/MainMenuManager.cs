@@ -11,10 +11,13 @@ public enum MainMenuState {
     HOME = 0,
     LEVEL_SELECT,
     SETTINGS,
+    VOLUME,
+    CREDITS,
+    CONFIRM
 }
 
 public class MainMenuManager : MonoBehaviour {
-    [SerializeField] GameObject HomeUi, LevelSelectUi, SettingsUi, levelSelectorButtonsParent;
+    [SerializeField] GameObject HomeUi, LevelSelectUi, SettingsUi, VolumeUi, CreditsUi, ConfirmUi, levelSelectorButtonsParent;
     [SerializeField] Transform buttonPrefab;
     private MainMenuState state;
 
@@ -30,6 +33,9 @@ public class MainMenuManager : MonoBehaviour {
         HomeUi.SetActive(this.state == MainMenuState.HOME);
         LevelSelectUi.SetActive(this.state == MainMenuState.LEVEL_SELECT);
         SettingsUi.SetActive(this.state == MainMenuState.SETTINGS);
+        VolumeUi.SetActive(this.state == MainMenuState.VOLUME);
+        CreditsUi.SetActive(this.state == MainMenuState.CREDITS);
+        ConfirmUi.SetActive(this.state == MainMenuState.CONFIRM);
     }
 
     public void OpenTutorial() {
