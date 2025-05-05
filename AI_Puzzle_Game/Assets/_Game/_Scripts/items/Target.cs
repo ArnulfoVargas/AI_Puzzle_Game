@@ -3,6 +3,7 @@ using UnityEngine;
 public class Target : MonoBehaviour, IPlayerMovementSoundEmmiter
 {
     [SerializeField] private bool isActive = true;
+    [SerializeField] private Transform visual;
 
     void Start()
     {
@@ -26,6 +27,7 @@ public class Target : MonoBehaviour, IPlayerMovementSoundEmmiter
         if (other.TryGetComponent(out IWinner winner)) {
             if (isActive) {
                 winner.Win();
+                winner.SetPosition(visual.position);
                 return;
             }
         }

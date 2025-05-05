@@ -16,6 +16,8 @@ public class AnimatorStopper : BaseBehaviour
     {
         if (state == GameState.GAMEPLAY) {
             animator.speed = defaultSpeed;
+        } else if (state == GameState.VICTORY_ANIMATION) {
+            animator.speed = 1;
         } else {
             animator.speed = 0;
         } 

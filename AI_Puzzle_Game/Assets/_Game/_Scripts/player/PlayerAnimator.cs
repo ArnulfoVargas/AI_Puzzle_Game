@@ -11,6 +11,7 @@ public class PlayerAnimator : BaseBehaviour
     private readonly int animatorMoveZHash = Animator.StringToHash("ZMove"); 
     private readonly int animatorEndMove = Animator.StringToHash("EndMove"); 
     private readonly int animatorOnLoose = Animator.StringToHash("Loose");
+    private readonly int animatorOnWin = Animator.StringToHash("Win");
 
     void OnEnable()
     {
@@ -18,6 +19,7 @@ public class PlayerAnimator : BaseBehaviour
         animator = GetComponent<Animator>();
 
         GameManager.GetInstance().OnPlayerStateChanged += OnPlayerStateChanged;
+        GameManager.GetInstance().OnGameStateChanged += OnGameStateChanged;
         inputs.OnMove += OnMove;
     }
 
@@ -28,10 +30,15 @@ public class PlayerAnimator : BaseBehaviour
         }
     }
 
+    void OnGameStateChanged(GameState newState) {
+        if (newState == GameState.VICTORY_ANIMATION) OnVictoryAnimation(); 
+    }
+
     void OnDisable()
     {
         inputs.OnMove -= OnMove;
         GameManager.GetInstance().OnPlayerStateChanged -= OnPlayerStateChanged;
+        GameManager.GetInstance().OnGameStateChanged -= OnGameStateChanged;
     }
 
     private void OnMove(Vector3 v) {
@@ -63,5 +70,14 @@ public class PlayerAnimator : BaseBehaviour
     {
         controller.CurrentPlayerState = PlayerState.ANIMATION;
         animator.SetTrigger(animatorOnLoose);
+    }
+
+    private void OnVictoryAnimation()
+    {
+        controller.CurrentPlayerState = PlayerState.ANIMATION;
+        animator.SetTrigger(animatorOnWin);
+    }
+    public void SetWin() {
+        GameManager.GetInstance().OnWin();
     }
 }
