@@ -114,8 +114,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2672798186159216343}
   - {fileID: 2294495414545655445}
+  - {fileID: 2672798186159216343}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &5093868433643470239
@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b670cce5d9b39042819f27a90174bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particles: {fileID: 6642980293171763711}
   curve:
     serializedVersion: 2
     m_Curve:
@@ -272,12 +273,12 @@ PrefabInstance:
     - target: {fileID: 1644941873724780874, guid: 61393fc946859854c818444447976879,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1176385
+      value: 0.11763838
       objectReference: {fileID: 0}
     - target: {fileID: 1644941873724780874, guid: 61393fc946859854c818444447976879,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.618
+      value: 0.61800003
       objectReference: {fileID: 0}
     - target: {fileID: 1644941873724780874, guid: 61393fc946859854c818444447976879,
         type: 3}
@@ -327,6 +328,12 @@ PrefabInstance:
 --- !u!4 &2294495414545655445 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1644941873724780874, guid: 61393fc946859854c818444447976879,
+    type: 3}
+  m_PrefabInstance: {fileID: 649554666136688607}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6642980293171763711 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6139309980893449760, guid: 61393fc946859854c818444447976879,
     type: 3}
   m_PrefabInstance: {fileID: 649554666136688607}
   m_PrefabAsset: {fileID: 0}

@@ -11,7 +11,7 @@ public class PlayerController : BaseBehaviour {
     private float currentSpeed;
     private Vector3 moveDirection;
     [SerializeField] PlayerState playerState = PlayerState.ANIMATION;
-    private Vector3 target;
+    [SerializeField] private Vector3 target;
     private float minDistance;
     IPlayerMovementSoundEmmiter soundEmmiter;
 

@@ -114,8 +114,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2672798186159216343}
   - {fileID: 6275348750743071163}
+  - {fileID: 2672798186159216343}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &5093868433643470239
@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b670cce5d9b39042819f27a90174bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particles: {fileID: 1509181403262523089}
   curve:
     serializedVersion: 2
     m_Curve:
@@ -257,17 +258,17 @@ PrefabInstance:
     - target: {fileID: 1644941873724780874, guid: 61393fc946859854c818444447976879,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.58463854
+      value: 0.5846386
       objectReference: {fileID: 0}
     - target: {fileID: 1644941873724780874, guid: 61393fc946859854c818444447976879,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.107
+      value: 0.106999874
       objectReference: {fileID: 0}
     - target: {fileID: 1644941873724780874, guid: 61393fc946859854c818444447976879,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.59
+      value: 0.59000015
       objectReference: {fileID: 0}
     - target: {fileID: 1644941873724780874, guid: 61393fc946859854c818444447976879,
         type: 3}
@@ -314,6 +315,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61393fc946859854c818444447976879, type: 3}
+--- !u!198 &1509181403262523089 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6139309980893449760, guid: 61393fc946859854c818444447976879,
+    type: 3}
+  m_PrefabInstance: {fileID: 4738496662777665777}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6275348750743071163 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1644941873724780874, guid: 61393fc946859854c818444447976879,
