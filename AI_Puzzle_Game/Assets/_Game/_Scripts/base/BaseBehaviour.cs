@@ -21,12 +21,14 @@ public class BaseBehaviour : MonoBehaviour
         manager = GameManager.GetInstance();
         manager.OnGameStateChanged += UpdateState;
         UpdateState(manager.CurrentGameState);
+        OnEnableAction();
     }
 
     void OnDisable()
     {
         manager ??= GameManager.GetInstance();
         manager.OnGameStateChanged -= UpdateState;
+        OnDisableAction();
     }
 
     void Start()  {
@@ -138,4 +140,6 @@ public class BaseBehaviour : MonoBehaviour
     virtual protected void OnUpdateState(GameState state) {}
 #endregion
 
+    protected virtual void OnEnableAction() {}
+    protected virtual void OnDisableAction() {}
 }
