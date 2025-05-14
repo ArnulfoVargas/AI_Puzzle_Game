@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 694ce6dc1e3ce9340af35606d8cec784, type: 3}
-  m_Name: Level7
+  m_Name: Level8
   m_EditorClassIdentifier: 
   paths:
-  - {fileID: 11400000, guid: 15c85112ba72ffe4b807c5a63be16310, type: 2}
-  - {fileID: 11400000, guid: 6d7322903d832354da25cec5af553575, type: 2}
-  sceneIndex: 10
-  scenePath: Assets/_Game/Scenes/Level7/Level7.unity
+  - {fileID: 11400000, guid: 2c0bc00e4a7ff254baeeb85f1b6637af, type: 2}
+  - {fileID: 11400000, guid: 2ff70c204adb72b42b02c3f9d0a7473d, type: 2}
+  sceneIndex: 11
+  scenePath: Assets/_Game/Scenes/Level8/Level8.unity
   levelNumber: -1
   next: {fileID: 0}
   startsUnlocked: 0

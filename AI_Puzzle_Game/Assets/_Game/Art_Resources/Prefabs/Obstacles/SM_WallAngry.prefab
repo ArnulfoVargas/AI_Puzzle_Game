@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1458252458904976608}
   - component: {fileID: 5959331474894701389}
   - component: {fileID: 8768131355222303530}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Emojis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,9 +115,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1789517378542258043}
-  m_Layer: 0
+  - component: {fileID: 1640881875876975633}
+  m_Layer: 3
   m_Name: SM_WallAngry
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,6 +142,27 @@ Transform:
   - {fileID: 7081842431592438138}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1640881875876975633
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413695149285187009}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7445621, y: 1.8231444, z: 0.22386283}
+  m_Center: {x: 0.003376931, y: 0.4115728, z: 0.08561908}
 --- !u!1 &5391777777473227320
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,7 +174,7 @@ GameObject:
   - component: {fileID: 8944927153117034651}
   - component: {fileID: 899186567025270192}
   - component: {fileID: 3895737411808340935}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SM_ErrorWall001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +258,7 @@ GameObject:
   - component: {fileID: 5710899140828643038}
   - component: {fileID: 1235793666643337309}
   - component: {fileID: 1582979542367422895}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Emojis_Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +363,7 @@ GameObject:
   - component: {fileID: 9100285382810942788}
   - component: {fileID: 1201785365927833968}
   - component: {fileID: 7598033989739120191}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SM_ErrorWallStick001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
