@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694ce6dc1e3ce9340af35606d8cec784, type: 3}
+  m_Name: Level7
+  m_EditorClassIdentifier: 
+  paths:
+  - {fileID: 11400000, guid: 15c85112ba72ffe4b807c5a63be16310, type: 2}
+  - {fileID: 11400000, guid: 6d7322903d832354da25cec5af553575, type: 2}
+  sceneIndex: 10
+  scenePath: Assets/_Game/Scenes/Level7/Level7.unity
+  levelNumber: -1
+  next: {fileID: 0}
+  startsUnlocked: 0
+  playable: 1
+  levelSelectorImage: {fileID: 0}
