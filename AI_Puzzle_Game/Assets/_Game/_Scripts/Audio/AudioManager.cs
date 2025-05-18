@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : BaseBehaviour
 {
@@ -7,6 +8,11 @@ public class AudioManager : BaseBehaviour
 
     public AudioLibrary audioLibrary;
     public static AudioManager GetInstance() { return Instance; }
+    [SerializeField] private AudioSource ambientMusicAudioSource;
+    [SerializeField] private AudioClip mainMenuAudioClip, inGameAudioClip;
+    AudioSource audioSource;
+    [SerializeField] private GameObject audioSorucePrefab;
+    List<AudioSource> audioSourcePool = new List<AudioSource>();
 
     void Awake()
     {
@@ -18,11 +24,35 @@ public class AudioManager : BaseBehaviour
         }
         DontDestroyOnLoad(this.gameObject);
         audioSource = GetComponent<AudioSource>();
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    AudioSource audioSource;
-    [SerializeField] private GameObject audioSorucePrefab;
-    List<AudioSource> audioSourcePool = new List<AudioSource>();
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+        switch (scene.buildIndex) {
+            case 0:
+                ambientMusicAudioSource.Stop();
+                break;
+            case 1:
+                if (ambientMusicAudioSource.clip != mainMenuAudioClip) {
+                    ambientMusicAudioSource.Stop();
+                    ambientMusicAudioSource.clip = mainMenuAudioClip;
+                    ambientMusicAudioSource.Play();
+                }
+                break;
+            default:
+                if (ambientMusicAudioSource.clip != inGameAudioClip) {
+                    ambientMusicAudioSource.Stop();
+                    ambientMusicAudioSource.clip = inGameAudioClip;
+                    ambientMusicAudioSource.Play();
+                }
+                break;
+        }
+    }
 
     public void SetAudio(AudioClip _clip)
     {
