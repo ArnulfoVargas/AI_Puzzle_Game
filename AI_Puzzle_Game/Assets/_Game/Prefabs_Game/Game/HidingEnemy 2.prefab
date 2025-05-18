@@ -272,6 +272,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   mRenderer: {fileID: 3230292631743899108}
+  _particleSystem: {fileID: 8371421479556207598}
+  _renderer: {fileID: 2537859779344925616}
 --- !u!1001 &6351992058431465793
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -308,12 +310,12 @@ PrefabInstance:
     - target: {fileID: 6125324095077578642, guid: 3b9f361ae9e06f04188c428a8cd91d68,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6125324095077578642, guid: 3b9f361ae9e06f04188c428a8cd91d68,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6125324095077578642, guid: 3b9f361ae9e06f04188c428a8cd91d68,
         type: 3}
@@ -343,6 +345,18 @@ PrefabInstance:
 --- !u!4 &947808507419533011 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6125324095077578642, guid: 3b9f361ae9e06f04188c428a8cd91d68,
+    type: 3}
+  m_PrefabInstance: {fileID: 6351992058431465793}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &2537859779344925616 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8871674665357273841, guid: 3b9f361ae9e06f04188c428a8cd91d68,
+    type: 3}
+  m_PrefabInstance: {fileID: 6351992058431465793}
+  m_PrefabAsset: {fileID: 0}
+--- !u!199 &8371421479556207598 stripped
+ParticleSystemRenderer:
+  m_CorrespondingSourceObject: {fileID: 3173784723821247151, guid: 3b9f361ae9e06f04188c428a8cd91d68,
     type: 3}
   m_PrefabInstance: {fileID: 6351992058431465793}
   m_PrefabAsset: {fileID: 0}

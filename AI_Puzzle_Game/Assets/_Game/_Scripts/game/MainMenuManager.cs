@@ -13,11 +13,12 @@ public enum MainMenuState {
     SETTINGS,
     VOLUME,
     CREDITS,
-    CONFIRM
+    CONFIRM,
+    TUTORIAL_CONFIRM
 }
 
 public class MainMenuManager : MonoBehaviour {
-    [SerializeField] GameObject HomeUi, LevelSelectUi, SettingsUi, VolumeUi, CreditsUi, ConfirmUi, levelSelectorButtonsParent;
+    [SerializeField] GameObject HomeUi, LevelSelectUi, SettingsUi, VolumeUi, CreditsUi, ConfirmUi, TutorialConfirmUi, levelSelectorButtonsParent;
     [SerializeField] Transform buttonPrefab;
     private MainMenuState state;
 
@@ -36,6 +37,7 @@ public class MainMenuManager : MonoBehaviour {
         VolumeUi.SetActive(this.state == MainMenuState.VOLUME);
         CreditsUi.SetActive(this.state == MainMenuState.CREDITS);
         ConfirmUi.SetActive(this.state == MainMenuState.CONFIRM);
+        TutorialConfirmUi.SetActive(this.state == MainMenuState.TUTORIAL_CONFIRM);
     }
 
     public void OpenTutorial() {

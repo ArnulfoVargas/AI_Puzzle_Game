@@ -18,6 +18,8 @@ public class HidingEnemy : EnemyBase
     private float curveT;
     private bool animating;
     [SerializeField] private MeshRenderer mRenderer;
+    [SerializeField] private ParticleSystemRenderer _particleSystem;
+    [SerializeField] private SpriteRenderer _renderer;
 
     protected override void OnStart()
     {
@@ -48,7 +50,10 @@ public class HidingEnemy : EnemyBase
 
         if (!animating) return;
         curveT += Time.fixedDeltaTime * curvesSpeed;
-        mRenderer.material.SetFloat("_Alpha", curve.Evaluate(curveT));
+        var cVal = curve.Evaluate(curveT);
+        mRenderer.material.SetFloat("_Alpha", cVal);
+        _particleSystem.material.color = new Color(1, 1, 1, cVal);
+        _renderer.color = new Color(1, 0, 0, 0.8352941f * cVal);
 
         if (curveT >= 1) {
             animating = false;

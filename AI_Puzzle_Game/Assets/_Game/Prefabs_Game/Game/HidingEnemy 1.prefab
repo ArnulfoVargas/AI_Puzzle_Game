@@ -272,6 +272,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   mRenderer: {fileID: 3230292631743899108}
+  _particleSystem: {fileID: 1961690114596616261}
+  _renderer: {fileID: 5488862902569134107}
 --- !u!1001 &3977486200083579626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -340,6 +342,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b9f361ae9e06f04188c428a8cd91d68, type: 3}
+--- !u!199 &1961690114596616261 stripped
+ParticleSystemRenderer:
+  m_CorrespondingSourceObject: {fileID: 3173784723821247151, guid: 3b9f361ae9e06f04188c428a8cd91d68,
+    type: 3}
+  m_PrefabInstance: {fileID: 3977486200083579626}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &5488862902569134107 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8871674665357273841, guid: 3b9f361ae9e06f04188c428a8cd91d68,
+    type: 3}
+  m_PrefabInstance: {fileID: 3977486200083579626}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7076099974819050872 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6125324095077578642, guid: 3b9f361ae9e06f04188c428a8cd91d68,
