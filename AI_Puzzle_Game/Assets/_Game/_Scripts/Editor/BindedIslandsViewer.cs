@@ -116,7 +116,9 @@ public class BindedIslandsViewer : Editor
         imageField.objectType = typeof(Sprite);
         imageField.label = "Level image";
         imageField.AddToClassList("show-selector");
-        imageField.RegisterCallback<ChangeEvent<UnityEngine.Object>>((v) => {
+        imageField.value = parent.GetLevelIslands(i).levelSelectorImage;
+        imageField.RegisterCallback<ChangeEvent<UnityEngine.Object>>((v) =>
+        {
             var s = (Sprite)v.newValue;
             parent.GetLevelIslands(i).LevelSelectorImage = s;
         });
