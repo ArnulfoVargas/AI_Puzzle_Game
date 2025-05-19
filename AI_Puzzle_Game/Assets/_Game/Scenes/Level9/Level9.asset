@@ -9,7 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de6383a1ce4714249b1dbc678a0a36d3, type: 3}
+  m_Script: {fileID: 11500000, guid: 694ce6dc1e3ce9340af35606d8cec784, type: 3}
   m_Name: Level9
   m_EditorClassIdentifier: 
-  _levelIslandsMap: []
+  paths:
+  - {fileID: 11400000, guid: 68f25f40b41cba4428553bcc24843b4a, type: 2}
+  - {fileID: 11400000, guid: ffefbd3e45910f94d9b6429c1d1a82cb, type: 2}
+  sceneIndex: 12
+  scenePath: Assets/_Game/Scenes/Level9/Level9.unity
+  levelNumber: -1
+  next: {fileID: 0}
+  startsUnlocked: 0
+  playable: 1
+  levelSelectorImage: {fileID: 0}
