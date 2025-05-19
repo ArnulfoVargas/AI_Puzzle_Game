@@ -21,3 +21,4 @@ MonoBehaviour:
   next: {fileID: 11400000, guid: eb2d8a358a3ff734bb03fe71b9646625, type: 2}
   startsUnlocked: 1
   playable: 1
+  levelSelectorImage: {fileID: 0}

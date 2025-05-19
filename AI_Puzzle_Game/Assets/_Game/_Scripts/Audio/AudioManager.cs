@@ -10,7 +10,7 @@ public class AudioManager : BaseBehaviour
     public static AudioManager GetInstance() { return Instance; }
     [SerializeField] private AudioSource ambientMusicAudioSource;
     [SerializeField] private AudioClip mainMenuAudioClip, inGameAudioClip;
-    AudioSource audioSource;
+    [SerializeField] AudioSource sfxAudioSource;
     [SerializeField] private GameObject audioSorucePrefab;
     List<AudioSource> audioSourcePool = new List<AudioSource>();
 
@@ -23,7 +23,6 @@ public class AudioManager : BaseBehaviour
             return;
         }
         DontDestroyOnLoad(this.gameObject);
-        audioSource = GetComponent<AudioSource>();
 
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -32,35 +31,40 @@ public class AudioManager : BaseBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
-        switch (scene.buildIndex) {
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        switch (scene.buildIndex)
+        {
             case 0:
                 ambientMusicAudioSource.Stop();
                 break;
             case 1:
-                if (ambientMusicAudioSource.clip != mainMenuAudioClip) {
+                if (ambientMusicAudioSource.clip != mainMenuAudioClip)
+                {
                     ambientMusicAudioSource.Stop();
                     ambientMusicAudioSource.clip = mainMenuAudioClip;
                     ambientMusicAudioSource.Play();
                 }
                 break;
             default:
-                if (ambientMusicAudioSource.clip != inGameAudioClip) {
+                if (ambientMusicAudioSource.clip != inGameAudioClip)
+                {
                     ambientMusicAudioSource.Stop();
                     ambientMusicAudioSource.clip = inGameAudioClip;
                     ambientMusicAudioSource.Play();
                 }
                 break;
         }
+        audioSourcePool.Clear();
     }
 
     public void SetAudio(AudioClip _clip)
     {
-        audioSource.PlayOneShot(_clip);
+        sfxAudioSource.PlayOneShot(_clip);
     }
     public void SetAudio(Audio_Type audioType)
     {
-        audioSource.PlayOneShot(AudioLibrary.Library.GetRandomFromType(audioType));
+        sfxAudioSource.PlayOneShot(AudioLibrary.Library.GetRandomFromType(audioType));
     }
 
     public void PlayUiAudio() {
@@ -97,7 +101,7 @@ public class AudioManager : BaseBehaviour
         }
 
         AudioSource newAudio = Instantiate(audioSorucePrefab).GetComponent<AudioSource>();
-        newAudio.transform.parent = transform;
+        // newAudio.transform.parent = transform;
         audioSourcePool.Add(newAudio);
         return newAudio;
     }

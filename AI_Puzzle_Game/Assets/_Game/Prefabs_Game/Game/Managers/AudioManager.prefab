@@ -47,9 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioLibrary: {fileID: 11400000, guid: 11962c4532946244daa9fe190cd4e635, type: 2}
-  ambientMusicAudioSource: {fileID: 58062456849542864}
+  ambientMusicAudioSource: {fileID: 2261045916344425783}
   mainMenuAudioClip: {fileID: 8300000, guid: daddb973cdc1dca40b1affa3757b02db, type: 3}
   inGameAudioClip: {fileID: 8300000, guid: 935809a0f8e88b54d99af20a4b794515, type: 3}
+  sfxAudioSource: {fileID: 58062456849542864}
   audioSorucePrefab: {fileID: 6302341512712604516, guid: 6f6f0a202ef3bee488412ca8c93a2a9d,
     type: 3}
 --- !u!82 &58062456849542864

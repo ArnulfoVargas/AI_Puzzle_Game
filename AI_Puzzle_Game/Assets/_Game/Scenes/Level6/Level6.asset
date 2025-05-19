@@ -18,6 +18,7 @@ MonoBehaviour:
   sceneIndex: 9
   scenePath: Assets/_Game/Scenes/Level6/Level6.unity
   levelNumber: 6
-  next: {fileID: 0}
+  next: {fileID: 11400000, guid: 9077008238864f74aa45eb737d0e7233, type: 2}
   startsUnlocked: 0
   playable: 1
+  levelSelectorImage: {fileID: 0}
