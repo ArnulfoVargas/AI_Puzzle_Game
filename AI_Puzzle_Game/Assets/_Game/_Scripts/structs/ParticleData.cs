@@ -6,7 +6,7 @@ using UnityEngine;
 public class ParticleData {
     [SerializeField] public ParticleType type;
     [SerializeField] public GameObject particlePrefab;
-    public List<GameObject> particles {get; private set; }
+    public List<GameObject> particles = new();
 
     public GameObject GetParticle() {
         for (int i = 0; i < particles.Count; i++) {

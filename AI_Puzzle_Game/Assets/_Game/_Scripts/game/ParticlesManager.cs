@@ -11,7 +11,10 @@ public class ParticlesManager : MonoBehaviour {
 
         if (Instance != this) {
             Destroy(gameObject);
+            return;
         }
+
+        DontDestroyOnLoad(this);
     }
 
     public void SpawnParticle(ParticleType particleType, Vector3 postition) {
