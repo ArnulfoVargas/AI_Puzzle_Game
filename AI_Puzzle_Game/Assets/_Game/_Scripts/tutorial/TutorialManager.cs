@@ -70,6 +70,14 @@ public class TutorialManager : BaseBehaviour {
         currentTime += Time.fixedDeltaTime;
 
         if (currentTime >= timeBetweenLetters) {
+            if (hint.Texts[dialogsIndex][index] == '<')
+            {
+                do
+                {
+                    UiText.text += hint.Texts[dialogsIndex][index];
+                    index++;
+                } while (hint.Texts[dialogsIndex][index] != '>');
+            }
             currentTime = 0;
 
             UiText.text += hint.Texts[dialogsIndex][index];

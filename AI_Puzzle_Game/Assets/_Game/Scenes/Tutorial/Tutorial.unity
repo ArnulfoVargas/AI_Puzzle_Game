@@ -4048,7 +4048,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialData:
     Texts:
-    - Be careful! You may also encounter enemies that can eliminate you.
+    - Be careful! You may also encounter <color=red>enemies</color> that can eliminate
+      you.
 --- !u!65 &683037194
 BoxCollider:
   m_ObjectHideFlags: 0
