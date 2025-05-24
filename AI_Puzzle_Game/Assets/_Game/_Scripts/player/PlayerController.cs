@@ -12,7 +12,10 @@ public class PlayerController : BaseBehaviour {
     private Vector3 moveDirection;
     [SerializeField] PlayerState playerState = PlayerState.ANIMATION;
     [SerializeField] private Vector3 target;
+    [SerializeField] private Transform particlePosition;
     private float minDistance;
+    private bool shouldPlayHitParticle;
+    private Vector3 hitParticlePoint;
     IPlayerMovementSoundEmmiter soundEmmiter;
 
     public PlayerState CurrentPlayerState {
@@ -42,6 +45,7 @@ public class PlayerController : BaseBehaviour {
     public void SetMovingState()
     {
         this.CurrentPlayerState = PlayerState.MOVING;
+        ParticlesManager.Instance.SpawnParticle(ParticleType.RUN, particlePosition.position, Quaternion.LookRotation(-moveDirection, Vector3.up));
     }
 
     public void OnTeleportEnd() {
@@ -88,6 +92,16 @@ public class PlayerController : BaseBehaviour {
                 if (target == newTarget) return;
 
                 target = newTarget;
+
+                if (hit.collider.TryGetComponent(out MeshRenderer mr))
+                {
+                    shouldPlayHitParticle = true;
+                    hitParticlePoint = hit.point;
+                }
+                else
+                {
+                    shouldPlayHitParticle = false;
+                }
             }
         }
 
@@ -133,6 +147,8 @@ public class PlayerController : BaseBehaviour {
         if (clipToTarget)
             transform.position = target;
         PlayEmmiterSound();
+        if (shouldPlayHitParticle)
+            ParticlesManager.Instance.SpawnParticle(ParticleType.COLLISION, hitParticlePoint);
 
         // }
         // }

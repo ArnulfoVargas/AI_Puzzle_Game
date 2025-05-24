@@ -13,10 +13,19 @@ public class TutorialManager : BaseBehaviour {
     private int index, maxIndex, dialogsIndex, maxDialogsIndex;
     private float currentTime;
     private TutorialHint hint;
+    [SerializeField] private GameObject[] exitButtons;
 
     void Awake()
     {
         instance = this;
+        
+        foreach (var btns in exitButtons)
+        {
+            if (ES3.Load<bool>("first_play", true))
+            {
+                btns.SetActive(false);
+            }
+        }
     }
 
     public void SetDialogState(TutorialHint _hint) {

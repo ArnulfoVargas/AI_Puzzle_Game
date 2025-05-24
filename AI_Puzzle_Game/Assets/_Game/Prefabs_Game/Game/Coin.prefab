@@ -153,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectableNumber: 0
   meshRenderer: {fileID: 4336110828205312229}
+  particleSpawnPosition: {fileID: 2294495414545655445}
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls:

@@ -12720,6 +12720,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlockingFolder
       objectReference: {fileID: 0}
+    - target: {fileID: 7025610161247470265, guid: 8d8c37181a6b4c74181cf55e81eb8a05,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

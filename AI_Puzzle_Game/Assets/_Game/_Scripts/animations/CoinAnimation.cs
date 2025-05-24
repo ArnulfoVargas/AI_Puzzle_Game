@@ -13,7 +13,8 @@ public class CoinAnimation : BaseBehaviour
     public void OnCollect()
     {
         Collected = true;
-        particles.Stop();
+        if (particles)
+            particles.Stop();
     }
 
     protected override void OnGameplayUpdate()
@@ -31,7 +32,8 @@ public class CoinAnimation : BaseBehaviour
 
             if (time >= 1) {
                 gameObject.SetActive(false);
-                particles.transform.parent.gameObject.SetActive(false);
+                if (particles != null)
+                    particles.transform.parent.gameObject.SetActive(false);
             }
         }
     }

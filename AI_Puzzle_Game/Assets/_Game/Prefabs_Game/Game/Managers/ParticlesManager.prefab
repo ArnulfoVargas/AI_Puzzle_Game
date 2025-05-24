@@ -46,8 +46,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particlesData:
   - type: 0
-    particlePrefab: {fileID: 7220458509186612868, guid: dd3a3770658c39b499eec76f392cce15,
+    particlePrefab: {fileID: 3253093252509907722, guid: 4345b195cbf968b42bd9160ba8abd5d5,
       type: 3}
+    particles: []
   - type: 1
-    particlePrefab: {fileID: 7220458509186612868, guid: dd3a3770658c39b499eec76f392cce15,
+    particlePrefab: {fileID: 310456739535912286, guid: e27c1c563380574469c2d81680223549,
       type: 3}
+    particles: []
+  - type: 2
+    particlePrefab: {fileID: 7419644259590277896, guid: d0c0a26d0b5052141b15fa8a4baeb0db,
+      type: 3}
+    particles: []
+  - type: 3
+    particlePrefab: {fileID: 3253093252509907722, guid: f7eecc443ee79d844a2f92686e6f9614,
+      type: 3}
+    particles: []

@@ -9047,6 +9047,74 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aba683e5a3c62c140996f4b898ed1bd4, type: 3}
+--- !u!1001 &1520002082
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2051334536371884075, guid: 2867b8a7f7cc0f2499b44c03f92a866a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.476775
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051334536371884075, guid: 2867b8a7f7cc0f2499b44c03f92a866a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.350807
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051334536371884075, guid: 2867b8a7f7cc0f2499b44c03f92a866a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.652302
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051334536371884075, guid: 2867b8a7f7cc0f2499b44c03f92a866a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051334536371884075, guid: 2867b8a7f7cc0f2499b44c03f92a866a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051334536371884075, guid: 2867b8a7f7cc0f2499b44c03f92a866a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051334536371884075, guid: 2867b8a7f7cc0f2499b44c03f92a866a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051334536371884075, guid: 2867b8a7f7cc0f2499b44c03f92a866a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051334536371884075, guid: 2867b8a7f7cc0f2499b44c03f92a866a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051334536371884075, guid: 2867b8a7f7cc0f2499b44c03f92a866a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8622424282831360281, guid: 2867b8a7f7cc0f2499b44c03f92a866a,
+        type: 3}
+      propertyPath: m_Name
+      value: ParticlesManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2867b8a7f7cc0f2499b44c03f92a866a, type: 3}
 --- !u!1001 &1528872794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9985,6 +10053,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6565549575951979251, guid: 971c2ed7968a66647bcd16a1ab5bb657,
+        type: 3}
+      propertyPath: m_text
+      value: Tutorial Succeed
+      objectReference: {fileID: 0}
     - target: {fileID: 6672412820952780987, guid: 971c2ed7968a66647bcd16a1ab5bb657,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -10199,6 +10272,18 @@ PrefabInstance:
       addedObject: {fileID: 9079492}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 971c2ed7968a66647bcd16a1ab5bb657, type: 3}
+--- !u!1 &1633397464 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3770096190054215516, guid: 971c2ed7968a66647bcd16a1ab5bb657,
+    type: 3}
+  m_PrefabInstance: {fileID: 1633397463}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1633397465 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1525698582949416382, guid: 971c2ed7968a66647bcd16a1ab5bb657,
+    type: 3}
+  m_PrefabInstance: {fileID: 1633397463}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1644378900
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13761,6 +13846,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenLetters: 0.025
   uiManager: {fileID: 1736289125}
+  exitButtons:
+  - {fileID: 1633397465}
+  - {fileID: 1633397464}
 --- !u!1 &5820315624181392350
 GameObject:
   m_ObjectHideFlags: 0
@@ -13908,3 +13996,4 @@ SceneRoots:
   - {fileID: 1644378900}
   - {fileID: 1726809458}
   - {fileID: 868370168}
+  - {fileID: 1520002082}
