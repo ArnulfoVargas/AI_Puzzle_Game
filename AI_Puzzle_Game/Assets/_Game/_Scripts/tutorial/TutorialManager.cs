@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class TutorialManager : BaseBehaviour {
-    [SerializeField, Range(0.01f, .5f)] float timeBetweenLetters = 0.1f; 
+    [SerializeField, Range(0.01f, .5f)] float timeBetweenLetters = 0.1f;
     private static TutorialManager instance;
     public static TutorialManager GetInstance => instance;
     public UiManager uiManager;
