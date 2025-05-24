@@ -13689,8 +13689,8 @@ MonoBehaviour:
     Texts:
     - 'Hello! My name is clippa and I will help you, first of all, you can slide
       to move in the desired direction. '
-    - There are other islands with more coins and a key that you have to collect
-      for each level.
+    - There are other islands with more <color=yellow>coins</color> and a key that
+      you have to collect for each level.
     - The objective is to reach the folder, for that you must pass between islands.
 --- !u!4 &8321505857074829435
 Transform:
