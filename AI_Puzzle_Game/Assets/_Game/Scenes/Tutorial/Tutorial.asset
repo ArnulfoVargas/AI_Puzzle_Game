@@ -22,3 +22,4 @@ MonoBehaviour:
   startsUnlocked: 1
   playable: 1
   levelSelectorImage: {fileID: 0}
+  holderLevelNumber: 0

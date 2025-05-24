@@ -23,3 +23,4 @@ MonoBehaviour:
   playable: 1
   levelSelectorImage: {fileID: 752442009, guid: a7ec194064f15064eb92e5443f32ce9b,
     type: 3}
+  holderLevelNumber: 0

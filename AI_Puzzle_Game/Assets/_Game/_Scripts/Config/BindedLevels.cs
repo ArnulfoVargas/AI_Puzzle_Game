@@ -84,10 +84,22 @@ public class BindedLevels : ScriptableObject
 
         if (levels.Count == 1) return;
 
-        for (int i = 0; i < levels.Count - 1; i++)
+        for (int i = 0; i < levels.Count; i++)
         {
             var lvl = levels[i];
-            lvl.next = levels[i + 1];
+
+
+            try
+            {
+                if (lvl.next == levels[i + 1]) continue;
+                
+                lvl.next = levels[i + 1];
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                lvl.next = null;
+            }
+
             lvl.Save();
         }
         Save();

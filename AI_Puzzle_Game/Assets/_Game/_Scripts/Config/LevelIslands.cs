@@ -25,9 +25,12 @@ public class LevelIslands : ScriptableObject
     [SerializeField] private bool startsUnlocked = false;
     [SerializeField] private bool playable = true;
     [SerializeField] public Sprite levelSelectorImage;
-    public bool StartsUnlocked {
+    public int holderLevelNumber;
+    public bool StartsUnlocked
+    {
         get => startsUnlocked;
-        set {
+        set
+        {
             startsUnlocked = value;
             Save();
         }

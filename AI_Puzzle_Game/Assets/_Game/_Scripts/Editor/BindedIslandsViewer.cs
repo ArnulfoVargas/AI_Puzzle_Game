@@ -100,9 +100,17 @@ public class BindedIslandsViewer : Editor
         var levelNumberField = new IntegerField();
         levelNumberField.label = "Level number";
         levelNumberField.value = levelIsland.LevelNumber;
-        levelNumberField.RegisterCallback<ChangeEvent<int>>(e => {
-            parent.TryChangeLevelNumber(e.newValue, levelIsland);
-            SetUp();
+        levelNumberField.RegisterCallback<ChangeEvent<int>>(e =>
+        {
+            levelIsland.holderLevelNumber = e.newValue;
+        });
+        levelNumberField.RegisterCallback<FocusOutEvent>(e =>
+        {
+            if (levelIsland.holderLevelNumber != levelIsland.LevelNumber)
+            {
+                parent.TryChangeLevelNumber(levelIsland.holderLevelNumber, levelIsland);
+                SetUp();
+            }
         });
 
         var startUnlockedField = new Toggle();
