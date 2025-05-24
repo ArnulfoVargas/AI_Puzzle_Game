@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5844646801256734996}
   - component: {fileID: 6452790065905938178}
   - component: {fileID: 6596611797758843486}
+  - component: {fileID: 4960764117219170333}
   m_Layer: 0
   m_Name: FX_Death
   m_TagString: Untagged
@@ -45,12 +46,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 1
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 1
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -4890,6 +4891,20 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &4960764117219170333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310456739535912286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce56c9b1e68cea47b07be5e4007c64a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particleSystem: {fileID: 6452790065905938178}
+  playOnStates: 00000000
 --- !u!1 &1164743911285793651
 GameObject:
   m_ObjectHideFlags: 0
@@ -4901,6 +4916,7 @@ GameObject:
   - component: {fileID: 3160818863229688793}
   - component: {fileID: 2792704725429020470}
   - component: {fileID: 125307357196180381}
+  - component: {fileID: 8910293439579313354}
   m_Layer: 0
   m_Name: FX_Death
   m_TagString: Untagged
@@ -4938,7 +4954,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -9787,6 +9803,20 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &8910293439579313354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164743911285793651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce56c9b1e68cea47b07be5e4007c64a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particleSystem: {fileID: 2792704725429020470}
+  playOnStates: 00000000
 --- !u!1 &3616838722666976456
 GameObject:
   m_ObjectHideFlags: 0
@@ -9798,6 +9828,7 @@ GameObject:
   - component: {fileID: 7784891754547148415}
   - component: {fileID: 4797541841908236653}
   - component: {fileID: 2685117300735605932}
+  - component: {fileID: 3145378323434278706}
   m_Layer: 0
   m_Name: FX_Death
   m_TagString: Untagged
@@ -9835,7 +9866,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -14675,3 +14706,17 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &3145378323434278706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3616838722666976456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce56c9b1e68cea47b07be5e4007c64a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particleSystem: {fileID: 4797541841908236653}
+  playOnStates: 00000000

@@ -1,4 +1,7 @@
-public enum ParticleType {
+public enum ParticleType
+{
     COLLISION,
-    MOVE,
+    DEATH,
+    COIN_COLLECTED,
+    RUN
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class TutorialManager : BaseBehaviour {
-    [SerializeField, Range(0.01f, .5f)] float timeBetweenLetters = 0.1f; 
+    [SerializeField, Range(0.01f, .5f)] float timeBetweenLetters = 0.1f;
     private static TutorialManager instance;
     public static TutorialManager GetInstance => instance;
     public UiManager uiManager;
@@ -13,10 +13,19 @@ public class TutorialManager : BaseBehaviour {
     private int index, maxIndex, dialogsIndex, maxDialogsIndex;
     private float currentTime;
     private TutorialHint hint;
+    [SerializeField] private GameObject[] exitButtons;
 
     void Awake()
     {
         instance = this;
+        
+        foreach (var btns in exitButtons)
+        {
+            if (ES3.Load<bool>("first_play", true))
+            {
+                btns.SetActive(false);
+            }
+        }
     }
 
     public void SetDialogState(TutorialHint _hint) {
@@ -70,6 +79,14 @@ public class TutorialManager : BaseBehaviour {
         currentTime += Time.fixedDeltaTime;
 
         if (currentTime >= timeBetweenLetters) {
+            if (hint.Texts[dialogsIndex][index] == '<')
+            {
+                do
+                {
+                    UiText.text += hint.Texts[dialogsIndex][index];
+                    index++;
+                } while (hint.Texts[dialogsIndex][index] != '>');
+            }
             currentTime = 0;
 
             UiText.text += hint.Texts[dialogsIndex][index];

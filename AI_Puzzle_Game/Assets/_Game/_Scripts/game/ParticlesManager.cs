@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ParticlesManager : MonoBehaviour {
     public static ParticlesManager Instance {get; private set;}
@@ -14,36 +15,57 @@ public class ParticlesManager : MonoBehaviour {
             return;
         }
 
+        SceneManager.sceneLoaded += OnLoadedScene;
+
         DontDestroyOnLoad(this);
+    }
+
+    void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnLoadedScene;
+    }
+
+    private void OnLoadedScene(Scene _, LoadSceneMode __)
+    {
+        foreach (var pd in particlesData)
+        {
+            pd.particles.Clear();
+        }
     }
 
     public void SpawnParticle(ParticleType particleType, Vector3 postition) {
         SpawnParticle(particleType, postition, Quaternion.identity);
     }
 
-    public void SpawnParticle(ParticleType particleType, Vector3 postition, Quaternion rotation) {
+    public void SpawnParticle(ParticleType particleType, Vector3 postition, Quaternion rotation)
+    {
         ParticleData data = null;
 
-        for (int i = 0; i < particlesData.Count; i++) {
+        for (int i = 0; i < particlesData.Count; i++)
+        {
             var pd = particlesData[i];
-            if (pd.type == particleType) {
+            if (pd.type == particleType)
+            {
                 data = pd;
                 break;
             }
         }
 
-        if (data == null) {
+        if (data == null)
+        {
             return;
         }
 
         var particle = data.GetParticle();
 
-        if (particle == null) {
+        if (particle == null)
+        {
             particle = Instantiate(data.particlePrefab, postition, rotation);
             data.AddParticle(particle);
         }
 
         particle.SetActive(true);
-
+        particle.transform.position = postition;
+        particle.transform.rotation = rotation;
     }
 }

@@ -216,6 +216,37 @@ Transform:
   - {fileID: 6205454419253732794}
   m_Father: {fileID: 1447337472378791616}
   m_LocalEulerAnglesHint: {x: -36.359493, y: -6.1599627, z: 108.830475}
+--- !u!1 &2380805417087695411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8930411906429588672}
+  m_Layer: 0
+  m_Name: ParticlePosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8930411906429588672
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2380805417087695411}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.577, y: 0.468, z: 0.5829253}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1183132998221633132}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4934633431428671606
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,6 +441,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8930411906429588672}
   - {fileID: 6577638548808881386}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -434,6 +466,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   playerState: 2
+  target: {x: 0, y: 0, z: 0}
+  particlePosition: {fileID: 8930411906429588672}
 --- !u!114 &926702836228391120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,6 +482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 299348308199233655}
   visual: {fileID: 1104021554752180085}
+  particlePosition: {fileID: 8930411906429588672}
   OnTeleportEnd:
     m_PersistentCalls:
       m_Calls:

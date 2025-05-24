@@ -11,7 +11,7 @@ public class CameraRotationHandler : BaseBehaviour
 {
     public float rotation;
     [SerializeField] Transform objectRotation;
-    [SerializeField, Range(0.1f, 1.5f)] private float _rotationDuration = 0.75f;
+    // [SerializeField, Range(0.1f, 1.5f)] private float _rotationDuration = 0.75f;
     [SerializeField] AnimationCurve rotationCurve;
     [SerializeField] private float rotationSpeed;
     private Tweener rotTween;

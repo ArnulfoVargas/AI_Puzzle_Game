@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,6 +7,7 @@ public class Interactable : BaseBehaviour, IInteractable
 {
     [SerializeField, Range(0,2)] private int collectableNumber;
     [SerializeField] private MeshRenderer meshRenderer;
+    [SerializeField] Transform particleSpawnPosition;
     private BoxCollider col;
     LevelIslands levelIslands;
     private bool wasCollected = false;
@@ -39,6 +41,7 @@ public class Interactable : BaseBehaviour, IInteractable
         col.enabled = false;
         gameObject.SetActive(false);
         AudioManager.GetInstance().SetAudioWithZeroPosition(Audio_Type.COIN);
+        ParticlesManager.Instance.SpawnParticle(ParticleType.COIN_COLLECTED, particleSpawnPosition.position, Quaternion.LookRotation(Vector3.up, Vector3.right));
 
         if (!wasCollected)
             levelIslands.OnTakeInteractable(collectableNumber);

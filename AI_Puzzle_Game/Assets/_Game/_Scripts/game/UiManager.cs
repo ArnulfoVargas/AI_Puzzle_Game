@@ -10,6 +10,8 @@ public class UiManager : MonoBehaviour
     [SerializeField] Button nextBtn;
     [SerializeField] TMP_Text tutorialHintText;
     [SerializeField] Button tutorialButton;
+    [SerializeField] Image[] coins;
+    [SerializeField] Sprite coinSprite;
 
     public TMP_Text getTutorialText => tutorialHintText;
     public Button getTutorialButton => tutorialButton;
@@ -37,8 +39,18 @@ public class UiManager : MonoBehaviour
         DialogUi?.SetActive(s == GameState.DIALOG);
         Clippa?.SetActive(s == GameState.DIALOG);
 
-        if (s == GameState.VICTORY) {
-            nextBtn.gameObject.SetActive( LevelsManager.Instance.NextLevel != null );
+        if (s == GameState.VICTORY)
+        {
+            nextBtn.gameObject.SetActive(LevelsManager.Instance.NextLevel != null);
+            var collectables = LevelsManager.Instance.CurrentLevel.LevelData.collectableTaken;
+
+            for (int i = 0; i < collectables.Length; i++)
+            {
+                if (collectables[i])
+                {
+                    coins[i].sprite = coinSprite;
+                }
+            }
         }
     }
 

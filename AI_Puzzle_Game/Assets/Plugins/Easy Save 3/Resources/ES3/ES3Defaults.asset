@@ -36,6 +36,7 @@ MonoBehaviour:
     assemblyNames:
     - Assembly-CSharp
     - Assembly-CSharp-firstpass
+    - Coffee.UIParticle
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

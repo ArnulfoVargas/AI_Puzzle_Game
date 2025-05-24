@@ -7,6 +7,7 @@ public class CollisionHandler : BaseBehaviour, IDamageable, ITeleporteable, IWin
 {
     [SerializeField] private PlayerController player;
     [SerializeField] private Transform visual;
+    [SerializeField] private Transform particlePosition;
     [SerializeField] private UnityEvent OnTeleportEnd;
     [SerializeField] private PlayerAnimator animator;
     Tweener tweener;
@@ -22,6 +23,7 @@ public class CollisionHandler : BaseBehaviour, IDamageable, ITeleporteable, IWin
     public void Damage()
     {
         AudioManager.GetInstance().SetAudioWithZeroPosition(Audio_Type.DISSOLVE);
+        ParticlesManager.Instance.SpawnParticle(ParticleType.DEATH, particlePosition.position);
         animator.TriggerLoose();
     }
 

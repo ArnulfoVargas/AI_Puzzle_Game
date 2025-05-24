@@ -56,6 +56,7 @@ MonoBehaviour:
   img: {fileID: 3277349739141649004}
   text: {fileID: 8488738374543604332}
   timeInactive: 0
+  triggeredAnimation: 0
 --- !u!1 &8143398038852617018
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,7 +94,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 125, y: 200}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &693499676294527442
 CanvasRenderer:
@@ -123,7 +124,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 03b10ce78dfd96d4b83d5f975c4a2c8b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 03801272ad123ff43ac945a0b6979566, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

@@ -37,9 +37,10 @@ public class CameraManager : MonoBehaviour
 
     private void Initialize()
     {
-        _cameraControllerTransform = GameObject.Find("CameraController").transform;
+        var controller = GameObject.Find("CameraController");
+        _cameraControllerTransform = controller.transform ?? null; 
         
-        if (_cameraControllerTransform == null)
+        if (controller == null)
         {
             _cameraControllerTransform = Instantiate(cameraControllerObject).transform;
             _cameraControllerTransform.position = new Vector3(0, 0, 0);
