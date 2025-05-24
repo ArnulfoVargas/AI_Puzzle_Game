@@ -22,7 +22,7 @@ public class Interactable : BaseBehaviour, IInteractable
 
             if (levelIslands.LevelData.collectableTaken[collectableNumber]){
                 wasCollected = true;
-                meshRenderer.material.SetFloat("_Alpha", 0.75f);
+                meshRenderer.material.SetFloat("_Alpha", 0.40f);
             }
         } else {
             gameObject.SetActive(false);
