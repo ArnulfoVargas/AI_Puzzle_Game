@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat_TutorialWall
+  m_Name: Mat_Tile_Calculator 1
   m_Shader: {fileID: -6465566751694194690, guid: 94c226f9b21fdf4459cca1f96f894c55,
     type: 3}
   m_Parent: {fileID: 0}
@@ -38,7 +38,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Pattern:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 43980b54521a7f04c91b90b4d4e0cd1b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -55,14 +55,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Dark: 1
+    - _Dark: 8.12
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _ColorFog: {r: 0.26143643, g: 0.35832417, b: 0.4433962, a: 1}
-    - _ColorPattern: {r: 0.17181382, g: 0.20957167, b: 0.254717, a: 1}
-    - _ColorX: {r: 0.15588287, g: 0.1752088, b: 0.2924528, a: 1}
-    - _ColorY: {r: 0.6997597, g: 0.73235345, b: 0.8018868, a: 1}
-    - _ColorZ: {r: 0.46297613, g: 0.511667, b: 0.6415094, a: 1}
-    - _MinMaxHeight: {r: -1.6, g: 0, b: 0, a: 0}
+    - _ColorFog: {r: 1, g: 0.05694356, b: 0, a: 1}
+    - _ColorPattern: {r: 0.6075471, g: 0.47113556, b: 0.47733608, a: 1}
+    - _ColorX: {r: 0.38679248, g: 0.041963343, b: 0.10858536, a: 1}
+    - _ColorY: {r: 0.06415099, g: 0.0027839036, b: 0.028248373, a: 1}
+    - _ColorZ: {r: 0.6377357, g: 0.10949801, b: 0.18653277, a: 1}
+    - _MinMaxHeight: {r: -5.67, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
