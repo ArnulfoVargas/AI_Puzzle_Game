@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 
@@ -108,7 +109,10 @@ public class PlayerController : BaseBehaviour {
         moveDirection = dir;
         minDistance = int.MaxValue;
 
-        AudioManager.GetInstance().SetAudioWithZeroPosition(Audio_Type.SLIDE);
+        try
+        {
+            AudioManager.GetInstance().SetAudioWithZeroPosition(Audio_Type.SLIDE);
+        } catch (NullReferenceException) {}
 
         // SetAnimationState();
     }

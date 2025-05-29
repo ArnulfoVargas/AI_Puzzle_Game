@@ -1,3 +1,4 @@
+using System;
 using _Game._Scripts.interfaces;
 using DG.Tweening;
 using UnityEngine;
@@ -22,8 +23,11 @@ public class CollisionHandler : BaseBehaviour, IDamageable, ITeleporteable, IWin
 
     public void Damage()
     {
-        AudioManager.GetInstance().SetAudioWithZeroPosition(Audio_Type.DISSOLVE);
-        ParticlesManager.Instance.SpawnParticle(ParticleType.DEATH, particlePosition.position);
+        try
+        {
+            AudioManager.GetInstance().SetAudioWithZeroPosition(Audio_Type.DISSOLVE);
+            ParticlesManager.Instance.SpawnParticle(ParticleType.DEATH, particlePosition.position);
+        } catch (NullReferenceException) {}
         animator.TriggerLoose();
     }
 

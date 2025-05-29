@@ -84,6 +84,9 @@ public class MainMenuManager : MonoBehaviour {
     }
 
     public void PlaySound() {
-        AudioManager.GetInstance().PlayUiAudio();
+        try
+        {
+            AudioManager.GetInstance().PlayUiAudio();
+        } catch (NullReferenceException){}
     }
 }

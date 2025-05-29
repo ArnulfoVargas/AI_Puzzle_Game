@@ -1,3 +1,4 @@
+using System;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
@@ -40,8 +41,11 @@ public class Interactable : BaseBehaviour, IInteractable
     {
         col.enabled = false;
         gameObject.SetActive(false);
-        AudioManager.GetInstance().SetAudioWithZeroPosition(Audio_Type.COIN);
-        ParticlesManager.Instance.SpawnParticle(ParticleType.COIN_COLLECTED, particleSpawnPosition.position, Quaternion.LookRotation(Vector3.up, Vector3.right));
+        try
+        {
+            AudioManager.GetInstance().SetAudioWithZeroPosition(Audio_Type.COIN);
+            ParticlesManager.Instance.SpawnParticle(ParticleType.COIN_COLLECTED, particleSpawnPosition.position, Quaternion.LookRotation(Vector3.up, Vector3.right));
+        } catch (NullReferenceException) {}
 
         if (!wasCollected)
             levelIslands.OnTakeInteractable(collectableNumber);
