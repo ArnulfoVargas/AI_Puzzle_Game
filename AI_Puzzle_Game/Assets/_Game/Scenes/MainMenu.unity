@@ -4063,7 +4063,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ana Carolina
+  m_text: Carolina Reyes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8b16379c502a5c34f893b8e8ed3c9dad, type: 2}
   m_sharedMaterial: {fileID: -7514737375747327340, guid: 8b16379c502a5c34f893b8e8ed3c9dad,
